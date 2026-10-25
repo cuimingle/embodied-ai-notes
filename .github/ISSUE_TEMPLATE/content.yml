@@ -1,0 +1,22 @@
+name: 内容问题或补充
+description: 反馈公式、推导、代码与引用问题
+body:
+  - type: input
+    id: location
+    attributes:
+      label: 章节或文件
+      description: 提供文件路径或在线页面链接。
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 问题与建议
+      description: 说明具体公式、现有解释和你的疑问，涉及外部结论时给出来源。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现信息
+      description: 如果涉及代码，附运行命令、Python 版本、参数和错误输出。
