@@ -61,6 +61,8 @@ python3 scripts/check_links.py
 python -m mkdocs build --strict
 ```
 
-`site/` 为生成内容，不手工维护。中文搜索索引随构建生成；MathJax 通过 CDN 加载，离线时公式渲染可能不可用。
+`site/` 为生成内容，不手工维护。中文搜索索引随构建生成；MathJax 3.2.2 随网站一起发布，以 SVG 显示公式，无需外部 CDN 或公式字体服务。本地启动预览后，即使无法访问外网也能显示公式。
+
+公式引擎位于 `docs/assets/vendor/mathjax/3.2.2/`，保留了其 [Apache 2.0 许可证](../assets/vendor/mathjax/3.2.2/LICENSE)。更新引擎时使用官方固定版本，保留许可证，并在浏览器中检查行内公式、独立公式和表格内公式。
 
 部署步骤参考 [GitHub 官方自定义工作流说明](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。

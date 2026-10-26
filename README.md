@@ -57,7 +57,7 @@ python -m pip install -r requirements-docs.txt
 python -m mkdocs serve
 ```
 
-打开终端提示的 `http://127.0.0.1:8000/`。网站支持中文搜索、章节导航、深浅色切换与公式渲染；公式渲染使用外部 MathJax，首次加载需要网络。直接在 GitHub 阅读 Markdown 不依赖文档构建。
+打开终端提示的 `http://127.0.0.1:8000/`。网站支持中文搜索、章节导航、深浅色切换与公式渲染；MathJax 随网站一起发布，以 SVG 显示公式，无需访问外部 CDN 或下载公式字体。直接在 GitHub 阅读 Markdown 不依赖文档构建。
 
 ## 工程结构
 

@@ -1,0 +1,13 @@
+MathJax 3.2.2
+https://github.com/mathjax/MathJax
+
+Source: https://registry.npmjs.org/mathjax/-/mathjax-3.2.2.tgz
+The unmodified es5/tex-svg-full.js bundle is redistributed under the Apache
+License, Version 2.0. See the accompanying LICENSE file for copyright and terms.
+
+SHA-256 (tex-svg-full.js):
+a4354ff94fd868aea0cc6eaaa79a57fda0588646fc46ee3700a349ee0a11cbe6
+
+This full TeX/SVG bundle includes the mathematical glyph data. The site serves
+the bundle from its own origin and does not require a third-party CDN or font
+server to display equations.

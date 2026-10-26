@@ -2,10 +2,14 @@ window.MathJax = {
   tex: {
     inlineMath: [["\\(", "\\)"]],
     displayMath: [["\\[", "\\]"]],
-    processEscapes: true
+    processEscapes: true,
+    processEnvironments: true
   },
   options: {
     ignoreHtmlClass: ".*|",
     processHtmlClass: "arithmatex"
+  },
+  svg: {
+    fontCache: "local"
   }
 };
