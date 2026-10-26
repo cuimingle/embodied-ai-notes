@@ -38,8 +38,8 @@
 .demo-visual .grid-state { font-size: 12px; }
 .demo-visual .grid-value { font: 17px var(--md-code-font); }
 .demo-visual .grid-agent { fill: var(--md-primary-fg-color); stroke: var(--md-default-bg-color); stroke-width: 2; transition: transform .3s ease; }
-.md-typeset .demo-legend { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin: .4rem 0; padding: 0; list-style: none; font-size: .7rem; }
-.md-typeset .demo-legend li { display: flex; align-items: center; gap: .3rem; margin: 0; }
+.md-typeset .rl-demo .demo-legend { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin: .4rem 0; padding: 0; list-style: none; font-size: .7rem; }
+.md-typeset .rl-demo .demo-legend li { display: flex; align-items: center; gap: .3rem; margin: 0; }
 .demo-legend li::before { content: ""; display: inline-block; width: .7rem; height: .15rem; background: var(--series-color); }
 .md-typeset .demo-note { min-height: 2.8em; margin: .7rem 0; font-size: .75rem; overflow-wrap: anywhere; }
 .demo-progress-label { display: flex; align-items: center; gap: .7rem; font-size: .7rem; }
