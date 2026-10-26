@@ -1,0 +1,192 @@
+{
+  "title": "Mathematical Foundations of Reinforcement Learning",
+  "author": "Shiyu Zhao",
+  "edition": "2024-09",
+  "pdf_sha256": "e627ab7d96fd93217b73ac3ea9a3b2781c72e095b84ff25e5047f7182d15ffac",
+  "pdf_pages": 288,
+  "printed_to_pdf_offset": 13,
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Basic Concepts",
+      "title_zh": "基本概念",
+      "path": "rl/01-basic-concepts.md",
+      "printed_pages": [
+        1,
+        14
+      ],
+      "pdf_pages": [
+        14,
+        27
+      ],
+      "demos": [
+        "trajectory"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "State Values and Bellman Equation",
+      "title_zh": "状态价值与 Bellman 方程",
+      "path": "rl/02-bellman-equation.md",
+      "printed_pages": [
+        15,
+        34
+      ],
+      "pdf_pages": [
+        28,
+        47
+      ],
+      "demos": [
+        "evaluation",
+        "action-values"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Optimal State Values and Bellman Optimality Equation",
+      "title_zh": "最优状态价值与 Bellman 最优方程",
+      "path": "rl/03-bellman-optimality.md",
+      "printed_pages": [
+        35,
+        56
+      ],
+      "pdf_pages": [
+        48,
+        69
+      ],
+      "demos": [
+        "optimality",
+        "contraction"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Value Iteration and Policy Iteration",
+      "title_zh": "价值迭代与策略迭代",
+      "path": "rl/04-value-policy-iteration.md",
+      "printed_pages": [
+        57,
+        76
+      ],
+      "pdf_pages": [
+        70,
+        89
+      ],
+      "demos": [
+        "iteration"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Monte Carlo Methods",
+      "title_zh": "Monte Carlo 方法",
+      "path": "rl/05-monte-carlo.md",
+      "printed_pages": [
+        77,
+        100
+      ],
+      "pdf_pages": [
+        90,
+        113
+      ],
+      "demos": [
+        "mc",
+        "epsilon"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Stochastic Approximation",
+      "title_zh": "随机逼近",
+      "path": "rl/06-stochastic-approximation.md",
+      "printed_pages": [
+        101,
+        124
+      ],
+      "pdf_pages": [
+        114,
+        137
+      ],
+      "demos": [
+        "stochastic"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Temporal-Difference Methods",
+      "title_zh": "Temporal-Difference 方法",
+      "path": "rl/07-temporal-difference.md",
+      "printed_pages": [
+        125,
+        150
+      ],
+      "pdf_pages": [
+        138,
+        163
+      ],
+      "demos": [
+        "td",
+        "n-step"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Value Function Methods",
+      "title_zh": "价值函数方法",
+      "path": "rl/08-value-function-methods.md",
+      "printed_pages": [
+        151,
+        190
+      ],
+      "pdf_pages": [
+        164,
+        203
+      ],
+      "demos": [
+        "approximation",
+        "dqn-target"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Policy Gradient Methods",
+      "title_zh": "策略梯度方法",
+      "path": "rl/09-policy-gradient.md",
+      "printed_pages": [
+        191,
+        214
+      ],
+      "pdf_pages": [
+        204,
+        227
+      ],
+      "demos": [
+        "policy-gradient"
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Actor-Critic Methods",
+      "title_zh": "Actor-Critic 方法",
+      "path": "rl/10-actor-critic.md",
+      "printed_pages": [
+        215,
+        236
+      ],
+      "pdf_pages": [
+        228,
+        249
+      ],
+      "demos": [
+        "actor-critic",
+        "importance"
+      ]
+    }
+  ],
+  "extensions": [
+    "trpo",
+    "ppo",
+    "grpo",
+    "gspo"
+  ]
+}

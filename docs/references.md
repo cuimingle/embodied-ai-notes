@@ -2,11 +2,17 @@
 
 本页按用途记录一手资料。章节中的数学表达是复习整理，未替代原始证明；手写原稿接入后应补充逐步推导及对应章节。部分出版页面可能需要网络访问条件。
 
-## 理论与课程
+## 主教材
+
+赵世钰（Shiyu Zhao），**Mathematical Foundations of Reinforcement Learning，September 2024**。[作者维护的教材仓库](https://github.com/MathFoundationRL/Book-Mathematical-Foundation-of-Reinforcement-Learning)。本次使用用户提供的该版 PDF，以其符号、数学设定和 10 章顺序为主线。
+
+原书印刷页与 PDF 页码见[阅读对照](rl/reading-guide.md)，统一符号见[符号体系](rl/notation.md)。其他教材不替换这套主线记号。
+
+## 交叉参考与课程
 
 | 资料 | 在本项目中的用途 |
 | --- | --- |
-| Sutton & Barto, [Reinforcement Learning: An Introduction, 2nd edition](http://incompleteideas.net/book/the-book-2nd.html) | MDP、DP、MC、TD、函数逼近与策略梯度的教材入口 |
+| Sutton & Barto, [Reinforcement Learning: An Introduction, 2nd edition](http://incompleteideas.net/book/the-book-2nd.html) | 用于交叉参考；不作为本站主线的符号或章节依据 |
 | [Berkeley Deep RL 课程](https://rail.eecs.berkeley.edu/deeprlcourse/) | 深度 RL 与机器人学习的后续课程入口 |
 | [Spinning Up · PPO](https://spinningup.openai.com/en/latest/algorithms/ppo.html) | PPO 的目标与工程流程 |
 | [Gymnasium · Handling Time Limits](https://gymnasium.farama.org/tutorials/gymnasium_basics/handling_time_limits/) | 终止、截断与 bootstrap 的语义 |

@@ -1,44 +1,48 @@
-# 强化学习知识地图
+# 强化学习：按指定教材建立主线
 
-这一部分以推导关系组织内容。学习主线是：先定义目标，再建立价值递推；从已知模型转向样本估计；从表格转向参数化函数；最后控制策略更新的幅度。
+以赵世钰《Mathematical Foundations of Reinforcement Learning》2024 年 9 月版为准，统一符号、公式设定与 10 章递进关系。先读[符号体系](notation.md)，再按章学习；需要回查原书时使用[章节与页码对照](reading-guide.md)。
 
-## 四组核心问题
+## 十章主线
 
-| 问题 | 主要对象 | 对应章节 |
+| 阶段 | 章节 | 要理解的变化 |
 | --- | --- | --- |
-| 优化什么？ | 回报、策略、状态与观测 | [01 · MDP](01-mdp.md) |
-| 怎样评价与改进行为？ | 价值函数与最优算子 | [02 · Bellman 与规划](02-bellman.md) |
-| 没有模型怎样估计？ | 样本回报、随机更新、自举 | [03 · MC](03-monte-carlo.md)、[04 · 随机梯度](04-stochastic-gradient.md)、[05 · TD](05-temporal-difference.md) |
-| 怎样扩展到大空间并稳定优化？ | 函数逼近、策略梯度、受约束更新 | 第 06—12 章 |
+| 定义问题 | [01 · 基本概念](01-basic-concepts.md) | 状态、动作、奖励、回报、策略与 MDP |
+| 评价策略 | [02 · 状态价值与 Bellman 方程](02-bellman-equation.md) | 从随机回报到条件期望与价值递推 |
+| 定义最优 | [03 · Bellman 最优方程](03-bellman-optimality.md) | 从策略加权到最大化与收缩映射 |
+| 用模型求解 | [04 · 价值迭代与策略迭代](04-value-policy-iteration.md) | 一步、截断与充分策略评估 |
+| 从模型到样本 | [05 · Monte Carlo](05-monte-carlo.md) | 用轨迹回报估计价值 |
+| 从批量到增量 | [06 · 随机逼近](06-stochastic-approximation.md) | 均值估计、RM 与 SGD |
+| 加入自举 | [07 · TD 方法](07-temporal-difference.md) | TD、Sarsa、n-step 与 Q-learning |
+| 从表格到函数 | [08 · 价值函数方法](08-value-function-methods.md) | 参数共享、TD 半梯度与 DQN |
+| 直接优化策略 | [09 · 策略梯度](09-policy-gradient.md) | 指标、状态分布、梯度与 REINFORCE |
+| 联合优化 | [10 · Actor-Critic](10-actor-critic.md) | QAC、A2C、off-policy 与确定性策略 |
 
-## 从函数逼近到策略优化
+## 三个贯穿问题
 
-1. [价值函数逼近](06-value-approximation.md)：状态价值不再逐项存表，更新要考虑参数共享。
-2. [策略函数逼近](07-policy-approximation.md)：直接参数化动作分布，以回报构造梯度估计。
-3. [Actor-Critic 与 GAE](08-actor-critic.md)：用价值估计为策略提供学习信号。
-4. [TRPO](09-trpo.md)：通过 KL 约束控制更新。
-5. [PPO](10-ppo.md)：通过裁剪代理目标简化优化。
-6. [GRPO](11-grpo.md)：在同一问题的回答组内构造相对学习信号。
-7. [GSPO](12-gspo.md)：比较 token 与序列层面的优化单位。
+当前是在评价给定策略，还是寻找最优策略？更新使用精确模型、MC 回报还是 TD 自举？对象是每个状态的独立表项，还是共享参数的函数？每次切换方法，都先回答这三个问题。
 
-GRPO、GSPO 原论文针对语言模型；从这些章节迁移到机器人任务之前，先读[具身任务衔接页](to-embodied.md)。
+## 统一记号 {#notation}
 
-## 统一记号
+<span id="_4"></span>
 
 | 记号 | 含义 |
 | --- | --- |
-| $S_t,A_t,R_{t+1}$ | 时刻 $t$ 的状态、动作与随后获得的奖励 |
-| $P(s'\mid s,a),\bar r(s,a)$ | 转移概率与期望即时奖励 |
-| $\gamma$ | 折扣因子 |
-| $\pi(a\mid s),\pi_\theta(a\mid s)$ | 表格策略与参数化策略 |
-| $V^\pi,Q^\pi,A^\pi$ | 状态价值、动作价值与优势 |
-| $\theta,w$ | 策略参数与价值参数 |
-| $\alpha,\epsilon,\lambda$ | 步长、探索或裁剪系数、迹衰减系数；各章注明具体含义 |
+| $S_t,A_t,R_{t+1}$ 与 $s_t,a_t,r_{t+1}$ | 随机变量与经验样本 |
+| $p(s'\mid s,a),p(r\mid s,a)$ | 状态与奖励模型 |
+| $v_\pi(s),q_\pi(s,a)$ | 状态价值与动作价值 |
+| $\hat v(s,w),\hat q(s,a,w)$ | 参数化价值近似 |
+| $\pi(a\mid s,\theta)$ | 参数化随机策略 |
+| $\delta_\pi(s,a)$ 与 $\delta_t$ | 优势函数与一次采样 TD 误差 |
 
-默认讨论有限状态、有限动作、$0\leq\gamma<1$ 的折扣 MDP。有限时域、连续动作和语言模型序列设定另行说明。
+完整约定、矩阵方向和概率归一化见[符号体系](notation.md)。原书中的少量排印与近似问题见[阅读校勘](reading-guide.md#calibration)。
 
-## 如何使用这些初稿
+## 文章中的动画与代码
 
-先根据问题复述算法，再检查关键公式的假设，最后把原始手稿接入相应章节。当前内容是用于搭建结构的复习初稿，不代表已经转写了作者的手工推导。
+每章都有可播放、可单步、可调整参数的数值实验，按其真实更新规则生成动画；没有自动播放，也不需要外部 CDN。每个对应的 Python 命令可以在仓库根目录执行：
 
-推导建议从第 01 章顺序阅读；实现建议先运行 [GridWorld](../labs/gridworld.md)。统一文献入口见[参考资料](../references.md)。
+```bash
+python3 -m examples.textbook --chapter 2 --output outputs/book-ch02.json
+python3 -m examples.textbook --chapter 7 --steps 500 --output outputs/book-ch07.json
+```
+
+16 个书内实验与 4 个扩展实验的索引见[实验使用说明](../labs/textbook.md)。TRPO、PPO、GRPO、GSPO 从[书外扩展](../extensions/index.md)继续；机器人问题另见[具身任务衔接](to-embodied.md)。

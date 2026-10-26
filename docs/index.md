@@ -12,7 +12,7 @@ hide:
 用强化学习整理决策的基础，沿着控制、数据和策略学习，逐步走向具身智能。
 
 [进入强化学习](rl/index.md){ .md-button .md-button--primary }
-[运行第一个实验](labs/gridworld.md){ .md-button }
+[运行第一个实验](rl/01-basic-concepts.md){ .md-button }
 
 <span class="hero-note">中文知识梳理 · 最小可运行实验 · 持续修订</span>
 
@@ -34,9 +34,9 @@ hide:
 
 - **02 / 用代码核对理解**
 
-    在同一个 GridWorld 中比较已知模型的规划与交互学习。
+    按指定教材的规则，比较已知模型的规划与通过样本学习。
 
-    [运行价值迭代与 Q-learning →](labs/gridworld.md)
+    [查看 20 个动画与代码实验 →](labs/textbook.md)
 
 - **03 / 连接物理任务**
 
@@ -54,9 +54,9 @@ hide:
 
 ## 当前版本能读到什么
 
-强化学习 12 篇复习初稿，涵盖 Bellman 方程、规划、MC/TD、随机梯度、函数逼近、Actor-Critic 及 TRPO/PPO/GRPO/GSPO；另有具身任务衔接页、一个标准库实现的 GridWorld 实验，以及章节和实验记录规范。完整手稿推导与深度算法实现后续补充。
+主线严格按赵世钰《Mathematical Foundations of Reinforcement Learning》2024 年 9 月版的 10 章编排，配有统一符号、原书页码与 16 个交互实验。TRPO、PPO、GRPO、GSPO 单列为书外扩展，另有 4 个目标函数实验。Python 配套代码只依赖标准库。
 
-本站尚未接入作者原有的强化学习笔记，新增初稿需要结合个人学习过程继续校订。未来主题的完成条件统一记录在路线页。
+这些内容是原创伴读与机制实验，不是教材逐页译文，也不将简化数值例子标记为完整深度训练复现。原有手写推导接入时，同样以指定版本的定义与假设为准。
 
 ## 项目的起点
 

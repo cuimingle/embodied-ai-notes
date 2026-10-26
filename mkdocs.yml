@@ -49,9 +49,15 @@ markdown_extensions:
       generic: true
 extra_css:
   - assets/stylesheets/extra.css
+  - assets/stylesheets/rl-demos.css
 extra_javascript:
   - assets/javascripts/mathjax.js
   - assets/vendor/mathjax/3.2.2/tex-svg-full.js
+  - assets/javascripts/rl-core.js
+  - assets/javascripts/rl-simulations.js
+  - assets/javascripts/rl-widgets.js
+hooks:
+  - scripts/book_hooks.py
 validation:
   nav:
     omitted_files: warn
@@ -66,21 +72,28 @@ nav:
       - 参考资料: references.md
   - 强化学习:
       - 知识地图: rl/index.md
-      - 01 · MDP 与回报: rl/01-mdp.md
-      - 02 · Bellman 与动态规划: rl/02-bellman.md
-      - 03 · Monte Carlo: rl/03-monte-carlo.md
-      - 04 · 随机梯度与随机逼近: rl/04-stochastic-gradient.md
-      - 05 · TD 与 Q-learning: rl/05-temporal-difference.md
-      - 06 · 价值函数逼近: rl/06-value-approximation.md
-      - 07 · 策略函数逼近: rl/07-policy-approximation.md
-      - 08 · Actor-Critic 与 GAE: rl/08-actor-critic.md
-      - 09 · TRPO: rl/09-trpo.md
-      - 10 · PPO: rl/10-ppo.md
-      - 11 · GRPO: rl/11-grpo.md
-      - 12 · GSPO: rl/12-gspo.md
+      - 教材与页码对照: rl/reading-guide.md
+      - 符号体系: rl/notation.md
+      - 01 · 基本概念: rl/01-basic-concepts.md
+      - 02 · 状态价值与 Bellman 方程: rl/02-bellman-equation.md
+      - 03 · Bellman 最优方程: rl/03-bellman-optimality.md
+      - 04 · 价值迭代与策略迭代: rl/04-value-policy-iteration.md
+      - 05 · Monte Carlo: rl/05-monte-carlo.md
+      - 06 · 随机逼近: rl/06-stochastic-approximation.md
+      - 07 · TD 方法: rl/07-temporal-difference.md
+      - 08 · 价值函数方法: rl/08-value-function-methods.md
+      - 09 · 策略梯度: rl/09-policy-gradient.md
+      - 10 · Actor-Critic: rl/10-actor-critic.md
       - 走向具身任务: rl/to-embodied.md
+  - 书外扩展:
+      - 阅读说明: extensions/index.md
+      - TRPO: extensions/trpo.md
+      - PPO 与 GAE: extensions/ppo.md
+      - GRPO: extensions/grpo.md
+      - GSPO: extensions/gspo.md
   - 实验:
-      - GridWorld · 规划与学习: labs/gridworld.md
+      - 教材动画与代码: labs/textbook.md
+      - 补充 · 4×4 GridWorld: labs/gridworld.md
   - 维护:
       - 写作规范: project/writing.md
       - 本地预览与发布: project/publishing.md

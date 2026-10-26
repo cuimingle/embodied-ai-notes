@@ -1,0 +1,56 @@
+.rl-demo {
+  --rl-series-1: var(--md-primary-fg-color);
+  --rl-series-2: #c56d1e;
+  --rl-series-3: #7867b7;
+  --rl-series-4: var(--md-default-fg-color--light);
+  margin: 1.3rem 0 1.7rem;
+  padding: 1.1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .6rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+}
+[data-md-color-scheme="slate"] .rl-demo {
+  --rl-series-2: #edaa61;
+  --rl-series-3: #b4a6e7;
+}
+.md-typeset .rl-demo .demo-title { margin: 0 0 .8rem; font-size: 1rem; font-weight: 600; }
+.demo-parameters { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; margin-bottom: .8rem; }
+.demo-parameters label { display: grid; grid-template-columns: auto auto; align-items: center; gap: .3rem .6rem; font-size: .75rem; }
+.demo-parameters input[type="range"] { grid-column: 1 / -1; width: 9rem; accent-color: var(--md-primary-fg-color); }
+.demo-parameters output { text-align: right; font-variant-numeric: tabular-nums; }
+.demo-parameters select { max-width: 100%; padding: .35rem; border: 1px solid var(--md-default-fg-color--lighter); border-radius: .2rem; background: var(--md-default-bg-color); color: var(--md-default-fg-color); font: inherit; }
+.demo-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.rl-demo button { padding: .35rem .75rem; border: 1px solid var(--md-primary-fg-color); border-radius: .25rem; background: var(--md-default-bg-color); color: var(--md-primary-fg-color); font: inherit; font-size: .75rem; cursor: pointer; }
+.rl-demo button[data-action="play"] { background: var(--md-primary-fg-color); color: var(--md-primary-bg-color); }
+.rl-demo button:disabled { opacity: .45; cursor: default; }
+.rl-demo button:focus-visible, .rl-demo input:focus-visible, .rl-demo select:focus-visible { outline: 2px solid var(--md-accent-fg-color); outline-offset: 3px; }
+.demo-step { margin-left: auto; font: .7rem var(--md-code-font); color: var(--md-default-fg-color--light); }
+.demo-visual { margin: .7rem 0; }
+.demo-visual > svg { display: block; width: 100%; height: auto; max-height: 320px; overflow: visible; }
+.demo-visual text { fill: var(--md-default-fg-color); font-family: var(--md-text-font); }
+.demo-visual .plot-tick { font-size: 12px; }
+.demo-visual .plot-axis { stroke: var(--md-default-fg-color--light); stroke-width: 1; }
+.demo-visual .plot-grid { stroke: var(--md-default-fg-color--lightest); stroke-width: 1; }
+.demo-visual .grid-cell { fill: color-mix(in srgb, var(--md-primary-fg-color) 7%, var(--md-default-bg-color)); stroke: var(--md-default-fg-color--lighter); stroke-width: 1; }
+.demo-visual .grid-cell.forbidden { fill: color-mix(in srgb, var(--rl-series-2) 15%, var(--md-default-bg-color)); }
+.demo-visual .grid-cell.target { fill: color-mix(in srgb, var(--md-primary-fg-color) 25%, var(--md-default-bg-color)); }
+.demo-visual .grid-state { font-size: 12px; }
+.demo-visual .grid-value { font: 17px var(--md-code-font); }
+.demo-visual .grid-agent { fill: var(--md-primary-fg-color); stroke: var(--md-default-bg-color); stroke-width: 2; transition: transform .3s ease; }
+.md-typeset .demo-legend { display: flex; flex-wrap: wrap; gap: .3rem .9rem; margin: .4rem 0; padding: 0; list-style: none; font-size: .7rem; }
+.md-typeset .demo-legend li { display: flex; align-items: center; gap: .3rem; margin: 0; }
+.demo-legend li::before { content: ""; display: inline-block; width: .7rem; height: .15rem; background: var(--series-color); }
+.md-typeset .demo-note { min-height: 2.8em; margin: .7rem 0; font-size: .75rem; overflow-wrap: anywhere; }
+.demo-progress-label { display: flex; align-items: center; gap: .7rem; font-size: .7rem; }
+.demo-progress { flex: 1; min-width: 0; accent-color: var(--md-primary-fg-color); }
+.md-typeset .demo-caption { margin: .7rem 0 0; font-size: .7rem; color: var(--md-default-fg-color--light); }
+@media (max-width: 600px) {
+  .rl-demo { padding: .75rem; }
+  .demo-parameters { flex-direction: column; }
+  .demo-parameters label { grid-template-columns: 1fr auto; }
+  .demo-parameters input[type="range"] { width: 100%; }
+  .demo-visual .grid-state { font-size: 14px; }
+  .demo-visual .plot-tick { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .demo-visual .grid-agent { transition: none; } }
