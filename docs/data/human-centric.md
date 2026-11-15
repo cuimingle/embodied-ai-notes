@@ -11,6 +11,37 @@ description: 从 AMASS、GRAB、ARCTIC 与 DexYCB 理解人体动作、手物几
 
 这类数据让研究者看到手指怎样弯曲、身体怎样配合、物体怎样转动。它比只有视频的资料多了一层结构，但人体关节、手部模型参数和机器人关节命令仍是不同对象。
 
+
+## 看一段演示，理解这类数据 {#visual-guide}
+
+<div class="data-media" markdown>
+
+<p class="data-media-label">几何演示 · 双手与物体</p>
+
+<video class="data-video" controls playsinline preload="none" poster="../../assets/diagrams/data-human-centric.svg" aria-label="ARCTIC：把双手与物体转成三维标注" aria-describedby="human-centric-video-caption">
+  <source src="https://download.is.tue.mpg.de/arctic/static/videos/dexterous.mp4" type="video/mp4">
+  您的浏览器未能播放嵌入视频，可通过下方链接观看官方演示。
+</video>
+
+<p class="data-poster-note">封面为本站绘制的概念示意；点击播放，查看官方演示。</p>
+
+<p id="human-centric-video-caption">ARCTIC 官方“灵巧运动与动态接触”演示，重点观察双手与关节物体如何一起变化。它说明这类数据关注连续的手物几何与交互关系；这些标注仍需经过重定向，才能连接机器人动作。</p>
+
+<div class="data-watch-notes" markdown>
+
+**观看时留意**
+
+- 右侧颜色表示手物距离，越亮代表越近；它不是接触力的读数。
+- 把视频观测和拟合后的手部模型分开理解：后者属于处理得到的几何标注。
+- 从人的动作迁移到机器人，还要处理骨架、关节限位与接触约束。
+
+</div>
+
+<p class="data-media-credit">来源：<a href="https://arctic.is.tue.mpg.de/">ARCTIC：把双手与物体转成三维标注</a> · ARCTIC 项目团队 · Dexterous Motion + Dynamic Contact 官方演示</p>
+<p class="data-media-links"><a href="https://download.is.tue.mpg.de/arctic/static/videos/dexterous.mp4">直接打开视频 ↗</a><a href="https://arctic.is.tue.mpg.de/">官方项目页 ↗</a></p>
+
+</div>
+
 ## 怎样采集与加工
 
 常见路线有两条：一条用光学动捕跟踪人体与物体上的标记点，再拟合人体和物体模型；另一条用标定、同步的多视角 RGB 或 RGB-D 视频，结合人工关键点和几何优化估计姿态。ARCTIC 将动捕与多视角视频同步，DexYCB 则从多视角 RGB-D 和标注恢复手物姿态。[ARCTIC 论文](https://download.is.tue.mpg.de/arctic/arctic_april_24.pdf)、[DexYCB 论文](https://openaccess.thecvf.com/content/CVPR2021/papers/Chao_DexYCB_A_Benchmark_for_Capturing_Hand_Grasping_of_Objects_CVPR_2021_paper.pdf)

@@ -1,0 +1,141 @@
+[
+  {
+    "category": "teleoperation",
+    "title": "ALOHA：人控制主臂，机器人同步执行",
+    "source_page": "https://tonyzhaozh.github.io/aloha/",
+    "video_url": "https://tonyzhaozh.github.io/aloha/resources/teleop_all.mp4",
+    "credit": "Tony Z. Zhao, Vikash Kumar, Sergey Levine, Chelsea Finn · ALOHA / RSS 2023",
+    "caption": "ALOHA 官方遥操系统演示：操作者移动主臂，从臂同步执行操作。这里展示的是人在控制回路中的示教过程；学习所需的图像、状态与控制命令还要由采集系统同步保存。",
+    "verified_on": "2026-11-15",
+    "illustration": "../diagrams/data-teleoperation.svg",
+    "illustration_credit": "Original schematic by Embodied AI Notes; not measured footage.",
+    "media_rights": "项目页未注明该媒体的独立复用许可证；此条记录官方外链，不表示媒体采用本站 MIT 许可。",
+    "supplementary_image": {
+      "title": "DROID 的遥操硬件",
+      "url": "https://droid-dataset.github.io/figures/droid_setup.png",
+      "source_page": "https://droid-dataset.github.io/",
+      "credit": "DROID Dataset Team",
+      "caption": "另一套遥操配置：Franka 机械臂、腕部与外部立体相机、Oculus Quest 2 遥操接口。用于比较同类采集方式下不同的硬件接口。",
+      "http_status": 200,
+      "content_type": "image/png",
+      "content_length": 234858
+    },
+    "browser_verified": {
+      "date": "2026-11-15",
+      "decoded": true,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 106.7
+    }
+  },
+  {
+    "category": "umi",
+    "title": "UMI：手持夹具采集杯子操作",
+    "source_page": "https://umi-gripper.github.io/",
+    "video_url": "https://umi-gripper.github.io/videos/teaser_data_collection_cup.mp4",
+    "credit": "Cheng Chi et al. · Universal Manipulation Interface / RSS 2024",
+    "caption": "UMI 官方“Human Demonstration with UMI”中的杯子操作示范。采集时由人手持带相机的夹具完成任务，后续恢复工具轨迹，再用于机器人策略学习。",
+    "verified_on": "2026-11-15",
+    "illustration": "../diagrams/data-umi.svg",
+    "illustration_credit": "Original schematic by Embodied AI Notes; not measured footage.",
+    "media_rights": "项目页未注明该媒体的独立复用许可证；此条记录官方外链，不表示媒体采用本站 MIT 许可。",
+    "supplementary_image": {
+      "title": "UMI 硬件设计",
+      "url": "https://umi-gripper.github.io/images/UMI_hardware.jpg",
+      "source_page": "https://umi-gripper.github.io/",
+      "credit": "UMI project team",
+      "caption": "官方硬件图展示相机、平行夹爪与轨迹恢复所需的设计。图中的硬件机制配合处理流程，才能把手持示范变成可用的动作监督。",
+      "http_status": 200,
+      "content_type": "image/jpeg",
+      "content_length": 147174
+    },
+    "browser_verified": {
+      "date": "2026-11-15",
+      "decoded": true,
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 13.375
+    }
+  },
+  {
+    "category": "egocentric",
+    "title": "EPIC-KITCHENS：从第一人称看厨房操作",
+    "source_page": "https://epic-kitchens.github.io/2025",
+    "video_url": "https://epic-kitchens.github.io/static/videos/03x03_videoWall.mp4",
+    "credit": "EPIC-KITCHENS 团队 / University of Bristol 等；官方项目页公开演示。",
+    "caption": "官方 3×3 视频墙展示真实厨房活动的第一人称录像。这里看到的是人在做什么，以及手与物体怎样交互；画面本身并不是机器人动作命令。",
+    "verified_on": "2026-11-15",
+    "illustration": "../diagrams/data-egocentric.svg",
+    "illustration_credit": "Original schematic by Embodied AI Notes; not measured footage.",
+    "media_rights": "项目页明确将其数据与基准标为 CC BY-NC 4.0；注明来源、链接许可、未修改。这里只做官方源站嵌入，不转存原始数据。",
+    "browser_verified": {
+      "date": "2026-11-15",
+      "decoded": true,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 18
+    }
+  },
+  {
+    "category": "human-centric",
+    "title": "ARCTIC：把双手与物体转成三维标注",
+    "source_page": "https://arctic.is.tue.mpg.de/",
+    "video_url": "https://download.is.tue.mpg.de/arctic/static/videos/dexterous.mp4",
+    "credit": "ARCTIC 项目团队 · Dexterous Motion + Dynamic Contact 官方演示",
+    "caption": "ARCTIC 官方“灵巧运动与动态接触”演示，重点观察双手与关节物体如何一起变化。它说明这类数据关注连续的手物几何与交互关系；这些标注仍需经过重定向，才能连接机器人动作。",
+    "verified_on": "2026-11-15",
+    "illustration": "../diagrams/data-human-centric.svg",
+    "illustration_credit": "Original schematic by Embodied AI Notes; not measured footage.",
+    "media_rights": "本次核验到的是官方网页公开展示素材，未推断额外转载授权；建议保留源站嵌入与来源链接，数据本体按项目下载许可。",
+    "browser_verified": {
+      "date": "2026-11-15",
+      "decoded": true,
+      "width": 1920,
+      "height": 650,
+      "duration_seconds": 22.2
+    }
+  },
+  {
+    "category": "third-person",
+    "title": "Assembly101：同一次装配的十二个视角",
+    "source_page": "https://assembly-101.github.io/",
+    "video_url": "https://assembly-101.github.io/assets/12_view_assembly.mp4",
+    "credit": "Assembly101 / Fadime Sener et al., Meta Reality Labs & National University of Singapore (CVPR 2022)",
+    "caption": "官方多视角实拍：同一次玩具装配由 8 个固定外部视角与 4 个第一视角同步记录。它展示了观察位置的差异，不提供机器人控制命令。",
+    "verified_on": "2026-11-15",
+    "illustration": "../diagrams/data-third-person.svg",
+    "illustration_credit": "Original schematic by Embodied AI Notes; not measured footage.",
+    "media_rights": "官方项目页将 Assembly101 声明为 CC BY-NC 4.0；显示作者、原项目及许可链接，素材未修改。",
+    "supplementary_image": {
+      "url": "https://assembly-101.github.io/assets/assembly101_rig.png",
+      "source_page": "https://assembly-101.github.io/",
+      "caption": "Assembly101 官方展示的采集装置；用于理解外部相机围绕操作台布置，保留来源链接。"
+    },
+    "browser_verified": {
+      "date": "2026-11-15",
+      "decoded": true,
+      "width": 1920,
+      "height": 864,
+      "duration_seconds": 25
+    }
+  },
+  {
+    "category": "simulation",
+    "title": "ManiSkill：PickCube 仿真操作示范",
+    "source_page": "https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#pickcube-v1",
+    "video_url": "https://raw.githubusercontent.com/mani-skill/ManiSkill/main/figures/environment_demos/PickCube-v1_rt.mp4",
+    "credit": "ManiSkill Contributors · PickCube-v1 官方任务演示",
+    "caption": "仿真渲染的成功示范：Panda 机械臂抓起红色方块并移到目标位置。这里展示环境中的执行过程；具体轨迹由规划器、遥操还是策略产生，需要查对应数据元信息。",
+    "verified_on": "2026-11-15",
+    "illustration": "../diagrams/data-simulation.svg",
+    "illustration_credit": "Original schematic by Embodied AI Notes; not measured footage.",
+    "media_rights": "ManiSkill 仓库采用 Apache-2.0；此媒体由官方文档引用。本次只外链嵌入，不推断所有机器人资产或数据集具有相同许可。",
+    "browser_verified": {
+      "date": "2026-11-15",
+      "decoded": true,
+      "width": 512,
+      "height": 512,
+      "duration_seconds": 2.5
+    }
+  }
+]

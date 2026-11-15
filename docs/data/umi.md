@@ -11,6 +11,42 @@ UMI（Universal Manipulation Interface）是一套采集与策略学习方法：
 
 这里把原始 UMI 及相关手持、穿戴式示范接口放在一起比较。它们可以与第一视角、人类动作数据重叠，但传感器和动作语义并不统一。资料核验日期为 **2026-11-15**。
 
+
+## 看一段演示，理解这类数据 {#visual-guide}
+
+<div class="data-media" markdown>
+
+<p class="data-media-label">实拍 · 手持夹具采集</p>
+
+<video class="data-video" controls playsinline preload="none" poster="../../assets/diagrams/data-umi.svg" aria-label="UMI：手持夹具采集杯子操作" aria-describedby="umi-video-caption">
+  <source src="https://umi-gripper.github.io/videos/teaser_data_collection_cup.mp4" type="video/mp4">
+  您的浏览器未能播放嵌入视频，可通过下方链接观看官方演示。
+</video>
+
+<p class="data-poster-note">封面为本站绘制的概念示意；点击播放，查看官方演示。</p>
+
+<p id="umi-video-caption">UMI 官方“Human Demonstration with UMI”中的杯子操作示范。采集时由人手持带相机的夹具完成任务，后续恢复工具轨迹，再用于机器人策略学习。</p>
+
+<div class="data-watch-notes" markdown>
+
+**观看时留意**
+
+- 移动的是人手持的工具，现场不需要机械臂跟随。
+- 相机与夹爪一起运动，观察接近机器人腕部视角。
+- 夹具的位姿和开合需要与视觉对齐，普通视频不自动带有这些动作字段。
+
+</div>
+
+<p class="data-media-credit">来源：<a href="https://umi-gripper.github.io/">UMI：手持夹具采集杯子操作</a> · Cheng Chi et al. · Universal Manipulation Interface / RSS 2024</p>
+<p class="data-media-links"><a href="https://umi-gripper.github.io/videos/teaser_data_collection_cup.mp4">直接打开视频 ↗</a><a href="https://umi-gripper.github.io/">官方项目页 ↗</a></p>
+
+</div>
+
+<figure class="data-photo">
+  <a href="https://umi-gripper.github.io/images/UMI_hardware.jpg" aria-label="查看官方原图"><img src="https://umi-gripper.github.io/images/UMI_hardware.jpg" alt="官方硬件图展示相机、平行夹爪与轨迹恢复所需的设计。图中的硬件机制配合处理流程，才能把手持示范变成可用的动作监督。" loading="lazy" decoding="async"></a>
+  <figcaption><strong>UMI 硬件设计。</strong>官方硬件图展示相机、平行夹爪与轨迹恢复所需的设计。图中的硬件机制配合处理流程，才能把手持示范变成可用的动作监督。<br>来源：<a href="https://umi-gripper.github.io/">UMI project team</a> · 点击图片查看原图</figcaption>
+</figure>
+
 ## 从手持示范到训练轨迹
 
 1. **构造采集接口。** 将相机、夹爪与跟踪方案组合，使采集和机器人执行时的观察位置与接触几何尽可能一致。

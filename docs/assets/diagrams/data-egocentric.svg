@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">EGO：从行动者的视角记录</title>
+  <desc id="desc">头戴相机记录第一人称画面。画面中可见双手和操作对象，但不会自动得到机器人动作。箭头表示相机形成的视频视野。</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #252922; }
+      .heading { font-size: 28px; font-weight: 650; }
+      .label { font-size: 24px; font-weight: 550; }
+      .note { font-size: 24px; fill: #6b7166; }
+      .line { fill: none; stroke: #252922; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #6b7166; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .flow { fill: none; stroke: #6b7166; stroke-width: 3; marker-end: url(#arrow); }
+      .joint { fill: #f5f5f0; stroke: #252922; stroke-width: 4; }
+      .signal { fill: #c9df75; stroke: #252922; stroke-width: 3; }
+    </style>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L7 4 L1 7" fill="none" stroke="#6b7166" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="720" height="400" rx="16" fill="#f5f5f0"/>
+  <text x="32" y="48" class="heading">EGO：从行动者的视角记录</text>
+  <path d="M32 68 H688" stroke="#dfe2d8"/>
+  <!-- The arrow connects the head-mounted camera to its view. -->
+  <path d="M102 279 V232 Q102 206 134 193 L145 184 V173 Q120 157 120 133 Q120 96 156 96 Q191 96 193 134 L203 147 L191 152 V170 Q181 182 167 183 V195 Q216 207 223 243 V279" class="line"/>
+  <path d="M126 118 H170" class="thin"/>
+  <rect x="168" y="108" width="47" height="30" rx="5" class="signal"/><circle cx="205" cy="123" r="6" fill="#252922"/>
+  <path d="M218 123 H268 Q284 123 284 144 V175 H328" class="flow"/>
+  <rect x="343" y="101" width="326" height="184" rx="12" fill="#fff" stroke="#252922" stroke-width="3"/>
+  <path d="M344 242 L415 203 L451 225 M669 241 L601 203 L565 225" class="line"/>
+  <path d="M426 212 L446 188 Q454 180 461 189 L468 207 L458 232 L443 235 Z M590 213 L568 187 Q559 180 553 189 L547 210 L559 232 L575 236 Z" fill="#f5f5f0" stroke="#252922" stroke-width="3"/>
+  <path d="M481 174 V229 Q507 244 532 229 V174 Z" class="signal"/>
+  <path d="M532 181 Q555 177 555 197 Q553 211 532 207" class="thin"/>
+  <path d="M361 119 H381 M361 119 V139 M650 119 H630 M650 119 V139" stroke="#c9df75" stroke-width="4"/>
+  <text x="99" y="315" class="label">头戴相机</text><text x="410" y="315" class="label">双手、物体与过程</text>
+  <path d="M32 344 H688" stroke="#dfe2d8"/>
+  <text x="32" y="378" class="note">概念示意 · 非实测画面</text>
+</svg>

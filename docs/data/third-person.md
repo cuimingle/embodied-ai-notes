@@ -11,6 +11,42 @@ description: 从外部相机理解动作、空间关系与任务过程，区分�
 
 它的价值在于看清“谁在什么位置，对什么物体做了什么”，尤其适合全身运动、人与物体关系、多人协作和长任务的阶段变化。但看见一次抓取，不等于知道机器人应该输出多少关节力矩。
 
+
+## 看一段演示，理解这类数据 {#visual-guide}
+
+<div class="data-media" markdown>
+
+<p class="data-media-label">实拍 · 同步多视角</p>
+
+<video class="data-video" controls playsinline preload="none" poster="../../assets/diagrams/data-third-person.svg" aria-label="Assembly101：同一次装配的十二个视角" aria-describedby="third-person-video-caption">
+  <source src="https://assembly-101.github.io/assets/12_view_assembly.mp4" type="video/mp4">
+  您的浏览器未能播放嵌入视频，可通过下方链接观看官方演示。
+</video>
+
+<p class="data-poster-note">封面为本站绘制的概念示意；点击播放，查看官方演示。</p>
+
+<p id="third-person-video-caption">官方多视角实拍：同一次玩具装配由 8 个固定外部视角与 4 个第一视角同步记录。它展示了观察位置的差异，不提供机器人控制命令。</p>
+
+<div class="data-watch-notes" markdown>
+
+**观看时留意**
+
+- 同一个动作在不同机位出现的遮挡差异。
+- 把外部机位与随头部运动的第一视角对应起来。
+- 多视角视频是观测；动作片段与手姿态是另行提供的标注。
+
+</div>
+
+<p class="data-media-credit">来源：<a href="https://assembly-101.github.io/">Assembly101：同一次装配的十二个视角</a> · Assembly101 / Fadime Sener et al., Meta Reality Labs &amp; National University of Singapore (CVPR 2022) · 项目数据许可：<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
+<p class="data-media-links"><a href="https://assembly-101.github.io/assets/12_view_assembly.mp4">直接打开视频 ↗</a><a href="https://assembly-101.github.io/">官方项目页 ↗</a></p>
+
+</div>
+
+<figure class="data-photo">
+  <a href="https://assembly-101.github.io/assets/assembly101_rig.png" aria-label="查看官方原图"><img src="https://assembly-101.github.io/assets/assembly101_rig.png" alt="Assembly101 官方展示的采集装置；用于理解外部相机围绕操作台布置，保留来源链接。" loading="lazy" decoding="async"></a>
+  <figcaption><strong>Assembly101 的采集装置。</strong>Assembly101 官方展示的采集装置；用于理解外部相机围绕操作台布置，保留来源链接。<br>来源：<a href="https://assembly-101.github.io/">Assembly101 项目团队</a> · 点击图片查看原图</figcaption>
+</figure>
+
 ## 怎样采集
 
 一条典型流程是：**布置外部相机 → 标定与同步 → 记录完整活动 → 标注动作和对象 → 按场景或主体划分数据**。多机位可以互补遮挡，配合深度相机或姿态估计得到人体几何信息。若同时记录头戴相机，还能建立同一事件的第一、第三视角对应。

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">UMI：手持工具，恢复轨迹</title>
+  <desc id="desc">人手握持带相机的夹爪操作杯子。视频经过轨迹恢复与开合估计形成工具动作监督。图中不包含同步执行的机械臂。</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #252922; }
+      .heading { font-size: 28px; font-weight: 650; }
+      .label { font-size: 24px; font-weight: 550; }
+      .note { font-size: 24px; fill: #6b7166; }
+      .line { fill: none; stroke: #252922; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #6b7166; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .flow { fill: none; stroke: #6b7166; stroke-width: 3; marker-end: url(#arrow); }
+      .joint { fill: #f5f5f0; stroke: #252922; stroke-width: 4; }
+      .signal { fill: #c9df75; stroke: #252922; stroke-width: 3; }
+    </style>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L7 4 L1 7" fill="none" stroke="#6b7166" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="720" height="400" rx="16" fill="#f5f5f0"/>
+  <text x="32" y="48" class="heading">UMI：手持工具，恢复轨迹</text>
+  <path d="M32 68 H688" stroke="#dfe2d8"/>
+  <!-- No robot is present in the collection scene. -->
+  <path d="M44 145 L123 160 L171 198 M47 172 L112 182 L151 217" class="line"/>
+  <path d="M151 217 Q142 200 154 193 Q160 191 174 204 L189 218 Q194 228 186 236 Q179 242 169 233 Z" fill="#fff" stroke="#252922" stroke-width="4"/>
+  <path d="M179 220 L218 180 L239 197 L204 238 Z" class="signal"/>
+  <rect x="205" y="139" width="60" height="37" rx="6" fill="#fff" stroke="#252922" stroke-width="4"/>
+  <circle cx="241" cy="157" r="9" class="thin"/>
+  <path d="M216 239 L236 259 L253 242 M237 216 L257 235 L274 219" class="line"/>
+  <path d="M249 253 V282 Q269 293 288 282 V253 Z" class="signal"/>
+  <path d="M288 257 Q309 256 306 271 Q303 279 288 275 M219 296 H323" class="thin"/>
+  <path d="M340 211 H406" class="flow"/>
+  <path d="M460 145 L484 177 L533 125 L579 152 L630 115" fill="none" stroke="#252922" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="460" cy="145" r="7" fill="#c9df75"/><circle cx="533" cy="125" r="7" fill="#c9df75"/><circle cx="630" cy="115" r="7" fill="#c9df75"/>
+  <path d="M464 249 H495 V218 H543 V250 H587 V218 H634" class="line"/>
+  <text x="87" y="328" class="label">人手＋相机夹爪</text>
+  <text x="495" y="202" class="label">工具轨迹</text><text x="495" y="305" class="label">夹爪开合</text>
+  <path d="M32 344 H688" stroke="#dfe2d8"/>
+  <text x="32" y="378" class="note">概念示意 · 非实测画面</text>
+</svg>

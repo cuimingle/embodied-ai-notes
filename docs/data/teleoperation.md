@@ -11,6 +11,42 @@ description: 从 ALOHA、DROID 和 BridgeData V2 理解机器人遥操如何采�
 
 这里按**采集方式**归类。同一条遥操轨迹可以同时包含腕部视角和第三视角图像；“遥操”也不能直接说明有没有深度、触觉或语言标注。下文区分采集系统与公开数据集，资料核验日期为 **2026-11-15**。
 
+
+## 看一段演示，理解这类数据 {#visual-guide}
+
+<div class="data-media" markdown>
+
+<p class="data-media-label">实拍 · 主从遥操示教</p>
+
+<video class="data-video" controls playsinline preload="none" poster="../../assets/diagrams/data-teleoperation.svg" aria-label="ALOHA：人控制主臂，机器人同步执行" aria-describedby="teleoperation-video-caption">
+  <source src="https://tonyzhaozh.github.io/aloha/resources/teleop_all.mp4" type="video/mp4">
+  您的浏览器未能播放嵌入视频，可通过下方链接观看官方演示。
+</video>
+
+<p class="data-poster-note">封面为本站绘制的概念示意；点击播放，查看官方演示。</p>
+
+<p id="teleoperation-video-caption">ALOHA 官方遥操系统演示：操作者移动主臂，从臂同步执行操作。这里展示的是人在控制回路中的示教过程；学习所需的图像、状态与控制命令还要由采集系统同步保存。</p>
+
+<div class="data-watch-notes" markdown>
+
+**观看时留意**
+
+- 操作者怎样通过主臂把动作意图传给从臂。
+- 双臂与夹爪怎样协调完成接触操作。
+- 视频只是可见部分，学习还需要同步记录状态和控制命令。
+
+</div>
+
+<p class="data-media-credit">来源：<a href="https://tonyzhaozh.github.io/aloha/">ALOHA：人控制主臂，机器人同步执行</a> · Tony Z. Zhao, Vikash Kumar, Sergey Levine, Chelsea Finn · ALOHA / RSS 2023</p>
+<p class="data-media-links"><a href="https://tonyzhaozh.github.io/aloha/resources/teleop_all.mp4">直接打开视频 ↗</a><a href="https://tonyzhaozh.github.io/aloha/">官方项目页 ↗</a></p>
+
+</div>
+
+<figure class="data-photo">
+  <a href="https://droid-dataset.github.io/figures/droid_setup.png" aria-label="查看官方原图"><img src="https://droid-dataset.github.io/figures/droid_setup.png" alt="另一套遥操配置：Franka 机械臂、腕部与外部立体相机、Oculus Quest 2 遥操接口。用于比较同类采集方式下不同的硬件接口。" loading="lazy" decoding="async"></a>
+  <figcaption><strong>DROID 的遥操硬件。</strong>另一套遥操配置：Franka 机械臂、腕部与外部立体相机、Oculus Quest 2 遥操接口。用于比较同类采集方式下不同的硬件接口。<br>来源：<a href="https://droid-dataset.github.io/">DROID Dataset Team</a> · 点击图片查看原图</figcaption>
+</figure>
+
 ## 一条示范怎样产生
 
 1. **定义任务与接口。** 明确机器人、夹爪、控制模式、工作空间及成功条件。不同平台可能接受关节位置、末端位姿或速度指令。

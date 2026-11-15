@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">遥操：人控制，机器人执行</title>
+  <desc id="desc">操作者移动主臂，控制信号传给从臂。机器人在桌面操作杯子，同时记录图像与动作。箭头表示控制与数据传递。</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #252922; }
+      .heading { font-size: 28px; font-weight: 650; }
+      .label { font-size: 24px; font-weight: 550; }
+      .note { font-size: 24px; fill: #6b7166; }
+      .line { fill: none; stroke: #252922; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #6b7166; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .flow { fill: none; stroke: #6b7166; stroke-width: 3; marker-end: url(#arrow); }
+      .joint { fill: #f5f5f0; stroke: #252922; stroke-width: 4; }
+      .signal { fill: #c9df75; stroke: #252922; stroke-width: 3; }
+    </style>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L7 4 L1 7" fill="none" stroke="#6b7166" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="720" height="400" rx="16" fill="#f5f5f0"/>
+  <text x="32" y="48" class="heading">遥操：人控制，机器人执行</text>
+  <path d="M32 68 H688" stroke="#dfe2d8"/>
+  <!-- The first arrow denotes control; the second denotes recording. -->
+  <circle cx="79" cy="126" r="23" class="line"/>
+  <path d="M62 154 Q48 173 48 211 V268 M94 155 L116 190 L146 178 M70 216 L96 268" class="line"/>
+  <path d="M127 269 H181 M154 264 V231 L196 201 L171 167" class="line"/>
+  <circle cx="154" cy="231" r="9" class="joint"/><circle cx="196" cy="201" r="9" class="joint"/>
+  <path d="M159 163 L175 158 L187 172" class="line"/>
+  <path d="M211 198 H286" class="flow"/>
+  <path d="M305 269 H365 M335 264 V226 L382 168 L430 204" class="line"/>
+  <circle cx="335" cy="226" r="10" class="joint"/><circle cx="382" cy="168" r="10" class="joint"/>
+  <path d="M425 211 L425 228 M443 211 V228 M426 211 H443" class="line"/>
+  <path d="M414 246 V266 Q432 277 450 266 V246 Z" class="signal"/>
+  <path d="M450 250 Q470 249 467 261 Q464 268 450 264 M394 278 H477" class="thin"/>
+  <path d="M486 198 H537" class="flow"/>
+  <rect x="555" y="128" width="125" height="67" rx="7" fill="#fff" stroke="#dfe2d8" stroke-width="2"/>
+  <path d="M568 178 L589 151 L612 173 L630 158 L659 181" class="thin"/><circle cx="647" cy="145" r="6" fill="#c9df75"/>
+  <path d="M558 220 H678 M558 245 H678" stroke="#dfe2d8" stroke-width="2"/>
+  <path d="M562 237 L580 237 L596 214 L615 242 L632 224 L648 229 L674 210" class="thin"/>
+  <text x="128" y="315" class="label">主臂</text><text x="337" y="315" class="label">从臂</text><text x="548" y="315" class="label">图像＋动作</text>
+  <path d="M32 344 H688" stroke="#dfe2d8"/>
+  <text x="32" y="378" class="note">概念示意 · 非实测画面</text>
+</svg>

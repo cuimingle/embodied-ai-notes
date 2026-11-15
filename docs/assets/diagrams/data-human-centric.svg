@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">HumanCentric：记录人体与交互</title>
+  <desc id="desc">左侧是人与物体交互的动作骨架，右侧是手部姿态与接触区域的几何表达。绿色标记表示几何接触区域，不表示测量到的力。</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #252922; }
+      .heading { font-size: 28px; font-weight: 650; }
+      .label { font-size: 24px; font-weight: 550; }
+      .note { font-size: 24px; fill: #6b7166; }
+      .line { fill: none; stroke: #252922; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #6b7166; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .flow { fill: none; stroke: #6b7166; stroke-width: 3; marker-end: url(#arrow); }
+      .joint { fill: #f5f5f0; stroke: #252922; stroke-width: 4; }
+      .signal { fill: #c9df75; stroke: #252922; stroke-width: 3; }
+    </style>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L7 4 L1 7" fill="none" stroke="#6b7166" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="720" height="400" rx="16" fill="#f5f5f0"/>
+  <text x="32" y="48" class="heading">HumanCentric：记录人体与交互</text>
+  <path d="M32 68 H688" stroke="#dfe2d8"/>
+  <!-- Contact marks describe geometry, not force vectors. -->
+  <circle cx="154" cy="119" r="22" class="line"/>
+  <path d="M154 141 V215 M111 159 H195 M111 159 L87 202 L110 233 M195 159 L225 193 L257 195 M154 215 L123 271 M154 215 L183 271" class="line"/>
+  <g class="joint"><circle cx="154" cy="159" r="8"/><circle cx="111" cy="159" r="8"/><circle cx="195" cy="159" r="8"/><circle cx="87" cy="202" r="8"/><circle cx="225" cy="193" r="8"/><circle cx="154" cy="215" r="8"/></g>
+  <path d="M266 179 V220 Q283 231 301 220 V179 Z" class="signal"/>
+  <circle cx="263" cy="196" r="8" fill="#c9df75" stroke="#252922" stroke-width="2"/>
+  <path d="M328 200 H397" class="flow"/>
+  <path d="M457 278 L461 238 L441 209 Q436 201 443 198 Q450 195 458 208 L478 225 L481 167 Q482 157 490 159 Q498 161 497 171 L498 204 L511 146 Q514 138 522 142 Q527 144 524 157 L517 206 L538 162 Q543 154 550 159 Q554 163 550 173 L535 216 L558 186 Q564 179 570 184 Q575 190 566 200 L548 231 Q542 255 520 267 L517 281" fill="#fff" stroke="#252922" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M548 155 L579 134 L635 159 L604 179 Z M548 155 V213 L604 237 V179 Z M604 179 L635 159 V219 L604 237 Z" fill="#c9df75" fill-opacity=".5" stroke="#6b7166" stroke-width="3"/>
+  <circle cx="550" cy="162" r="9" fill="#c9df75" stroke="#252922" stroke-width="2"/><circle cx="569" cy="186" r="9" fill="#c9df75" stroke="#252922" stroke-width="2"/>
+  <text x="90" y="315" class="label">人体动作</text><text x="442" y="315" class="label">手姿态 · 接触区域</text>
+  <path d="M32 344 H688" stroke="#dfe2d8"/>
+  <text x="32" y="378" class="note">概念示意 · 非实测画面</text>
+</svg>

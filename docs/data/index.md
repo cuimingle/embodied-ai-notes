@@ -15,7 +15,7 @@ hide:
 
 机器人怎样获得经验？不同数据记录了不同层面的世界：有的告诉模型“发生了什么”，有的描述“人怎样运动”，有的进一步给出“机器人应该执行什么动作”。
 
-本专题按 **遥操、UMI、EGO、HumanCentric、第三视角、仿真** 六个入口整理。每一类都回答三个问题：怎样采集、实际提供什么、在具身学习中负责哪一部分。
+本专题按 **遥操、UMI、EGO、HumanCentric、第三视角、仿真** 六个入口整理。每一类都回答三个问题：怎样采集、实际提供什么、在具身学习中负责哪一部分。先看采集示意，再进入分类笔记播放官方演示。
 
 <p class="data-meta">资料核验：2026-11-15 · 以论文、官方项目页与数据文档为依据 · 代表性项目整理，非全量清单</p>
 
@@ -73,6 +73,10 @@ hide:
 
 ### [遥操 Teleoperation →](teleoperation.md)
 
+![遥操采集示意：人控制主臂，从臂操作物体，系统记录图像与动作。](../assets/diagrams/data-teleoperation.svg){ .data-route-visual loading=lazy width=720 height=400 }
+
+[观看官方演示 →](teleoperation.md#visual-guide){ .data-watch-link }
+
 人通过主从机械臂、手柄或其他接口控制机器人，记录执行中的观测、状态与动作。最直接服务于机器人策略模仿。
 
 <span class="data-examples">代表项目：ALOHA · DROID · BridgeData V2</span>
@@ -90,6 +94,10 @@ hide:
 <span class="data-kind">手持工具 · 采集时不必带机器人</span>
 
 ### [UMI 手持交互数据 →](umi.md)
+
+![UMI 采集示意：人手持带相机的夹爪，恢复工具轨迹与夹爪开合。](../assets/diagrams/data-umi.svg){ .data-route-visual loading=lazy width=720 height=400 }
+
+[观看官方演示 →](umi.md#visual-guide){ .data-watch-link }
 
 人手持带相机的夹具完成任务，通过轨迹恢复与接口设计，把人的示范连接到机器人的操作策略。
 
@@ -109,6 +117,10 @@ hide:
 
 ### [EGO 第一视角 →](egocentric.md)
 
+![EGO 采集示意：头戴相机记录行动者眼前的双手、物体与操作过程。](../assets/diagrams/data-egocentric.svg){ .data-route-visual loading=lazy width=720 height=400 }
+
+[观看官方演示 →](egocentric.md#visual-guide){ .data-watch-link }
+
 用头戴等可穿戴相机记录人的活动，提供动作语义、时序过程及手物交互经验，通常需要额外步骤才能用于机器人控制。
 
 <span class="data-examples">代表项目：Ego4D · EPIC-KITCHENS · Ego-Exo4D</span>
@@ -126,6 +138,10 @@ hide:
 <span class="data-kind">人体与手 · 动作、几何与接触</span>
 
 ### [HumanCentric 人体交互 →](human-centric.md)
+
+![HumanCentric 示意：记录人体动作、手部姿态与手物接触区域。](../assets/diagrams/data-human-centric.svg){ .data-route-visual loading=lazy width=720 height=400 }
+
+[观看官方演示 →](human-centric.md#visual-guide){ .data-watch-link }
 
 通过动作捕捉、多视角重建或模型拟合获得人体、手和物体的结构化运动，用于动作先验、交互理解及重定向研究。
 
@@ -145,6 +161,10 @@ hide:
 
 ### [第三视角 Exocentric →](third-person.md)
 
+![第三视角采集示意：外部相机观察人的动作和桌面物体的空间关系。](../assets/diagrams/data-third-person.svg){ .data-route-visual loading=lazy width=720 height=400 }
+
+[观看官方演示 →](third-person.md#visual-guide){ .data-watch-link }
+
 从外部相机观察人或机器人，研究动作识别、技能过程和多视角关联。外部视频本身不提供统一的机器人动作接口。
 
 <span class="data-examples">代表项目：Assembly101 · Ego-Exo4D · NTU RGB+D</span>
@@ -162,6 +182,10 @@ hide:
 <span class="data-kind">虚拟环境 · 可重复交互与验证</span>
 
 ### [仿真 Simulation →](simulation.md)
+
+![仿真数据示意：虚拟场景中的机器人交互产生观测、动作与奖励。](../assets/diagrams/data-simulation.svg){ .data-route-visual loading=lazy width=720 height=400 }
+
+[观看官方演示 →](simulation.md#visual-guide){ .data-watch-link }
 
 用规划器、专家策略、遥操或在线交互生成轨迹，可用于模仿学习、强化学习和评测；记录内容由具体环境与导出配置决定。
 

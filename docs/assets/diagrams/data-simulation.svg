@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">仿真：让虚拟环境产生交互</title>
+  <desc id="desc">网格表示虚拟场景，机械臂在场景内操作物体，执行过程导出观测、动作和奖励。具体可用字段取决于任务与记录配置。</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #252922; }
+      .heading { font-size: 28px; font-weight: 650; }
+      .label { font-size: 24px; font-weight: 550; }
+      .note { font-size: 24px; fill: #6b7166; }
+      .line { fill: none; stroke: #252922; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #6b7166; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .flow { fill: none; stroke: #6b7166; stroke-width: 3; marker-end: url(#arrow); }
+      .joint { fill: #f5f5f0; stroke: #252922; stroke-width: 4; }
+      .signal { fill: #c9df75; stroke: #252922; stroke-width: 3; }
+    </style>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L7 4 L1 7" fill="none" stroke="#6b7166" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="720" height="400" rx="16" fill="#f5f5f0"/>
+  <text x="32" y="48" class="heading">仿真：让虚拟环境产生交互</text>
+  <path d="M32 68 H688" stroke="#dfe2d8"/>
+  <!-- The grid denotes a simulated scene; the arrow denotes exported records. -->
+  <path d="M57 286 L145 212 H393 L441 286 Z" fill="#fff" stroke="#dfe2d8" stroke-width="2"/>
+  <path d="M76 269 H430 M98 250 H417 M120 232 H405 M111 286 L184 212 M181 286 L227 212 M251 286 L270 212 M321 286 L313 212 M391 286 L356 212" fill="none" stroke="#dfe2d8" stroke-width="2"/>
+  <path d="M129 259 H200 M166 253 V209 L227 136 L288 184" class="line"/>
+  <circle cx="166" cy="209" r="12" class="joint"/><circle cx="227" cy="136" r="12" class="joint"/>
+  <path d="M279 194 H301 M279 194 V213 M301 194 V213" class="line"/>
+  <path d="M299 230 L325 215 L351 231 L325 246 Z M299 230 V258 L325 274 L351 258 V231 M325 246 V274" class="signal"/>
+  <path d="M448 200 H507" class="flow"/>
+  <rect x="534" y="112" width="126" height="52" rx="5" fill="#fff" stroke="#dfe2d8" stroke-width="2"/>
+  <path d="M548 149 L567 128 L585 145 L606 126 L643 150" class="thin"/>
+  <path d="M535 208 H566 V182 H597 V220 H626 V196 H661" class="thin"/>
+  <path d="M536 270 H661" stroke="#dfe2d8" stroke-width="2"/>
+  <path d="M548 270 V258 M576 270 V247 M604 270 V233 M632 270 V223" stroke="#a6b46e" stroke-width="10"/>
+  <text x="117" y="320" class="label">虚拟场景与机器人</text><text x="486" y="320" class="label">观测 · 动作 · 奖励</text>
+  <path d="M32 344 H688" stroke="#dfe2d8"/>
+  <text x="32" y="378" class="note">概念示意 · 非实测画面</text>
+</svg>

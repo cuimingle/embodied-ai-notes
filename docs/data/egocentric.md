@@ -11,6 +11,37 @@ EGO（egocentric）首先描述**相机站在谁的视角**。本页聚焦人佩
 
 因此，EGO 可以同时带有 [HumanCentric](human-centric.md) 的手部几何，也可以与第三视角同步采集。它不是与遥操互斥的数据类型，更不能仅凭“第一人称”就判断是否有可训练机器人策略的动作标签。
 
+
+## 看一段演示，理解这类数据 {#visual-guide}
+
+<div class="data-media" markdown>
+
+<p class="data-media-label">实拍 · 第一人称活动</p>
+
+<video class="data-video" controls playsinline preload="none" poster="../../assets/diagrams/data-egocentric.svg" aria-label="EPIC-KITCHENS：从第一人称看厨房操作" aria-describedby="egocentric-video-caption">
+  <source src="https://epic-kitchens.github.io/static/videos/03x03_videoWall.mp4" type="video/mp4">
+  您的浏览器未能播放嵌入视频，可通过下方链接观看官方演示。
+</video>
+
+<p class="data-poster-note">封面为本站绘制的概念示意；点击播放，查看官方演示。</p>
+
+<p id="egocentric-video-caption">官方 3×3 视频墙展示真实厨房活动的第一人称录像。这里看到的是人在做什么，以及手与物体怎样交互；画面本身并不是机器人动作命令。</p>
+
+<div class="data-watch-notes" markdown>
+
+**观看时留意**
+
+- 相机随佩戴者移动，操作的手和物体常处于画面近处。
+- 同一动作的背景、对象和视角会变化，是理解泛化难度的直观例子。
+- 视频中的行为仍需叙述、动作类别和起止时间等标注来组织监督。
+
+</div>
+
+<p class="data-media-credit">来源：<a href="https://epic-kitchens.github.io/2025">EPIC-KITCHENS：从第一人称看厨房操作</a> · EPIC-KITCHENS 团队 / University of Bristol 等；官方项目页公开演示。 · 项目数据许可：<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
+<p class="data-media-links"><a href="https://epic-kitchens.github.io/static/videos/03x03_videoWall.mp4">直接打开视频 ↗</a><a href="https://epic-kitchens.github.io/2025">官方项目页 ↗</a></p>
+
+</div>
+
 ## 怎样采集
 
 典型流程是：**佩戴相机 → 记录日常活动或指定技能 → 对齐时间与传感器 → 补充叙述和任务标注 → 按参与者、场景或任务划分数据**。

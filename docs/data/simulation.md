@@ -11,6 +11,37 @@ description: 区分仿真环境、场景资产、任务配置与交互轨迹，�
 
 首先分清四样东西：模拟器负责运行世界，场景资产提供几何与材质，任务配置规定初始条件和目标，交互轨迹记录实际执行过程。下载一批场景或导航任务配置，不代表已经得到同等数量的专家示范。
 
+
+## 看一段演示，理解这类数据 {#visual-guide}
+
+<div class="data-media" markdown>
+
+<p class="data-media-label">仿真渲染 · 操作示范</p>
+
+<video class="data-video" controls playsinline preload="none" poster="../../assets/diagrams/data-simulation.svg" aria-label="ManiSkill：PickCube 仿真操作示范" aria-describedby="simulation-video-caption">
+  <source src="https://raw.githubusercontent.com/mani-skill/ManiSkill/main/figures/environment_demos/PickCube-v1_rt.mp4" type="video/mp4">
+  您的浏览器未能播放嵌入视频，可通过下方链接观看官方演示。
+</video>
+
+<p class="data-poster-note">封面为本站绘制的概念示意；点击播放，查看官方演示。</p>
+
+<p id="simulation-video-caption">仿真渲染的成功示范：Panda 机械臂抓起红色方块并移到目标位置。这里展示环境中的执行过程；具体轨迹由规划器、遥操还是策略产生，需要查对应数据元信息。</p>
+
+<div class="data-watch-notes" markdown>
+
+**观看时留意**
+
+- 机械臂、方块和目标都位于模拟场景中。
+- 图像只是轨迹的一部分，动作、环境状态和成功标签可另行记录。
+- 官方任务卡说明初始位置与目标随机化；一段成功视频不能代表完整泛化结果。
+
+</div>
+
+<p class="data-media-credit">来源：<a href="https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#pickcube-v1">ManiSkill：PickCube 仿真操作示范</a> · ManiSkill Contributors · PickCube-v1 官方任务演示</p>
+<p class="data-media-links"><a href="https://raw.githubusercontent.com/mani-skill/ManiSkill/main/figures/environment_demos/PickCube-v1_rt.mp4">直接打开视频 ↗</a><a href="https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/index.html#pickcube-v1">官方项目页 ↗</a></p>
+
+</div>
+
 ## 怎样生成
 
 **搭建场景与机器人 → 配置传感器、控制器和目标 → 选择数据生成者 → 执行动作并记录 → 验证成功与回放一致性。** 常见生成者包括：人工脚本与运动规划器、人在仿真中遥操、已经训练好的专家策略，以及正在探索的学习策略。
