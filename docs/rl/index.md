@@ -1,23 +1,50 @@
-# 强化学习：按指定教材建立主线
+---
+title: 强化学习主线
+---
 
-初次进入本站，可以先读[具身智能知识体系总览](../embodied-ai-overview.md)，理解 RL 在感知、规划、控制与学习之间的位置，再沿本页深入决策的数学基础。
+<div class="track-intro" markdown>
 
-以赵世钰《Mathematical Foundations of Reinforcement Learning》2024 年 9 月版为准，统一符号、公式设定与 10 章递进关系。先读[符号体系](notation.md)，再按章学习；需要回查原书时使用[章节与页码对照](reading-guide.md)。
+<span class="kicker">02 / REINFORCEMENT LEARNING</span>
 
-## 十章主线
+# 强化学习：从目标到策略
 
-| 阶段 | 章节 | 要理解的变化 |
-| --- | --- | --- |
-| 定义问题 | [01 · 基本概念](01-basic-concepts.md) | 状态、动作、奖励、回报、策略与 MDP |
-| 评价策略 | [02 · 状态价值与 Bellman 方程](02-bellman-equation.md) | 从随机回报到条件期望与价值递推 |
-| 定义最优 | [03 · Bellman 最优方程](03-bellman-optimality.md) | 从策略加权到最大化与收缩映射 |
-| 用模型求解 | [04 · 价值迭代与策略迭代](04-value-policy-iteration.md) | 一步、截断与充分策略评估 |
-| 从模型到样本 | [05 · Monte Carlo](05-monte-carlo.md) | 用轨迹回报估计价值 |
-| 从批量到增量 | [06 · 随机逼近](06-stochastic-approximation.md) | 均值估计、RM 与 SGD |
-| 加入自举 | [07 · TD 方法](07-temporal-difference.md) | TD、Sarsa、n-step 与 Q-learning |
-| 从表格到函数 | [08 · 价值函数方法](08-value-function-methods.md) | 参数共享、TD 半梯度与 DQN |
-| 直接优化策略 | [09 · 策略梯度](09-policy-gradient.md) | 指标、状态分布、梯度与 REINFORCE |
-| 联合优化 | [10 · Actor-Critic](10-actor-critic.md) | QAC、A2C、off-policy 与确定性策略 |
+用十章建立决策的数学主线。先定义问题，再评价行为，最后学习怎样改进策略。
+
+以赵世钰《Mathematical Foundations of Reinforcement Learning》2024 年 9 月版为准。阅读前可先看[知识全貌](../embodied-ai-overview.md)，理解 RL 在机器人系统中的位置。
+
+<div class="track-summary"><span><strong>10 章</strong> 原创伴读</span><span><strong>16 个</strong> 书内机制实验</span><span><strong>统一符号</strong> 对照指定版本</span></div>
+
+[教材与页码对照](reading-guide.md){ .md-button }
+[符号体系](notation.md){ .md-button }
+[实验使用说明](../labs/textbook.md){ .md-button }
+
+</div>
+
+## 沿着问题，逐章深入
+
+<div class="chapter-list" markdown>
+
+[<span class="chapter-no">01</span><strong>基本概念</strong><small>状态、动作、奖励、回报与 MDP：先定义决策问题。</small>](01-basic-concepts.md)
+
+[<span class="chapter-no">02</span><strong>状态价值与 Bellman 方程</strong><small>从随机回报到条件期望，理解价值的递推关系。</small>](02-bellman-equation.md)
+
+[<span class="chapter-no">03</span><strong>Bellman 最优方程</strong><small>从评价给定策略，走向定义最优行为。</small>](03-bellman-optimality.md)
+
+[<span class="chapter-no">04</span><strong>价值迭代与策略迭代</strong><small>已知模型时，怎样交替评价与改进策略。</small>](04-value-policy-iteration.md)
+
+[<span class="chapter-no">05</span><strong>Monte Carlo</strong><small>用采样轨迹的回报，估计未知的价值。</small>](05-monte-carlo.md)
+
+[<span class="chapter-no">06</span><strong>随机逼近</strong><small>从样本均值到增量更新，理解步长与随机噪声。</small>](06-stochastic-approximation.md)
+
+[<span class="chapter-no">07</span><strong>Temporal-Difference 方法</strong><small>通过自举学习，连接 TD、Sarsa 与 Q-learning。</small>](07-temporal-difference.md)
+
+[<span class="chapter-no">08</span><strong>价值函数方法</strong><small>从逐状态表格，走向共享参数与函数近似。</small>](08-value-function-methods.md)
+
+[<span class="chapter-no">09</span><strong>策略梯度</strong><small>直接对参数化策略求梯度，优化长期表现。</small>](09-policy-gradient.md)
+
+[<span class="chapter-no">10</span><strong>Actor-Critic</strong><small>结合价值估计与策略更新，理解两者如何协作。</small>](10-actor-critic.md)
+
+</div>
 
 ## 三个贯穿问题
 

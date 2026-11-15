@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block tabs %}{% endblock %}
+{% block content %}
+  {% if page and page.meta.page_kind not in ["landing", "atlas"] %}
+    <div class="article-context">
+      <a href="{{ 'embodied-ai-overview/' | url }}">知识全貌</a>
+      <span aria-hidden="true">/</span>
+      <span>{% if page.file.src_path.startswith('rl/') and page.file.src_path != 'rl/to-embodied.md' %}强化学习{% elif page.file.src_path.startswith('labs/') %}实验室{% elif page.file.src_path.startswith('extensions/') or page.file.src_path == 'rl/to-embodied.md' %}进阶专题{% else %}阅读指南{% endif %}</span>
+    </div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

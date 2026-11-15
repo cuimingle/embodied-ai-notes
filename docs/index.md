@@ -1,65 +1,151 @@
 ---
+title: 首页
+description: 具身智能的中文学习手册。从系统全貌出发，沿强化学习主线深入，用实验核对理解。
+page_kind: landing
 hide:
+  - navigation
   - toc
 ---
 
-<div class="hero" markdown>
+<div class="home-hero" markdown>
 
-<span class="eyebrow">EMBODIED AI NOTES / 从全貌到主线</span>
+<div class="hero-copy" markdown>
 
-# 先看清全貌，<br>再深入行动。
+<span class="kicker">EMBODIED INTELLIGENCE / FIELD NOTES</span>
 
-用一张脑图连接身体、感知、规划、控制与学习，再沿强化学习主线深入理解决策。
+# 具身智能，<br>从全貌到行动。
 
-[建立具身智能全貌](embodied-ai-overview.md){ .md-button .md-button--primary }
-[进入强化学习](rl/index.md){ .md-button }
+<p class="hero-description">理解机器人如何感知世界、作出决策与完成行动。<br>从一张知识地图开始，沿一条主线深入，再用实验核对理解。</p>
 
-<span class="hero-note">中文知识梳理 · 最小可运行实验 · 持续修订</span>
+<div class="hero-actions" markdown>
 
-</div>
-
-## 把学过的知识，连成可以使用的体系
-
-学完一遍强化学习后，接下来要整理的是概念之间的依赖：Bellman 方程怎样导向 TD 更新，价值估计怎样服务策略优化，算法又在什么假设下能够用于机器人任务。
-
-这里以“问题、机制、实现、证据”为线索。每次补充一段推导或一个实验，都让知识地图更具体。
-
-<div class="grid cards" markdown>
-
-- **01 / 建立具身智能全貌**
-
-    从脑图看清八个知识方向，理解机器人闭环，以及 RL 在其中的位置。
-
-    [阅读知识体系总览 →](embodied-ai-overview.md)
-
-- **02 / 深入强化学习主线**
-
-    从 MDP 到策略优化，配合教材伴读与数值实验，核对概念和更新规则。
-
-    [浏览强化学习十章 →](rl/index.md) · [查看 20 个实验 →](labs/textbook.md)
-
-- **03 / 连接物理任务**
-
-    从观测、动作、奖励与评测定义出发，把算法映射到机器人系统。
-
-    [从 RL 走向具身任务 →](rl/to-embodied.md)
-
-- **04 / 逐步扩展边界**
-
-    为控制、模仿学习、VLA 和世界模型定义下一阶段的具体产出。
-
-    [查看路线与进度 →](roadmap.md)
+[探索知识全貌 <span aria-hidden="true">↗</span>](embodied-ai-overview.md){ .action-primary }
+[开始学习 RL <span aria-hidden="true">→</span>](rl/index.md){ .action-text }
 
 </div>
 
-## 当前版本能读到什么
+<p class="hero-edition"><span class="status-dot"></span> 中文伴读 · 数值实验 · 持续修订</p>
 
-在 RL 之前，先读[具身智能知识体系总览](embodied-ai-overview.md)：用脑图认识整体结构，再用一个操作任务理解各分支之间的关系。
+</div>
 
-主线严格按赵世钰《Mathematical Foundations of Reinforcement Learning》2024 年 9 月版的 10 章编排，配有统一符号、原书页码与 16 个交互实验。TRPO、PPO、GRPO、GSPO 单列为书外扩展，另有 4 个目标函数实验。Python 配套代码只依赖标准库。
+<div class="hero-figure" markdown>
 
-这些内容是原创伴读与机制实验，不是教材逐页译文，也不将简化数值例子标记为完整深度训练复现。原有手写推导接入时，同样以指定版本的定义与假设为准。
+![机器人通过感知、决策和行动与环境形成反馈闭环的工程示意图。](assets/diagrams/embodied-system.svg)
 
-## 项目的起点
+<span class="figure-caption">FIG. 01 &nbsp; 身体与环境之间，智能形成闭环。</span>
 
-本项目从已经学习过的强化学习出发，建立自己的概念关联、实验记录和写作积累。理论出处集中在[参考资料](references.md)，个人观点与实验结果在对应章节说明。
+</div>
+
+</div>
+
+<div class="home-section" markdown>
+
+<div class="section-heading" markdown>
+
+<span class="section-number">01 / START HERE</span>
+
+## 一条清楚的阅读路径
+
+先知道知识在系统中的位置，再进入公式与实现。
+
+</div>
+
+<div class="reading-path" markdown>
+
+<div class="path-item" markdown>
+
+<span class="path-number">01</span>
+
+### 建立全貌
+
+分清执行闭环、学习方法与共同基础。把 RL、VLA 和世界模型放回各自的位置。
+
+[阅读知识地图 →](embodied-ai-overview.md)
+
+</div>
+
+<div class="path-item" markdown>
+
+<span class="path-number">02</span>
+
+### 深入一条主线
+
+按教材十章理解状态、价值与策略，从 Bellman 方程走到 Actor-Critic。
+
+[进入强化学习 →](rl/index.md)
+
+</div>
+
+<div class="path-item" markdown>
+
+<span class="path-number">03</span>
+
+### 用实验核对
+
+观察真实数值更新，暂停、单步与调整参数，再对照本地 Python 实现。
+
+[打开实验室 →](labs/textbook.md)
+
+</div>
+
+</div>
+
+</div>
+
+<div class="track-feature" markdown>
+
+<div class="track-feature-copy" markdown>
+
+<span class="kicker">THE CORE TRACK</span>
+
+## 强化学习。<br>从目标，到策略。
+
+以赵世钰《Mathematical Foundations of Reinforcement Learning》2024 年 9 月版为主线，串起定义、推导与可检查的数值实验。
+
+<div class="track-facts"><span><b>10</b> 章教材伴读</span><span><b>16</b> 个书内实验</span></div>
+
+[浏览完整主线 ↗](rl/index.md){ .action-primary }
+
+</div>
+
+<div class="track-stages" markdown>
+
+[<span>01—03 / 定义与评价</span><strong>建立决策问题的语言</strong><small>MDP · 价值函数 · Bellman 方程</small>](rl/01-basic-concepts.md)
+
+[<span>04—07 / 规划与采样</span><strong>从已知模型走向经验</strong><small>VI / PI · Monte Carlo · 随机逼近 · TD</small>](rl/04-value-policy-iteration.md)
+
+[<span>08—10 / 近似与优化</span><strong>用参数表示价值与策略</strong><small>价值函数方法 · 策略梯度 · Actor-Critic</small>](rl/08-value-function-methods.md)
+
+</div>
+
+</div>
+
+<div class="home-section" markdown>
+
+<div class="section-heading" markdown>
+
+<span class="section-number">02 / KEEP EXPLORING</span>
+
+## 把方法放回更大的系统
+
+</div>
+
+<div class="explore-list" markdown>
+
+[<span class="explore-label">进阶专题</span><strong>从 Actor-Critic 继续</strong><span>TRPO、PPO、GRPO、GSPO，单列为书外扩展。</span><b aria-hidden="true">↗</b>](extensions/index.md)
+
+[<span class="explore-label">连接机器人</span><strong>从 RL 到具身任务</strong><span>让观测、动作、控制接口与评测有具体含义。</span><b aria-hidden="true">↗</b>](rl/to-embodied.md)
+
+[<span class="explore-label">学习路线</span><strong>已完成什么，接下来做什么</strong><span>区分数学机制实验与真实机器人能力的证据。</span><b aria-hidden="true">↗</b>](roadmap.md)
+
+</div>
+
+</div>
+
+<div class="editor-note" markdown>
+
+<span class="section-number">ABOUT THESE NOTES</span>
+
+这是一份持续修订的中文学习手册。教材伴读保留统一的符号与假设，机制实验提供可运行的数值过程。机器人学、模仿学习与真机迁移等内容将按[学习路线](roadmap.md)逐步建设；当前实验不代表完整深度训练或真机复现。
+
+</div>

@@ -1,0 +1,27 @@
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="主导航">
+    <button type="button" class="md-header__button md-icon" data-site-toggle="drawer" aria-label="打开导航" aria-controls="site-navigation" aria-expanded="false">
+      {% include ".icons/material/menu.svg" %}
+    </button>
+    <a href="{{ nav.homepage.url | url }}" class="site-brand" aria-label="具身智能学习笔记首页">
+      <svg class="brand-symbol" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="currentColor"/><path d="M10 10h14v4H14v3h8v4h-8v3H10z" fill="var(--surface)"/><circle cx="24" cy="24" r="2" fill="var(--signal)"/></svg>
+      <span class="brand-wordmark"><strong>具身智能笔记</strong><small>EMBODIED FIELD NOTES</small></span>
+    </a>
+    <div class="md-header__title" data-md-component="header-title" aria-hidden="true"><div class="md-header__ellipsis"><div class="md-header__topic">具身智能笔记</div><div class="md-header__topic" data-md-component="header-topic">{{ page.title }}</div></div></div>
+    <div class="site-links">
+      {% for item in nav.items %}
+        {% set target = item.children[0] if item.children else item %}
+        <a href="{{ target.url | url }}"{% if item.active %} class="is-active" aria-current="{{ 'page' if not item.children else 'true' }}"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </div>
+    {% if config.theme.palette and not config.theme.palette is mapping %}
+      {% include "partials/palette.html" %}
+      {% include "partials/javascripts/palette.html" %}
+    {% endif %}
+    {% if "material/search" in config.plugins %}
+      <button type="button" class="md-header__button md-icon" data-site-toggle="search" aria-label="搜索笔记" aria-controls="site-search" aria-expanded="false">{% include ".icons/material/magnify.svg" %}</button>
+      {% include "partials/search.html" %}
+    {% endif %}
+    <a class="header-github md-icon" href="{{ config.repo_url }}" aria-label="GitHub 源码">{% include ".icons/fontawesome/brands/github.svg" %}</a>
+  </nav>
+</header>

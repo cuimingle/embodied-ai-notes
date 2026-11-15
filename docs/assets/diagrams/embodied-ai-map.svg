@@ -1,123 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="map-title map-desc">
-  <title id="map-title">具身智能知识体系脑图</title>
-  <desc id="map-desc">中心是具身智能：在物理世界中感知、决策与行动。八个分支为数学与计算基础、身体与控制、感知与状态估计、任务与运动规划、策略学习、数据仿真与迁移、基础模型与世界模型、系统评测与安全。强化学习属于策略学习，是本站当前学习主线。连线表示知识归属，不表示执行顺序或严格先修关系。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" fill="#242720" role="img" aria-labelledby="map-title map-desc">
+  <title id="map-title">具身智能知识地图：执行闭环、学习与模型、共同基础与工程验证</title>
+  <desc id="map-desc">执行闭环由感知与状态估计、决策与规划、运动与控制、环境反馈构成。强化学习、模仿学习和表征学习是获取能力的方法；VLM、VLA 和世界模型是不同模型专题，两者可以跨越多个系统模块。数理与机器人学、数据与系统、评测与迁移共同支撑系统。强化学习是本站当前主线。</desc>
   <defs>
-    <filter id="card-shadow" x="-10%" y="-15%" width="120%" height="140%">
-      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#253c38" flood-opacity=".045"/>
-    </filter>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; }
-      .heading { font-size: 23px; font-weight: 700; fill: #203b37; }
-      .detail { font-size: 19px; fill: #4b5d59; }
-      .number { font-size: 15px; font-weight: 700; }
-      .branch { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-      .card { fill: #fff; stroke: #e4e9e5; filter: url(#card-shadow); }
-      .teal { stroke: #8ab7ac; }
-      .purple { stroke: #b3a4ce; }
-      .ochre { stroke: #d3b38a; }
+      .mono { font-family: 'SFMono-Regular', Consolas, monospace; }
+      .muted { fill: #666d60; }
+      .section { font-size: 21px; font-weight: 650; }
+      .label { font-size: 23px; font-weight: 650; }
+      .detail { font-size: 18px; fill: #666d60; }
+      .rule { fill: none; stroke: #d8dcd1; stroke-width: 1; }
+      .flow { fill: none; stroke: #626a58; stroke-width: 1.5; }
     </style>
+    <marker id="flow-arrow" viewBox="0 0 6 6" refX="5.5" refY="3" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 L6 3 L0 6" fill="none" stroke="#626a58" stroke-width="1"/>
+    </marker>
   </defs>
+  <rect width="1200" height="760" fill="#f5f5f0"/>
+  <text x="42" y="36" class="mono muted" font-size="13" letter-spacing="2">A KNOWLEDGE ATLAS</text>
+  <text x="42" y="78" font-size="29" font-weight="650">同一套系统，三个观察角度。</text>
+  <text x="1158" y="76" text-anchor="end" class="mono muted" font-size="13">EMBODIED AI / 01</text>
 
-  <rect width="1200" height="900" rx="24" fill="#f8f9f5"/>
-  <text x="42" y="49" font-size="14" letter-spacing="2.5" fill="#64796e">EMBODIED AI · KNOWLEDGE MAP</text>
-  <text x="42" y="87" font-size="28" font-weight="750" fill="#203b37">先看完整系统，再进入一条学习主线</text>
-  <g font-size="15" fill="#68766f">
-    <circle cx="811" cy="52" r="5" fill="#8ab7ac"/><text x="823" y="57">闭环部件</text>
-    <circle cx="929" cy="52" r="5" fill="#b3a4ce"/><text x="941" y="57">学习与模型</text>
-    <circle cx="1047" cy="52" r="5" fill="#d3b38a"/><text x="1059" y="57">共同支撑</text>
-  </g>
-
-  <!-- Parent branches express membership, without directional arrows. -->
-  <g class="branch" stroke="#cad5cf">
-    <path d="M455 469 H435 M435 200 V740 M410 200 H435 M410 380 H435 M410 560 H435 M410 740 H435"/>
-    <path d="M745 469 H765 M765 200 V740 M765 200 H790 M765 380 H790 M765 560 H790 M765 740 H790"/>
-  </g>
-
-  <!-- Shared foundations. -->
-  <g transform="translate(40 130)">
-    <rect class="card" width="370" height="140" rx="15"/>
-    <rect x="18" y="19" width="30" height="30" rx="9" fill="#f5ecdf"/>
-    <text class="number" x="33" y="40" text-anchor="middle" fill="#916730">01</text>
-    <text class="heading" x="61" y="42">数学与计算基础</text>
-    <path class="branch ochre" d="M33 60 V112 M33 80 H51 M33 110 H51"/>
-    <text class="detail" x="62" y="86">线性代数 · 概率 · 优化</text>
-    <text class="detail" x="62" y="116">机器学习 · 数值计算</text>
-  </g>
-
-  <!-- Physical loop components. -->
-  <g transform="translate(40 310)">
-    <rect class="card" width="370" height="140" rx="15"/>
-    <rect x="18" y="19" width="30" height="30" rx="9" fill="#e5f1eb"/>
-    <text class="number" x="33" y="40" text-anchor="middle" fill="#307667">02</text>
-    <text class="heading" x="61" y="42">身体与控制</text>
-    <path class="branch teal" d="M33 60 V112 M33 80 H51 M33 110 H51"/>
-    <text class="detail" x="62" y="86">机构 · 传感器 · 执行器</text>
-    <text class="detail" x="62" y="116">运动学 · 动力学 · 反馈控制</text>
-  </g>
-  <g transform="translate(40 490)">
-    <rect class="card" width="370" height="140" rx="15"/>
-    <rect x="18" y="19" width="30" height="30" rx="9" fill="#e5f1eb"/>
-    <text class="number" x="33" y="40" text-anchor="middle" fill="#307667">03</text>
-    <text class="heading" x="61" y="42">感知与状态估计</text>
-    <path class="branch teal" d="M33 60 V112 M33 80 H51 M33 110 H51"/>
-    <text class="detail" x="62" y="86">视觉 · 深度 · 触觉 · 本体感觉</text>
-    <text class="detail" x="62" y="116">定位 · 建图 · 状态融合</text>
-  </g>
-  <g transform="translate(40 670)">
-    <rect class="card" width="370" height="140" rx="15"/>
-    <rect x="18" y="19" width="30" height="30" rx="9" fill="#e5f1eb"/>
-    <text class="number" x="33" y="40" text-anchor="middle" fill="#307667">04</text>
-    <text class="heading" x="61" y="42">任务与运动规划</text>
-    <path class="branch teal" d="M33 60 V112 M33 80 H51 M33 110 H51"/>
-    <text class="detail" x="62" y="86">任务分解 · 技能选择</text>
-    <text class="detail" x="62" y="116">路径 · 轨迹 · 碰撞约束</text>
-  </g>
-
-  <!-- Learning and representation methods. -->
-  <g transform="translate(790 130)">
-    <rect width="370" height="140" rx="15" fill="#fcfaff" stroke="#b9a4d8" stroke-width="2"/>
-    <rect x="18" y="19" width="30" height="30" rx="9" fill="#ece5f5"/>
-    <text class="number" x="33" y="40" text-anchor="middle" fill="#73528d">05</text>
-    <text class="heading" x="61" y="42">策略学习</text>
-    <rect x="207" y="22" width="145" height="26" rx="13" fill="#72568d"/>
-    <text x="279" y="40" text-anchor="middle" font-size="14" font-weight="650" fill="#fff">RL 是本站主线</text>
-    <path class="branch purple" d="M33 60 V112 M33 80 H51 M33 110 H51"/>
-    <text class="detail" x="62" y="86">模仿学习 · <tspan font-weight="750" fill="#72528d">强化学习</tspan></text>
-    <text class="detail" x="62" y="116">离线学习 · 在线适应</text>
-  </g>
-  <g transform="translate(790 310)">
-    <rect class="card" width="370" height="140" rx="15"/>
-    <rect x="18" y="19" width="30" height="30" rx="9" fill="#f5ecdf"/>
-    <text class="number" x="33" y="40" text-anchor="middle" fill="#916730">06</text>
-    <text class="heading" x="61" y="42">数据、仿真与迁移</text>
-    <path class="branch ochre" d="M33 60 V112 M33 80 H51 M33 110 H51"/>
-    <text class="detail" x="62" y="86">示范 · 交互 · 数据质量</text>
-    <text class="detail" x="62" y="116">仿真 · 系统辨识 · Sim2Real</text>
-  </g>
-  <g transform="translate(790 490)">
-    <rect class="card" width="370" height="140" rx="15"/>
-    <rect x="18" y="19" width="30" height="30" rx="9" fill="#ece5f5"/>
-    <text class="number" x="33" y="40" text-anchor="middle" fill="#73528d">07</text>
-    <text class="heading" x="61" y="42">基础模型与世界模型</text>
-    <path class="branch purple" d="M33 60 V112 M33 80 H51 M33 110 H51"/>
-    <text class="detail" x="62" y="86">VLM / VLA · 语言条件策略</text>
-    <text class="detail" x="62" y="116">动作条件预测 · 模型规划</text>
-  </g>
-  <g transform="translate(790 670)">
-    <rect class="card" width="370" height="140" rx="15"/>
-    <rect x="18" y="19" width="30" height="30" rx="9" fill="#f5ecdf"/>
-    <text class="number" x="33" y="40" text-anchor="middle" fill="#916730">08</text>
-    <text class="heading" x="61" y="42">系统、评测与安全</text>
-    <path class="branch ochre" d="M33 60 V112 M33 80 H51 M33 110 H51"/>
-    <text class="detail" x="62" y="86">实时接口 · 部署 · 监测</text>
-    <text class="detail" x="62" y="116">泛化 · 成功率 · 约束 · 恢复</text>
-  </g>
-
+  <!-- Runtime relationships are the only directional connections in this map. -->
+  <text x="42" y="130" class="section">01 / 执行闭环</text>
+  <text x="1158" y="130" text-anchor="end" class="detail">运行时，各部分如何协作</text>
   <g>
-    <rect x="455" y="390" width="290" height="158" rx="23" fill="#24594d"/>
-    <text x="600" y="431" text-anchor="middle" font-size="13" letter-spacing="2.5" fill="#bcd8cb">BODY × WORLD × INTELLIGENCE</text>
-    <text x="600" y="478" text-anchor="middle" font-size="35" font-weight="750" fill="#fff">具身智能</text>
-    <text x="600" y="512" text-anchor="middle" font-size="18" fill="#e3eee8">在物理世界中感知、决策与行动</text>
+    <rect x="42" y="154" width="260" height="110" fill="#ffffff" stroke="#d8dcd1"/>
+    <rect x="42" y="154" width="3" height="110" fill="#242720"/>
+    <text x="64" y="195" class="label">感知与状态估计</text>
+    <text x="64" y="232" class="detail">观测 · 定位 · 记忆与融合</text>
+
+    <rect x="327" y="154" width="260" height="110" fill="#ffffff" stroke="#d8dcd1"/>
+    <text x="349" y="195" class="label">决策与规划</text>
+    <text x="349" y="232" class="detail">目标分解 · 技能 · 路径</text>
+
+    <rect x="612" y="154" width="260" height="110" fill="#ffffff" stroke="#d8dcd1"/>
+    <text x="634" y="195" class="label">运动与控制</text>
+    <text x="634" y="232" class="detail">轨迹跟踪 · 力与动作执行</text>
+
+    <rect x="897" y="154" width="260" height="110" fill="#e9eddf" stroke="#cbd2bd"/>
+    <text x="919" y="195" class="label">环境反馈</text>
+    <text x="919" y="232" class="detail">物体变化 · 接触 · 新观测</text>
   </g>
-  <text x="600" y="859" text-anchor="middle" font-size="17" fill="#6b7d72">连线表示知识归属；各分支相互交叉，系统、评测与安全贯穿全程。</text>
+  <g class="flow" marker-end="url(#flow-arrow)">
+    <path d="M302 209 H327"/>
+    <path d="M587 209 H612"/>
+    <path d="M872 209 H897"/>
+    <path d="M1027 264 V297 H172 V264"/>
+  </g>
+  <text x="600" y="325" text-anchor="middle" class="detail">依据新的观测，持续修正行为</text>
+  <path class="rule" d="M42 349 H1158"/>
+
+  <!-- Learning paradigms and model families are separate, overlapping views. -->
+  <text x="42" y="387" class="section">02 / 学习与模型</text>
+  <text x="1158" y="387" text-anchor="end" class="detail">可用于闭环中的多个模块</text>
+  <g>
+    <path d="M42 412 H582 M618 412 H1158" stroke="#242720" stroke-width="1.5"/>
+    <text x="62" y="447" font-size="22" font-weight="650">学习方法</text>
+    <text x="176" y="447" class="detail">用什么信号获得能力</text>
+    <rect x="62" y="469" width="153" height="34" fill="#c9df75"/>
+    <text x="73" y="493" font-size="19" font-weight="650">强化学习 / RL</text>
+    <text x="257" y="493" font-size="20" font-weight="600">模仿学习</text>
+    <text x="437" y="493" font-size="20" font-weight="600">表征学习</text>
+    <text x="62" y="533" class="detail">本站主线</text>
+    <text x="257" y="533" class="detail">从示范学习</text>
+    <text x="437" y="533" class="detail">学习有效特征</text>
+
+    <text x="638" y="447" font-size="22" font-weight="650">模型专题</text>
+    <text x="752" y="447" class="detail">怎样组织信息与预测后果</text>
+    <text x="638" y="493" font-size="20" font-weight="600">VLM</text>
+    <text x="818" y="493" font-size="20" font-weight="600">VLA</text>
+    <text x="998" y="493" font-size="20" font-weight="600">世界模型</text>
+    <text x="638" y="533" class="detail">视觉与语言</text>
+    <text x="818" y="533" class="detail">条件到动作</text>
+    <text x="998" y="533" class="detail">行动后果预测</text>
+  </g>
+  <path class="rule" d="M42 558 H1158"/>
+
+  <!-- Shared foundations support the entire system rather than a single stage. -->
+  <text x="42" y="599" class="section">03 / 共同基础与工程验证</text>
+  <text x="1158" y="599" text-anchor="end" class="detail">让方法可实现，让结果可检查</text>
+  <rect x="42" y="623" width="1116" height="89" fill="#e9ebe4"/>
+  <path d="M414 640 V695 M786 640 V695" stroke="#cbd0c2"/>
+  <text x="64" y="657" font-size="20" font-weight="650">数理与机器人学</text>
+  <text x="64" y="689" class="detail">概率 · 优化 · 运动学 · 动力学</text>
+  <text x="436" y="657" font-size="20" font-weight="650">数据与系统</text>
+  <text x="436" y="689" class="detail">采集 · 仿真 · 标定 · 实时接口</text>
+  <text x="808" y="657" font-size="20" font-weight="650">评测与迁移</text>
+  <text x="808" y="689" class="detail">泛化 · 安全 · 恢复 · Sim2Real</text>
+  <path d="M42 741 H67" class="flow" marker-end="url(#flow-arrow)"/>
+  <text x="78" y="747" font-size="15" class="muted">实线箭头表示执行与反馈；学习、模型与共同基础不构成串行步骤。</text>
 </svg>

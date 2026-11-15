@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  {% if page and page.meta.page_kind != "landing" %}
+  <nav class="reading-pagination md-grid" aria-label="继续阅读">
+    {% if page.previous_page %}<a href="{{ page.previous_page.url | url }}"><small>← 上一篇</small><span>{{ page.previous_page.title }}</span></a>{% else %}<span></span>{% endif %}
+    {% if page.next_page %}<a class="reading-next" href="{{ page.next_page.url | url }}"><small>下一篇 →</small><span>{{ page.next_page.title }}</span></a>{% endif %}
+  </nav>
+  {% endif %}
+  <div class="footer-inner md-grid">
+    <div><strong>具身智能笔记</strong><p>理解机制，连接系统，用实验核对。</p></div>
+    <nav aria-label="站点资源"><a href="{{ 'roadmap/' | url }}">学习路线</a><a href="{{ 'references/' | url }}">参考资料</a><a href="{{ 'project/writing/' | url }}">关于笔记</a><a href="{{ config.repo_url }}">GitHub ↗</a></nav>
+    <small>© 2026 · 原创笔记与代码采用 MIT 许可</small>
+  </div>
+</footer>

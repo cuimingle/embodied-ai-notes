@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="560" viewBox="0 0 600 560" fill="#242720" role="img" aria-labelledby="system-title system-desc">
+  <title id="system-title">感知、决策与行动组成的机器人闭环</title>
+  <desc id="system-desc">工程线图展示机械臂、关节、夹爪、相机和待抓取物体。上方的感知、决策、行动与环境反馈组成闭环。这是一幅概念示意图，不表示实际运行的机器人实验。</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', sans-serif; }
+      .mono { font-family: 'SFMono-Regular', Consolas, monospace; }
+      .line { fill: none; stroke: #242720; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .guide { fill: none; stroke: #b3b9a9; stroke-width: 1; }
+      .surface { fill: #f5f5f0; stroke: #242720; stroke-width: 1.8; stroke-linejoin: round; }
+    </style>
+    <marker id="system-arrow" viewBox="0 0 6 6" refX="5.5" refY="3" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 L6 3 L0 6" fill="none" stroke="#7b846d" stroke-width="1"/>
+    </marker>
+    <pattern id="system-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0 H0 V36" fill="none" stroke="#daddd2" stroke-width=".6"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="560" fill="#f5f5f0"/>
+  <rect x="26" y="144" width="548" height="360" fill="url(#system-grid)" opacity=".48"/>
+  <text x="28" y="30" class="mono" font-size="11" fill="#85897e" letter-spacing="1.8">THE EMBODIED LOOP</text>
+  <text x="572" y="30" text-anchor="end" class="mono" font-size="11" fill="#85897e">FIG. 01</text>
+
+  <!-- The top circuit expresses the conceptual feedback loop. -->
+  <g font-size="18" font-weight="600">
+    <text x="46" y="76"><tspan class="mono" font-size="12" fill="#78836b">01 </tspan>感知</text>
+    <text x="249" y="76"><tspan class="mono" font-size="12" fill="#78836b">02 </tspan>决策</text>
+    <text x="452" y="76"><tspan class="mono" font-size="12" fill="#78836b">03 </tspan>行动</text>
+  </g>
+  <g fill="none" stroke="#8e9780" stroke-width="1" marker-end="url(#system-arrow)">
+    <path d="M127 70 H230"/>
+    <path d="M330 70 H433"/>
+    <path d="M493 86 V107 H87 V86"/>
+  </g>
+  <text x="290" y="131" text-anchor="middle" font-size="11" fill="#85897e">环境反馈</text>
+
+  <!-- The light plane and axes locate the robot in a physical workspace. -->
+  <path d="M45 424 L305 520 L571 413 L311 317 Z" fill="#ecefe3" stroke="#cbd1bf" stroke-width="1"/>
+  <path class="guide" d="M109 448 L375 341 M175 472 L441 365 M240 496 L506 389 M112 397 L372 493 M178 370 L438 466 M245 344 L505 439" opacity=".65"/>
+  <path d="M74 446 L126 465 M74 446 L116 426 M74 446 V404" fill="none" stroke="#7b846d" stroke-width="1" marker-end="url(#system-arrow)"/>
+  <g class="mono" font-size="10" fill="#85897e">
+    <text x="130" y="471">x</text><text x="120" y="425">y</text><text x="68" y="398">z</text>
+  </g>
+
+  <!-- A fixed camera provides a schematic field of view. -->
+  <path d="M104 217 V308" class="guide"/>
+  <path d="M91 308 H118" class="guide"/>
+  <rect x="78" y="180" width="52" height="37" rx="3" class="surface"/>
+  <path d="M130 188 L145 193 V206 L130 210 Z" class="surface"/>
+  <circle cx="93" cy="191" r="3" fill="#c9df75" stroke="#7b846d" stroke-width="1"/>
+  <path d="M145 194 L455 348 M145 206 L417 403" fill="none" stroke="#9ba78a" stroke-width="1" stroke-dasharray="4 6"/>
+  <text x="77" y="168" font-size="11" fill="#85897e">观测</text>
+
+  <!-- A simplified articulated arm; outlines describe structure, not measured data. -->
+  <path d="M123 395 L164 379 L199 393 L157 410 Z" class="surface"/>
+  <path d="M123 395 V412 L157 426 L199 410 V393 M157 410 V426" class="line"/>
+  <path d="M141 393 V355 Q157 345 174 355 V393 Q157 403 141 393 Z" class="surface"/>
+  <path d="M138 350 L222 191 L259 211 L177 371 Z" class="surface"/>
+  <path d="M231 183 L418 250 L405 285 L219 218 Z" class="surface"/>
+  <path d="M398 260 L427 249 L455 312 L427 325 Z" class="surface"/>
+  <path d="M157 359 L240 202 L410 268 L441 317" fill="none" stroke="#9ea794" stroke-width="1" stroke-dasharray="4 5"/>
+  <circle cx="157" cy="359" r="27" class="surface"/>
+  <circle cx="157" cy="359" r="11" fill="#c9df75" stroke="#242720" stroke-width="1.4"/>
+  <circle cx="240" cy="202" r="27" class="surface"/>
+  <circle cx="240" cy="202" r="12" fill="#c9df75" stroke="#242720" stroke-width="1.4"/>
+  <circle cx="410" cy="268" r="21" class="surface"/>
+  <circle cx="410" cy="268" r="8" fill="#c9df75" stroke="#242720" stroke-width="1.4"/>
+  <circle cx="441" cy="317" r="13" class="surface"/>
+  <circle cx="441" cy="317" r="4" fill="#242720"/>
+  <path d="M441 330 V342 M420 342 H462 M420 342 V364 L427 370 M462 342 V364 L455 370" class="line"/>
+  <path d="M427 354 V365 M455 354 V365" class="guide"/>
+  <path d="M441 337 H481 M441 337 V300" fill="none" stroke="#7b846d" stroke-width="1" marker-end="url(#system-arrow)"/>
+  <text x="485" y="340" class="mono" font-size="10" fill="#7b846d">x</text>
+  <text x="437" y="294" class="mono" font-size="10" fill="#7b846d">z</text>
+
+  <!-- The target object remains separate from the open gripper. -->
+  <path d="M422 390 L449 378 L476 389 L449 402 Z" fill="#c9df75" stroke="#242720" stroke-width="1.5"/>
+  <path d="M422 390 V419 L449 431 V402 Z" fill="#dce8b7" stroke="#242720" stroke-width="1.5"/>
+  <path d="M449 402 L476 389 V418 L449 431 Z" fill="#b8cb83" stroke="#242720" stroke-width="1.5"/>
+  <path d="M491 404 H529" class="guide"/>
+  <text x="532" y="408" font-size="11" fill="#85897e">目标</text>
+  <path d="M264 175 L280 156 H322" class="guide"/>
+  <text x="326" y="160" font-size="11" fill="#85897e">关节与身体</text>
+
+  <path d="M28 533 H572" stroke="#d8dcd1" stroke-width="1"/>
+  <text x="28" y="551" font-size="11" fill="#85897e">身体与环境之间，持续发生的反馈。</text>
+  <text x="572" y="551" text-anchor="end" class="mono" font-size="10" fill="#85897e">CONCEPTUAL DIAGRAM</text>
+</svg>

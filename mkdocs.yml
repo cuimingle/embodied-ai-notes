@@ -8,6 +8,7 @@ site_author: Embodied AI Notes contributors
 copyright: Copyright © 2026 Embodied AI Notes contributors · MIT License
 theme:
   name: material
+  custom_dir: overrides
   language: zh
   font: false
   icon:
@@ -22,14 +23,14 @@ theme:
     - content.code.copy
   palette:
     - scheme: default
-      primary: teal
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
         name: 切换深色模式
     - scheme: slate
-      primary: teal
-      accent: teal
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-sunny
         name: 切换浅色模式
@@ -51,6 +52,7 @@ extra_css:
   - assets/stylesheets/extra.css
   - assets/stylesheets/rl-demos.css
 extra_javascript:
+  - assets/javascripts/site-ui.js
   - assets/javascripts/mathjax.js
   - assets/vendor/mathjax/3.2.2/tex-svg-full.js
   - assets/javascripts/rl-core.js
@@ -66,17 +68,14 @@ validation:
     unrecognized_links: warn
     anchors: warn
 nav:
-  - 开始:
-      - 首页: index.md
-      - 路线与进度: roadmap.md
-      - 参考资料: references.md
-  - 建立全貌: embodied-ai-overview.md
+  - 首页: index.md
+  - 知识全貌: embodied-ai-overview.md
   - 强化学习:
-      - 知识地图: rl/index.md
+      - 主线导览: rl/index.md
       - 教材与页码对照: rl/reading-guide.md
       - 符号体系: rl/notation.md
       - 01 · 基本概念: rl/01-basic-concepts.md
-      - 02 · 状态价值与 Bellman 方程: rl/02-bellman-equation.md
+      - 02 · Bellman 方程: rl/02-bellman-equation.md
       - 03 · Bellman 最优方程: rl/03-bellman-optimality.md
       - 04 · 价值迭代与策略迭代: rl/04-value-policy-iteration.md
       - 05 · Monte Carlo: rl/05-monte-carlo.md
@@ -85,16 +84,18 @@ nav:
       - 08 · 价值函数方法: rl/08-value-function-methods.md
       - 09 · 策略梯度: rl/09-policy-gradient.md
       - 10 · Actor-Critic: rl/10-actor-critic.md
-      - 走向具身任务: rl/to-embodied.md
-  - 书外扩展:
-      - 阅读说明: extensions/index.md
+  - 实验室:
+      - 教材动画与代码: labs/textbook.md
+      - 补充 · 4×4 GridWorld: labs/gridworld.md
+  - 进阶专题:
+      - 书外扩展导览: extensions/index.md
       - TRPO: extensions/trpo.md
       - PPO 与 GAE: extensions/ppo.md
       - GRPO: extensions/grpo.md
       - GSPO: extensions/gspo.md
-  - 实验:
-      - 教材动画与代码: labs/textbook.md
-      - 补充 · 4×4 GridWorld: labs/gridworld.md
-  - 维护:
+      - 从 RL 到具身任务: rl/to-embodied.md
+  - 阅读指南:
+      - 学习路线与进度: roadmap.md
+      - 参考资料: references.md
       - 写作规范: project/writing.md
       - 本地预览与发布: project/publishing.md
