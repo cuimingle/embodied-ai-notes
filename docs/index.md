@@ -5,14 +5,14 @@ hide:
 
 <div class="hero" markdown>
 
-<span class="eyebrow">EMBODIED AI NOTES / 001 · REINFORCEMENT LEARNING</span>
+<span class="eyebrow">EMBODIED AI NOTES / 从全貌到主线</span>
 
-# 从理解奖励，<br>到学会行动。
+# 先看清全貌，<br>再深入行动。
 
-用强化学习整理决策的基础，沿着控制、数据和策略学习，逐步走向具身智能。
+用一张脑图连接身体、感知、规划、控制与学习，再沿强化学习主线深入理解决策。
 
-[进入强化学习](rl/index.md){ .md-button .md-button--primary }
-[运行第一个实验](rl/01-basic-concepts.md){ .md-button }
+[建立具身智能全貌](embodied-ai-overview.md){ .md-button .md-button--primary }
+[进入强化学习](rl/index.md){ .md-button }
 
 <span class="hero-note">中文知识梳理 · 最小可运行实验 · 持续修订</span>
 
@@ -26,17 +26,17 @@ hide:
 
 <div class="grid cards" markdown>
 
-- **01 / 建立知识地图**
+- **01 / 建立具身智能全貌**
 
-    从 MDP 到策略优化，明确每个方法改变了什么、依赖什么。
+    从脑图看清八个知识方向，理解机器人闭环，以及 RL 在其中的位置。
 
-    [浏览强化学习主线 →](rl/index.md)
+    [阅读知识体系总览 →](embodied-ai-overview.md)
 
-- **02 / 用代码核对理解**
+- **02 / 深入强化学习主线**
 
-    按指定教材的规则，比较已知模型的规划与通过样本学习。
+    从 MDP 到策略优化，配合教材伴读与数值实验，核对概念和更新规则。
 
-    [查看 20 个动画与代码实验 →](labs/textbook.md)
+    [浏览强化学习十章 →](rl/index.md) · [查看 20 个实验 →](labs/textbook.md)
 
 - **03 / 连接物理任务**
 
@@ -53,6 +53,8 @@ hide:
 </div>
 
 ## 当前版本能读到什么
+
+在 RL 之前，先读[具身智能知识体系总览](embodied-ai-overview.md)：用脑图认识整体结构，再用一个操作任务理解各分支之间的关系。
 
 主线严格按赵世钰《Mathematical Foundations of Reinforcement Learning》2024 年 9 月版的 10 章编排，配有统一符号、原书页码与 16 个交互实验。TRPO、PPO、GRPO、GSPO 单列为书外扩展，另有 4 个目标函数实验。Python 配套代码只依赖标准库。
 

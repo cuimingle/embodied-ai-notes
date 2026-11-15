@@ -1,5 +1,7 @@
 # 强化学习：按指定教材建立主线
 
+初次进入本站，可以先读[具身智能知识体系总览](../embodied-ai-overview.md)，理解 RL 在感知、规划、控制与学习之间的位置，再沿本页深入决策的数学基础。
+
 以赵世钰《Mathematical Foundations of Reinforcement Learning》2024 年 9 月版为准，统一符号、公式设定与 10 章递进关系。先读[符号体系](notation.md)，再按章学习；需要回查原书时使用[章节与页码对照](reading-guide.md)。
 
 ## 十章主线

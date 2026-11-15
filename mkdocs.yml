@@ -1,5 +1,5 @@
 site_name: 具身智能学习笔记
-site_description: 从强化学习出发，理解机器人如何感知、决策与行动。
+site_description: 先建立具身智能知识全貌，再沿强化学习主线理解机器人如何感知、决策与行动。
 site_url: !ENV [SITE_URL, 'https://cuimingle.github.io/embodied-ai-notes/']
 repo_url: https://github.com/cuimingle/embodied-ai-notes
 repo_name: cuimingle/embodied-ai-notes
@@ -70,6 +70,7 @@ nav:
       - 首页: index.md
       - 路线与进度: roadmap.md
       - 参考资料: references.md
+  - 建立全貌: embodied-ai-overview.md
   - 强化学习:
       - 知识地图: rl/index.md
       - 教材与页码对照: rl/reading-guide.md

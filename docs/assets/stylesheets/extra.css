@@ -25,7 +25,30 @@
 .hero-note { display: block; margin-top: 1.2rem; font-size: .7rem; color: var(--md-default-fg-color--light); }
 .md-typeset .grid.cards > ul > li { border-radius: .65rem; padding: 1.2rem; }
 .md-typeset table:not([class]) { font-size: .72rem; }
+.knowledge-map {
+  margin: 1.2rem 0 .5rem;
+  overflow-x: auto;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .8rem;
+  background: #faf9f5;
+}
+.knowledge-map:focus-visible { outline: 2px solid var(--md-primary-fg-color); outline-offset: 3px; }
+.md-typeset .knowledge-map p { margin: 0; }
+.md-typeset .knowledge-map img { display: block; width: 100%; min-width: 920px; max-width: none; }
+.md-typeset .knowledge-map-caption { margin-top: .4rem; color: var(--md-default-fg-color--light); font-size: .7rem; }
+.md-typeset .knowledge-index ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .45rem 1rem;
+  margin: 1.2rem 0 1.8rem;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--md-primary-fg-color);
+  background: var(--md-code-bg-color);
+  list-style: none;
+}
+.md-typeset .knowledge-index li { margin: 0; font-size: .8rem; }
 @media (max-width: 600px) {
   .eyebrow { letter-spacing: .04em; font-size: .55rem; }
   .hero .md-button { display: block; text-align: center; }
+  .md-typeset .knowledge-index ul { grid-template-columns: 1fr; }
 }
