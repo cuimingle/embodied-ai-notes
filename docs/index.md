@@ -132,6 +132,8 @@ hide:
 
 <div class="explore-list" markdown>
 
+[<span class="explore-label">具身数据</span><strong>从采集方式到训练用途</strong><span>遥操、UMI、EGO、人体交互、第三视角与仿真。</span><b aria-hidden="true">↗</b>](data/index.md)
+
 [<span class="explore-label">进阶专题</span><strong>从 Actor-Critic 继续</strong><span>TRPO、PPO、GRPO、GSPO，单列为书外扩展。</span><b aria-hidden="true">↗</b>](extensions/index.md)
 
 [<span class="explore-label">连接机器人</span><strong>从 RL 到具身任务</strong><span>让观测、动作、控制接口与评测有具体含义。</span><b aria-hidden="true">↗</b>](rl/to-embodied.md)

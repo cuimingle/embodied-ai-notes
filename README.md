@@ -2,9 +2,11 @@
 
 **先建立具身智能全貌，再沿强化学习主线理解机器人如何感知、决策与行动。**
 
-[在线阅读](https://cuimingle.github.io/embodied-ai-notes/) · [具身智能知识脑图](docs/embodied-ai-overview.md) · [教材阅读对照](docs/rl/reading-guide.md) · [动画与代码](docs/labs/textbook.md)
+[在线阅读](https://cuimingle.github.io/embodied-ai-notes/) · [具身智能知识脑图](docs/embodied-ai-overview.md) · [具身数据地图](docs/data/index.md) · [教材阅读对照](docs/rl/reading-guide.md) · [动画与代码](docs/labs/textbook.md)
 
 从[建立全貌](docs/embodied-ai-overview.md)开始，从执行闭环、学习与模型、共同基础三个视角认识具身智能，再进入下方十章主线。脑图为随站点发布的 SVG，不依赖外部渲染服务。
+
+新增[数据专题](docs/data/index.md)：按遥操、UMI、EGO、HumanCentric、第三视角和仿真六类，整理采集流程、数据字段、具身定位、代表项目与使用边界。
 
 强化学习主线以 **Shiyu Zhao（赵世钰），《Mathematical Foundations of Reinforcement Learning》，2024 年 9 月版**为准。符号、公式设定与章节递进遵循指定版本；TRPO、PPO、GRPO、GSPO 单列为书外扩展。
 

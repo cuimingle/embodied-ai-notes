@@ -70,6 +70,14 @@ validation:
 nav:
   - 首页: index.md
   - 知识全貌: embodied-ai-overview.md
+  - 数据:
+      - 数据地图: data/index.md
+      - 遥操 · Teleoperation: data/teleoperation.md
+      - UMI · 手持交互: data/umi.md
+      - EGO · 第一视角: data/egocentric.md
+      - HumanCentric · 人体交互: data/human-centric.md
+      - 第三视角 · Exocentric: data/third-person.md
+      - 仿真 · Simulation: data/simulation.md
   - 强化学习:
       - 主线导览: rl/index.md
       - 教材与页码对照: rl/reading-guide.md

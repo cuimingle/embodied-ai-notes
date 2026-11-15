@@ -298,3 +298,33 @@ body { -webkit-font-smoothing: antialiased; }
 }
 
 @media (min-width: 60em) { .md-header__button[data-site-toggle="search"] { display: none; } }
+
+/* Data atlas: distinguish acquisition, supervision, and training purpose. */
+.md-typeset .data-meta { font-size: .62rem; color: var(--muted); margin-top: 1.1rem; }
+.data-compass { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.4rem 0; gap: 2rem; }
+.data-compass > div + div { border-left: 1px solid var(--line); padding-left: 1.4rem; }
+.data-compass p { font-size: .74rem; color: var(--muted); margin: .5rem 0 0; }
+.data-compass strong { color: var(--ink); font-size: 1rem; font-weight: 650; }
+.data-routes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 2.5rem; margin: 1.5rem 0 2.2rem; }
+.data-route { display: grid; grid-template-columns: 1.8rem 1fr; gap: .6rem; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.data-route-number { font: .7rem var(--md-code-font); color: var(--muted); padding-top: .2rem; }
+.data-kind { display: block; font-size: .6rem; color: var(--muted); letter-spacing: .035em; }
+.md-typeset .data-route h3 { font-size: 1.12rem; margin: .55rem 0 .7rem; }
+.data-route h3 a { color: var(--ink); }
+.data-route h3 a:hover { color: var(--md-typeset-a-color); }
+.data-route p { font-size: .76rem; color: var(--muted); margin: 0; }
+.data-route .data-examples { display: block; margin-top: .8rem; font-size: .61rem; line-height: 1.7; color: var(--ink); }
+@media (max-width: 700px) {
+  .data-compass { grid-template-columns: 1fr; gap: 1rem; }
+  .data-compass > div + div { border-left: 0; border-top: 1px solid var(--line); padding: 1rem 0 0; }
+  .data-routes { grid-template-columns: 1fr; }
+  .data-route { padding: 1.2rem 0; }
+  .md-typeset .data-route h3 { font-size: 1.05rem; }
+}
+
+/* Keep comparison columns readable on narrow screens. */
+.data-table-hint { display: none; }
+@media (max-width: 700px) {
+  .md-typeset .data-table-hint { display: block; color: var(--muted); font-size: .6rem; margin: 1rem 0 .35rem; }
+  .md-typeset .data-table table:not([class]) { min-width: 40rem; }
+}

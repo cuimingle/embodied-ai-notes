@@ -189,6 +189,8 @@ VLA 并不等于某一种训练算法，世界模型也不固定属于高层决�
 
 仿真提供可重复的环境。系统辨识、域随机化和适应方法用于处理模型与部署环境的差异，迁移效果仍需目标环境的测试证据。
 
+沿[具身数据地图](data/index.md)，可以继续比较遥操、UMI、EGO、HumanCentric、第三视角和仿真数据的采集与训练用途。
+
 数据划分应区分新物体、新场景与新任务。[Open X-Embodiment](https://robotics-transformer-x.github.io/)提供跨机器人数据与策略研究的入口。
 
 </article>
