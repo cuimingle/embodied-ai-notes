@@ -15,45 +15,61 @@ hide:
 
 机器人怎样获得经验？不同数据记录了不同层面的世界：有的告诉模型“发生了什么”，有的描述“人怎样运动”，有的进一步给出“机器人应该执行什么动作”。
 
-本专题按 **遥操、UMI、EGO、HumanCentric、第三视角、仿真** 六个入口整理。每一类都回答三个问题：怎样采集、实际提供什么、在具身学习中负责哪一部分。先看采集示意，再进入分类笔记播放官方演示。
+本专题按 **遥操、UMI、EGO、HumanCentric、第三视角、仿真** 六个入口整理。每一类都回答三个问题：怎样采集、实际提供什么、在具身学习中负责哪一部分。先用关系图建立全貌，再看采集示意与各类官方演示。
 
 <p class="data-meta">资料核验：2026-11-15 · 以论文、官方项目页与数据文档为依据 · 代表性项目整理，非全量清单</p>
 
 </div>
 
-<div class="data-compass" markdown>
+## 从语义到行动接口：先看数据之间的关系 {#data-pyramid}
+
+同样是“拿起杯子”，互联网图文描述杯子的概念，人类视频记录操作过程，几何数据描述手与物体的运动，工具示范和机器人日志进一步提供动作接口所需的信息。下图用这个视角连接现有的六类数据。
+
+<figure class="data-pyramid" markdown>
+
+[![具身数据分层图：从下到上为世界知识与语义、人类行为与过程、人体与交互几何、UMI 工具动作示范、机器人执行记录。仿真在侧栏提供观测、几何、动作与任务反馈。同一数据可跨层，层宽和高度不表示规模、价值或成本。](../assets/diagrams/data-pyramid.png)](../assets/diagrams/data-pyramid.png)
+
+<figcaption>点击图片查看大图。图内设备与场景为生成示意，并非具体项目的硬件照片或实际数据样本。</figcaption>
+
+</figure>
+
+<div class="data-compass pyramid-reading" markdown>
 
 <div markdown>
 
-<span class="section-number">01 / ACQUISITION</span>
+<span class="section-number">01 / UNDERSTAND</span>
 
-**怎样获得**
+**语义与行为**
 
-真人控制机器人、手持工具、可穿戴相机、动作捕捉，或在仿真中生成。
-
-</div>
-
-<div markdown>
-
-<span class="section-number">02 / SUPERVISION</span>
-
-**真正记录了什么**
-
-视频、语言、人体姿态、物体状态、机器人动作、奖励与任务结果。
+互联网图文提供对象与常识；[EGO](egocentric.md) 和[第三视角](third-person.md)帮助理解人怎样完成任务。观察视角本身不决定有没有动作标签。
 
 </div>
 
 <div markdown>
 
-<span class="section-number">03 / ROLE</span>
+<span class="section-number">02 / STRUCTURE</span>
 
-**支持什么能力**
+**几何与工具动作**
 
-理解与表征、动作先验、策略模仿、交互优化，或独立评测。
+[HumanCentric](human-centric.md) 关注人体、手与物体几何；[UMI](umi.md) 恢复工具轨迹与开合，可为策略学习提供动作监督，仍需核对目标机器人接口。
+
+</div>
+
+<div markdown>
+
+<span class="section-number">03 / EXECUTE</span>
+
+**执行与可控生成**
+
+[遥操](teleoperation.md)记录机器人执行时的观测、状态与命令；[仿真](simulation.md)能生成多种监督信号，因此单列在侧栏。
 
 </div>
 
 </div>
+
+<p class="pyramid-reading-note">读图口径：分层表示描述对象和接口差异，同一数据可以跨层或联合使用。层宽不代表数量，上下不代表价值、采集成本、训练先后或策略能力高低；奖励与任务结果仍以实际发布字段为准。</p>
+
+这一组织方式依据各项目提供的信号与接口，是本站的阅读视角：[UMI 的工具动作与策略学习](https://umi-gripper.github.io/)、[Open X-Embodiment 的动作语义说明](https://github.com/google-deepmind/open_x_embodiment)、[ManiSkill 的轨迹与观测格式](https://maniskill.readthedocs.io/en/latest/user_guide/datasets/demos.html)。
 
 ## 六种入口，不是六个互斥的桶
 

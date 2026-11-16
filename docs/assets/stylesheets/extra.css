@@ -351,3 +351,12 @@ body { -webkit-font-smoothing: antialiased; }
   .data-media > p:not(.data-media-label), .data-watch-notes { margin-left: .7rem; margin-right: .7rem; }
   .data-watch-notes { padding: .65rem; }
 }
+
+/* A sourced conceptual overview complements the collection-specific guides. */
+.md-typeset .data-pyramid { display: block; width: 100%; max-width: none; margin: 1.5rem 0; }
+.data-pyramid > p { margin: 0; }
+.data-pyramid a { display: block; cursor: zoom-in; }
+.data-pyramid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border: 1px solid var(--line); border-radius: .45rem; background: #f8f8f4; }
+.md-typeset .data-pyramid figcaption { margin: .7rem 0 0; max-width: none; text-align: left; font-style: normal; font-size: .65rem; color: var(--muted); }
+.md-typeset .pyramid-reading-note { padding: .85rem 1rem; background: var(--wash); border-left: 2px solid #9eb565; font-size: .72rem; color: var(--muted); }
+.pyramid-reading a { font-weight: 600; }

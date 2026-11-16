@@ -1,0 +1,50 @@
+Generation mode: built-in image_gen, with a user-supplied composition reference.
+Asset: docs/assets/diagrams/data-pyramid.png
+Purpose: conceptual learning diagram, not measured data or a quantitative ranking.
+Date: 2026-11-16
+
+Use case: scientific-educational infographic.
+Create a completely redrawn, polished Chinese educational infographic for an embodied AI knowledge website. The attached image is a COMPOSITION REFERENCE only: retain the useful stacked pyramid idea, but replace ALL text, visuals, ordering and colors as specified below. Do not reproduce its claims about value, scale, cost, or first-person superiority.
+Canvas: crisp high-resolution landscape 4:3 (prefer 2048x1536). Premium editorial design matching warm off-white #f8f8f4, charcoal #252922, restrained olive and sage greens, with a little cool blue at the base. Generous margins, precise typography, subtle three-dimensional material illustrations. No saturated rainbow, glossy sales styling, logos, or watermarks.
+Top heading exact: "具身数据：从语义到行动接口"
+Subtitle exact: "按监督信号理解用途，把不同来源的数据连接起来"
+Main left 70%: five separated tapered trapezoidal layers, broad bottom and narrower top, each comfortably wide enough for a clear large Chinese title, one category line, one short signal line, and a small accurate conceptual illustration. Flat readable text over a clean solid colored area; miniature 3D educational scenes occupy only the right third of each layer. Five layers numbered 01 to 05 from BOTTOM to TOP. Do not draw arrows between layers: these are perspectives, not required stages.
+TOP layer 05, sage/olive:
+"机器人执行记录"
+"真机遥操等"
+"观测 · 状态 · 控制命令"
+Illustration: robot arm with gripper manipulating a cup, a small sensor trace.
+Next layer 04, pale olive:
+"工具动作示范"
+"UMI"
+"工具轨迹 · 夹爪开合 · 视觉"
+Illustration: human hand holding a handheld gripper with mounted camera, grasping a cup; NO robot arm in this layer.
+Middle layer 03, pale khaki/sage:
+"人体与交互几何"
+"HumanCentric"
+"人体 · 手 · 物体姿态与接触"
+Illustration: neutral wireframe hand and object, contact points; no force arrow.
+Next layer 02, light gray sage:
+"人类行为与过程"
+"EGO / 第三视角"
+"动作语义 · 步骤 · 时序"
+Illustration: two equal small views of the SAME human manipulation, one head-camera first-person with hands, one external camera seeing the person; neither view is ranked above the other.
+BOTTOM layer 01, muted pale blue:
+"世界知识与语义"
+"互联网图文 / 视频"
+"对象 · 概念 · 常识"
+Illustration: clean image/document/video tiles and simple objects.
+Right 25%: a distinct tall rounded sidebar, NOT a sixth pyramid layer. Header:
+"仿真"
+"可生成多种监督的环境"
+A small simulated robot on a grid scene. Below list four clear rows with small icons:
+"渲染观测"
+"几何状态"
+"动作轨迹"
+"任务反馈"
+Footer inside sidebar: "需核对控制接口与仿真差异"
+Keep this sidebar visually separate; no connecting arrows implying simulation must precede real-world data.
+Bottom below all: two full-width readable footnote lines exactly:
+"同一数据可跨层；层宽不代表规模，上下不代表价值、成本或训练先后。"
+"示意图 · 非数据样本或实测统计"
+All Chinese text must be accurate and large enough to read. Do not add other labels, claims, cost/value scales, or comparative superlatives. Keep the full diagram uncropped.
