@@ -19,12 +19,14 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: requirements-docs.txt
-      - run: python -m pip install -r requirements-docs.txt
+          cache-dependency-path: |
+            requirements-docs.txt
+            requirements-simulation.txt
+      - run: python -m pip install -r requirements-docs.txt -r requirements-simulation.txt
       - run: python -m unittest discover -s tests -v
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node --test tests/test_textbook_browser.cjs
+      - run: node --test tests/test_*browser.cjs
       - run: python scripts/check_links.py
       - run: python -m mkdocs build --strict

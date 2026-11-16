@@ -8,6 +8,8 @@
 
 新增[数据专题](docs/data/index.md)：按遥操、UMI、EGO、HumanCentric、第三视角和仿真六类，整理采集流程、数据字段、具身定位、代表项目与使用边界。
 
+新增[仿真专题](docs/simulation/index.md)：从物理模型、接触和求解器到时间积分，配套浏览器振子与 MuJoCo 方块落地实验。先阅读[最小实践](docs/simulation/mujoco.md)，再查看[实验配置与结果](docs/labs/simulation-basics.md)。
+
 强化学习主线以 **Shiyu Zhao（赵世钰），《Mathematical Foundations of Reinforcement Learning》，2024 年 9 月版**为准。符号、公式设定与章节递进遵循指定版本；TRPO、PPO、GRPO、GSPO 单列为书外扩展。
 
 当前 v0.2 包含 10 章中文原创伴读、统一符号表、原书页码对照、16 个书内交互实验和 4 个扩展数学实验。动画执行真实的数值更新，支持播放、暂停、单步、参数调整与进度拖动；Python 配套代码仅使用标准库。内容不是逐页译文，机制小实验也不标记为完整训练复现。
@@ -76,6 +78,18 @@ python -m mkdocs build --strict
 ```
 
 Node.js 22 用于检查浏览器数值核，不是运行 Python 实验的依赖。公式和交互的修改还需在实际浏览器检查。
+
+仿真中的振子实验使用 Python 标准库。运行接触实验需额外安装固定版本的 MuJoCo；文档构建不需要它：
+
+```bash
+python -m pip install -r requirements-simulation.txt
+python -m examples.simulation.oscillator --output outputs/oscillator.json
+python -m examples.simulation.contact --sweep --output outputs/contact-sweep.json
+python -m unittest discover -s tests -p 'test_simulation.py' -v
+node --test tests/test_simulation_browser.cjs
+```
+
+MuJoCo 缺失时，单元测试会明确跳过接触检查；PR 的 CI 安装仿真依赖并实际运行。完整检查也可使用 `node --test tests/test_*browser.cjs` 覆盖两组浏览器数值核。
 
 ## 来源、贡献与许可
 
