@@ -1,0 +1,71 @@
+.simulation-widget {
+  --sim-exact: #746b88;
+  --sim-euler: #bd5719;
+  --sim-semi: var(--md-primary-fg-color);
+  margin: 1.4rem 0 1.8rem;
+  padding: 1.1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .6rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+}
+[data-md-color-scheme="slate"] .simulation-widget {
+  --sim-exact: #b6a9d1;
+  --sim-euler: #f2a16e;
+}
+.sim-eyebrow { color: var(--md-primary-fg-color); font: 600 .65rem var(--md-code-font); letter-spacing: .08em; }
+.md-typeset .sim-heading h3 { margin: .35rem 0; font-size: 1rem; font-weight: 650; }
+.md-typeset .sim-heading p { margin: .4rem 0 1rem; color: var(--md-default-fg-color--light); font-size: .72rem; }
+.sim-parameters { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1rem; font-size: .72rem; }
+.sim-parameters label { display: flex; align-items: center; gap: .5rem; }
+.sim-parameters select { padding: .35rem .55rem; border: 1px solid var(--md-default-fg-color--lighter); border-radius: .25rem; color: inherit; background: var(--md-default-bg-color); font: inherit; }
+.sim-duration { margin-left: auto; color: var(--md-default-fg-color--light); }
+.sim-chart { margin: .9rem 0 .5rem; }
+.sim-chart svg { display: block; width: 100%; height: auto; }
+.sim-chart text { fill: var(--md-default-fg-color); font-family: var(--md-text-font); }
+.sim-tick { font-size: 12px; font-variant-numeric: tabular-nums; }
+.sim-axis-label { font-size: 13px; }
+.sim-grid-line { stroke: var(--md-default-fg-color--lightest); stroke-width: 1; }
+.sim-exact { --sim-color: var(--sim-exact); }
+.sim-euler { --sim-color: var(--sim-euler); }
+.sim-semi { --sim-color: var(--sim-semi); }
+.sim-line { stroke: var(--sim-color); stroke-width: 2.5; }
+.sim-line.sim-exact { stroke-dasharray: 3 4; }
+.sim-line.sim-euler { stroke-dasharray: 8 4; }
+.sim-marker { fill: var(--sim-color); stroke: var(--md-default-bg-color); stroke-width: 1; }
+.md-typeset .simulation-widget .sim-legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: .4rem 0 .8rem; padding: 0; list-style: none; font-size: .72rem; }
+.md-typeset .sim-legend li { display: flex; align-items: center; gap: .4rem; margin: 0; }
+.sim-legend li::before { content: ""; width: .9rem; border-top: 3px solid var(--sim-color); }
+.sim-legend .sim-exact::before { border-top-style: dotted; }
+.sim-legend .sim-euler::before { border-top-style: dashed; }
+.sim-readings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; margin: .6rem 0 1rem; }
+.sim-reading { padding: .65rem; border: 1px solid var(--md-default-fg-color--lightest); border-top: 3px solid var(--sim-color); border-radius: .25rem; }
+.sim-reading > strong { font-size: .72rem; }
+.md-typeset .sim-reading dl { margin: .5rem 0 0; font-size: .65rem; }
+.sim-reading dl > div { display: flex; justify-content: space-between; gap: .4rem; margin: .25rem 0; }
+.md-typeset .sim-reading dt { margin: 0; color: var(--md-default-fg-color--light); font-weight: 400; }
+.md-typeset .sim-reading dd { margin: 0; font-variant-numeric: tabular-nums; }
+.sim-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+.simulation-widget button { padding: .4rem .75rem; border: 1px solid var(--md-primary-fg-color); border-radius: .25rem; color: var(--md-primary-fg-color); background: var(--md-default-bg-color); cursor: pointer; font: inherit; font-size: .73rem; }
+.simulation-widget button[data-action="play"] { color: var(--md-primary-bg-color); background: var(--md-primary-fg-color); }
+.simulation-widget button:disabled { opacity: .45; cursor: default; }
+.simulation-widget button:focus-visible, .simulation-widget select:focus-visible, .simulation-widget input:focus-visible { outline: 2px solid var(--md-accent-fg-color); outline-offset: 3px; }
+.sim-counter { margin-left: auto; font: .65rem var(--md-code-font); color: var(--md-default-fg-color--light); font-variant-numeric: tabular-nums; }
+.sim-progress-label { display: flex; align-items: center; gap: .7rem; margin: .8rem 0 0; font-size: .7rem; }
+.sim-progress { min-width: 0; flex: 1; accent-color: var(--md-primary-fg-color); }
+.md-typeset .sim-status { min-height: 2.8em; margin: .7rem 0; font-size: .7rem; }
+.md-typeset .sim-footnote { margin: .6rem 0 0; font-size: .68rem; color: var(--md-default-fg-color--light); }
+@media (max-width: 700px) {
+  .simulation-widget { padding: .75rem; }
+  .sim-readings { gap: .4rem; }
+  .sim-reading { padding: .45rem; }
+  .sim-reading > strong { display: block; min-height: 2.8em; }
+  .sim-reading dl > div { display: block; }
+  .md-typeset .sim-reading dd { margin-top: .1rem; }
+  .sim-duration { width: 100%; margin-left: 0; }
+  .sim-counter { width: 100%; margin: .35rem 0 0; }
+  .sim-tick, .sim-axis-label { font-size: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .simulation-widget *, .simulation-widget *::before { animation: none !important; transition: none !important; }
+}

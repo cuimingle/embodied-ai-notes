@@ -51,6 +51,7 @@ markdown_extensions:
 extra_css:
   - assets/stylesheets/extra.css
   - assets/stylesheets/rl-demos.css
+  - assets/stylesheets/simulation.css
 extra_javascript:
   - assets/javascripts/site-ui.js
   - assets/javascripts/mathjax.js
@@ -58,6 +59,7 @@ extra_javascript:
   - assets/javascripts/rl-core.js
   - assets/javascripts/rl-simulations.js
   - assets/javascripts/rl-widgets.js
+  - assets/javascripts/simulation-widgets.js
 hooks:
   - scripts/book_hooks.py
 validation:
@@ -77,7 +79,7 @@ nav:
       - EGO · 第一视角: data/egocentric.md
       - HumanCentric · 人体交互: data/human-centric.md
       - 第三视角 · Exocentric: data/third-person.md
-      - 仿真 · Simulation: data/simulation.md
+      - 仿真数据 · Simulation: data/simulation.md
   - 强化学习:
       - 主线导览: rl/index.md
       - 教材与页码对照: rl/reading-guide.md
@@ -92,8 +94,15 @@ nav:
       - 08 · 价值函数方法: rl/08-value-function-methods.md
       - 09 · 策略梯度: rl/09-policy-gradient.md
       - 10 · Actor-Critic: rl/10-actor-critic.md
+  - 仿真:
+      - 仿真导览: simulation/index.md
+      - 物理模型与接触: simulation/physics.md
+      - 物理求解器: simulation/solvers.md
+      - 时间积分与控制频率: simulation/time-stepping.md
+      - MuJoCo 最小实践: simulation/mujoco.md
   - 实验室:
       - 教材动画与代码: labs/textbook.md
+      - 仿真基础实验: labs/simulation-basics.md
       - 补充 · 4×4 GridWorld: labs/gridworld.md
   - 进阶专题:
       - 书外扩展导览: extensions/index.md

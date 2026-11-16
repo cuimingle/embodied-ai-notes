@@ -1,0 +1,2 @@
+# CPU simulation; independent of the standard-library textbook experiments.
+mujoco==3.3.7

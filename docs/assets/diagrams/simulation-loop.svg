@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" role="img" aria-labelledby="title desc">
+  <title id="title">机器人仿真的组成与反馈</title>
+  <desc id="desc">模型提供身体与约束，控制输入进入物理引擎，动力学与接触、约束求解、时间积分共同产生新状态；传感器生成观测，反馈到控制器。图为概念分工，实际实现可耦合求解。</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#6b795b"/></marker></defs>
+  <rect width="1000" height="440" rx="10" fill="#f3f5ed"/>
+  <g font-family="sans-serif" fill="#252922">
+    <text x="34" y="38" font-size="13" letter-spacing="2" fill="#59664d">MODEL → PHYSICS → OBSERVATION</text>
+    <rect x="310" y="64" width="390" height="62" rx="7" fill="#e6ebdc" stroke="#cad3bd"/>
+    <text x="505" y="90" text-anchor="middle" font-size="18" font-weight="bold">机器人与场景模型</text>
+    <text x="505" y="112" text-anchor="middle" font-size="14">几何 · 质量与惯量 · 关节 · 执行器</text>
+    <rect x="32" y="190" width="170" height="88" rx="7" fill="white" stroke="#cad3bd"/>
+    <text x="117" y="224" text-anchor="middle" font-size="19" font-weight="bold">控制输入</text>
+    <text x="117" y="251" text-anchor="middle" font-size="14">力矩 / 控制目标</text>
+    <rect x="250" y="155" width="510" height="153" rx="8" fill="#252b22"/>
+    <text x="274" y="181" font-size="13" fill="#c9df75" letter-spacing="2">PHYSICS ENGINE</text>
+    <g fill="#edf1e5" text-anchor="middle" font-size="17">
+      <text x="338" y="223">动力学与接触</text><text x="505" y="223">约束求解</text><text x="672" y="223">时间积分</text>
+    </g>
+    <path d="M425 202V245M590 202V245" stroke="#637256"/>
+    <text x="505" y="280" text-anchor="middle" font-size="14" fill="#c7d1bc">模型与数值方法共同决定下一步状态</text>
+    <rect x="809" y="190" width="159" height="88" rx="7" fill="white" stroke="#cad3bd"/>
+    <text x="889" y="224" text-anchor="middle" font-size="19" font-weight="bold">新状态</text>
+    <text x="889" y="251" text-anchor="middle" font-size="14">位置 / 速度</text>
+    <rect x="340" y="350" width="330" height="57" rx="7" fill="#e6ebdc" stroke="#cad3bd"/>
+    <text x="505" y="375" text-anchor="middle" font-size="17" font-weight="bold">传感器观测 → 策略 / 控制器</text>
+    <text x="505" y="396" text-anchor="middle" font-size="13">本体读数、图像等；可有噪声与延迟</text>
+  </g>
+  <g fill="none" stroke="#6b795b" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M505 126V151"/><path d="M202 234H245"/><path d="M760 234H803"/>
+    <path d="M889 278V378H676"/><path d="M340 378H117V283"/>
+  </g>
+</svg>

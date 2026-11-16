@@ -1,0 +1,492 @@
+{
+  "recorded_at": "2026-11-16T07:20:00.171842+00:00",
+  "description": "Reference run summaries; full trajectories are reproduced by the commands below. Source hashes identify the tested working-tree files.",
+  "commands": [
+    "python -m examples.simulation.oscillator --output outputs/oscillator.json",
+    "python -m examples.simulation.contact --sweep --output outputs/contact-sweep.json"
+  ],
+  "oscillator": {
+    "experiment": "undamped_oscillator",
+    "schema_version": 1,
+    "config": {
+      "mass": 1.0,
+      "stiffness": 1.0,
+      "x0": 1.0,
+      "v0": 0.0,
+      "dt": 0.05,
+      "steps": 400
+    },
+    "environment": {
+      "python": "3.12.14",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "code_commit": "baf1a39edc97b4433f458d6166cb09dd69d0d8e6",
+      "working_tree_dirty": true,
+      "source_sha256": {
+        "examples/simulation/__init__.py": "2d37377e2d89671b7a95e4bedf920068021701f5cdc6170118971b88f9d3e389",
+        "examples/simulation/common.py": "d237315f34fb76595691fcd9f9b38d8b60b971604c05fe51f02cf01c8446021d",
+        "examples/simulation/contact.py": "3d6dae9f8f1ab6de2ecd794d22b8d7a18a469d0ac1d4a9e1fda5ac3ef2322e41",
+        "examples/simulation/oscillator.py": "092141e896cc5e1c98a5b55cad858de4ff69ae2d86a1668b04ece51bee731582"
+      }
+    },
+    "seed": null,
+    "randomization": "none; deterministic initial state",
+    "units": {
+      "time": "s",
+      "x": "m",
+      "v": "m/s",
+      "energy": "J"
+    },
+    "exact_energy": 0.5,
+    "semi_implicit_stability_parameter": 0.05,
+    "metrics": {
+      "euler": {
+        "max_position_error": 0.6043457914457273,
+        "final_position_error": 0.28925092391459956,
+        "final_phase_space_error": 0.6480450190595753,
+        "max_absolute_energy_error": 0.8574458721906466,
+        "final_energy": 1.3574458721906466
+      },
+      "semi_implicit": {
+        "max_position_error": 0.026803325404684032,
+        "final_position_error": 0.02475537342592854,
+        "final_phase_space_error": 0.024781338652442725,
+        "max_absolute_energy_error": 0.012820511562169568,
+        "final_energy": 0.4912402245314406
+      }
+    }
+  },
+  "contact": {
+    "experiment": "box_contact_sweep",
+    "schema_version": 1,
+    "baseline_config": {
+      "dt": 0.002,
+      "steps": 1000,
+      "mass": 1.0,
+      "half_size": 0.05,
+      "initial_z": 0.5,
+      "gravity": 9.81,
+      "solver": "Newton",
+      "iterations": 50,
+      "tolerance": 1e-10,
+      "time_constant": 0.02,
+      "damping_ratio": 1.0
+    },
+    "comparison": "each case changes at most one requested parameter relative to baseline; no performance ordering is assumed",
+    "cases": [
+      {
+        "name": "baseline",
+        "changed_parameter": null,
+        "experiment": "box_contact",
+        "schema_version": 1,
+        "config": {
+          "dt": 0.002,
+          "steps": 1000,
+          "mass": 1.0,
+          "half_size": 0.05,
+          "initial_z": 0.5,
+          "gravity": 9.81,
+          "solver": "Newton",
+          "iterations": 50,
+          "tolerance": 1e-10,
+          "time_constant": 0.02,
+          "damping_ratio": 1.0
+        },
+        "environment": {
+          "python": "3.12.14",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "code_commit": "baf1a39edc97b4433f458d6166cb09dd69d0d8e6",
+          "working_tree_dirty": true,
+          "source_sha256": {
+            "examples/simulation/__init__.py": "2d37377e2d89671b7a95e4bedf920068021701f5cdc6170118971b88f9d3e389",
+            "examples/simulation/common.py": "d237315f34fb76595691fcd9f9b38d8b60b971604c05fe51f02cf01c8446021d",
+            "examples/simulation/contact.py": "3d6dae9f8f1ab6de2ecd794d22b8d7a18a469d0ac1d4a9e1fda5ac3ef2322e41",
+            "examples/simulation/oscillator.py": "092141e896cc5e1c98a5b55cad858de4ff69ae2d86a1668b04ece51bee731582"
+          },
+          "mujoco": "3.3.7",
+          "numpy": "2.5.5"
+        },
+        "seed": null,
+        "randomization": "none; fixed position and zero velocity",
+        "model_xml": "<mujoco model=\"contact_box\">\n  <compiler angle=\"radian\"/>\n  <option timestep=\"0.002\" gravity=\"0 0 -9.81\"\n          integrator=\"Euler\" solver=\"Newton\"\n          iterations=\"50\" tolerance=\"1e-10\"/>\n  <default>\n    <geom condim=\"3\" friction=\"0.8 0.005 0.0001\"\n          solref=\"0.02 1.0\"\n          solimp=\"0.9 0.95 0.001 0.5 2\"/>\n  </default>\n  <worldbody>\n    <geom name=\"floor\" type=\"plane\" size=\"2 2 0.1\"/>\n    <body name=\"box\" pos=\"0 0 0.5\">\n      <freejoint/>\n      <geom name=\"box_geom\" type=\"box\"\n            size=\"0.05 0.05 0.05\"\n            mass=\"1.0\"/>\n    </body>\n  </worldbody>\n</mujoco>\n",
+        "units": {
+          "time": "s",
+          "center_z": "m",
+          "penetration": "m",
+          "z_velocity": "m/s",
+          "support_force_z": "N"
+        },
+        "measurement_window": {
+          "start_time": 1.500000000000001,
+          "end_time": 2.0000000000000013,
+          "samples": 251,
+          "description": "last quarter of simulated duration; this window alone does not imply settling"
+        },
+        "sampling": "state, geometry and solved force all refer to the recorded time; final sample uses mj_forward",
+        "warnings": {
+          "mjWARN_INERTIA": 0,
+          "mjWARN_CONTACTFULL": 0,
+          "mjWARN_CNSTRFULL": 0,
+          "mjWARN_BADQPOS": 0,
+          "mjWARN_BADQVEL": 0,
+          "mjWARN_BADQACC": 0,
+          "mjWARN_BADCTRL": 0
+        },
+        "metrics": {
+          "max_penetration": 0.017220790081744874,
+          "tail_mean_penetration": 5.7133403791619075e-05,
+          "tail_z_velocity_rms": 1.0413497742005341e-15,
+          "tail_mean_support_force_z": 9.81,
+          "static_weight": 9.81,
+          "tail_mean_solver_iterations_max": 0.07569721115537849,
+          "final_center_z": 0.049942866596208384,
+          "final_z_velocity": 1.0414195194780316e-15
+        }
+      },
+      {
+        "name": "iteration_cap_1",
+        "changed_parameter": "iterations",
+        "experiment": "box_contact",
+        "schema_version": 1,
+        "config": {
+          "dt": 0.002,
+          "steps": 1000,
+          "mass": 1.0,
+          "half_size": 0.05,
+          "initial_z": 0.5,
+          "gravity": 9.81,
+          "solver": "Newton",
+          "iterations": 1,
+          "tolerance": 1e-10,
+          "time_constant": 0.02,
+          "damping_ratio": 1.0
+        },
+        "environment": {
+          "python": "3.12.14",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "code_commit": "baf1a39edc97b4433f458d6166cb09dd69d0d8e6",
+          "working_tree_dirty": true,
+          "source_sha256": {
+            "examples/simulation/__init__.py": "2d37377e2d89671b7a95e4bedf920068021701f5cdc6170118971b88f9d3e389",
+            "examples/simulation/common.py": "d237315f34fb76595691fcd9f9b38d8b60b971604c05fe51f02cf01c8446021d",
+            "examples/simulation/contact.py": "3d6dae9f8f1ab6de2ecd794d22b8d7a18a469d0ac1d4a9e1fda5ac3ef2322e41",
+            "examples/simulation/oscillator.py": "092141e896cc5e1c98a5b55cad858de4ff69ae2d86a1668b04ece51bee731582"
+          },
+          "mujoco": "3.3.7",
+          "numpy": "2.5.5"
+        },
+        "seed": null,
+        "randomization": "none; fixed position and zero velocity",
+        "model_xml": "<mujoco model=\"contact_box\">\n  <compiler angle=\"radian\"/>\n  <option timestep=\"0.002\" gravity=\"0 0 -9.81\"\n          integrator=\"Euler\" solver=\"Newton\"\n          iterations=\"1\" tolerance=\"1e-10\"/>\n  <default>\n    <geom condim=\"3\" friction=\"0.8 0.005 0.0001\"\n          solref=\"0.02 1.0\"\n          solimp=\"0.9 0.95 0.001 0.5 2\"/>\n  </default>\n  <worldbody>\n    <geom name=\"floor\" type=\"plane\" size=\"2 2 0.1\"/>\n    <body name=\"box\" pos=\"0 0 0.5\">\n      <freejoint/>\n      <geom name=\"box_geom\" type=\"box\"\n            size=\"0.05 0.05 0.05\"\n            mass=\"1.0\"/>\n    </body>\n  </worldbody>\n</mujoco>\n",
+        "units": {
+          "time": "s",
+          "center_z": "m",
+          "penetration": "m",
+          "z_velocity": "m/s",
+          "support_force_z": "N"
+        },
+        "measurement_window": {
+          "start_time": 1.500000000000001,
+          "end_time": 2.0000000000000013,
+          "samples": 251,
+          "description": "last quarter of simulated duration; this window alone does not imply settling"
+        },
+        "sampling": "state, geometry and solved force all refer to the recorded time; final sample uses mj_forward",
+        "warnings": {
+          "mjWARN_INERTIA": 0,
+          "mjWARN_CONTACTFULL": 0,
+          "mjWARN_CNSTRFULL": 0,
+          "mjWARN_BADQPOS": 0,
+          "mjWARN_BADQVEL": 0,
+          "mjWARN_BADQACC": 0,
+          "mjWARN_BADCTRL": 0
+        },
+        "metrics": {
+          "max_penetration": 0.017220790081744874,
+          "tail_mean_penetration": 5.7133403791619075e-05,
+          "tail_z_velocity_rms": 1.0413497742005341e-15,
+          "tail_mean_support_force_z": 9.81,
+          "static_weight": 9.81,
+          "tail_mean_solver_iterations_max": 0.07569721115537849,
+          "final_center_z": 0.049942866596208384,
+          "final_z_velocity": 1.0414195194780316e-15
+        }
+      },
+      {
+        "name": "iteration_cap_5",
+        "changed_parameter": "iterations",
+        "experiment": "box_contact",
+        "schema_version": 1,
+        "config": {
+          "dt": 0.002,
+          "steps": 1000,
+          "mass": 1.0,
+          "half_size": 0.05,
+          "initial_z": 0.5,
+          "gravity": 9.81,
+          "solver": "Newton",
+          "iterations": 5,
+          "tolerance": 1e-10,
+          "time_constant": 0.02,
+          "damping_ratio": 1.0
+        },
+        "environment": {
+          "python": "3.12.14",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "code_commit": "baf1a39edc97b4433f458d6166cb09dd69d0d8e6",
+          "working_tree_dirty": true,
+          "source_sha256": {
+            "examples/simulation/__init__.py": "2d37377e2d89671b7a95e4bedf920068021701f5cdc6170118971b88f9d3e389",
+            "examples/simulation/common.py": "d237315f34fb76595691fcd9f9b38d8b60b971604c05fe51f02cf01c8446021d",
+            "examples/simulation/contact.py": "3d6dae9f8f1ab6de2ecd794d22b8d7a18a469d0ac1d4a9e1fda5ac3ef2322e41",
+            "examples/simulation/oscillator.py": "092141e896cc5e1c98a5b55cad858de4ff69ae2d86a1668b04ece51bee731582"
+          },
+          "mujoco": "3.3.7",
+          "numpy": "2.5.5"
+        },
+        "seed": null,
+        "randomization": "none; fixed position and zero velocity",
+        "model_xml": "<mujoco model=\"contact_box\">\n  <compiler angle=\"radian\"/>\n  <option timestep=\"0.002\" gravity=\"0 0 -9.81\"\n          integrator=\"Euler\" solver=\"Newton\"\n          iterations=\"5\" tolerance=\"1e-10\"/>\n  <default>\n    <geom condim=\"3\" friction=\"0.8 0.005 0.0001\"\n          solref=\"0.02 1.0\"\n          solimp=\"0.9 0.95 0.001 0.5 2\"/>\n  </default>\n  <worldbody>\n    <geom name=\"floor\" type=\"plane\" size=\"2 2 0.1\"/>\n    <body name=\"box\" pos=\"0 0 0.5\">\n      <freejoint/>\n      <geom name=\"box_geom\" type=\"box\"\n            size=\"0.05 0.05 0.05\"\n            mass=\"1.0\"/>\n    </body>\n  </worldbody>\n</mujoco>\n",
+        "units": {
+          "time": "s",
+          "center_z": "m",
+          "penetration": "m",
+          "z_velocity": "m/s",
+          "support_force_z": "N"
+        },
+        "measurement_window": {
+          "start_time": 1.500000000000001,
+          "end_time": 2.0000000000000013,
+          "samples": 251,
+          "description": "last quarter of simulated duration; this window alone does not imply settling"
+        },
+        "sampling": "state, geometry and solved force all refer to the recorded time; final sample uses mj_forward",
+        "warnings": {
+          "mjWARN_INERTIA": 0,
+          "mjWARN_CONTACTFULL": 0,
+          "mjWARN_CNSTRFULL": 0,
+          "mjWARN_BADQPOS": 0,
+          "mjWARN_BADQVEL": 0,
+          "mjWARN_BADQACC": 0,
+          "mjWARN_BADCTRL": 0
+        },
+        "metrics": {
+          "max_penetration": 0.017220790081744874,
+          "tail_mean_penetration": 5.7133403791619075e-05,
+          "tail_z_velocity_rms": 1.0413497742005341e-15,
+          "tail_mean_support_force_z": 9.81,
+          "static_weight": 9.81,
+          "tail_mean_solver_iterations_max": 0.07569721115537849,
+          "final_center_z": 0.049942866596208384,
+          "final_z_velocity": 1.0414195194780316e-15
+        }
+      },
+      {
+        "name": "tolerance_1e-3",
+        "changed_parameter": "tolerance",
+        "experiment": "box_contact",
+        "schema_version": 1,
+        "config": {
+          "dt": 0.002,
+          "steps": 1000,
+          "mass": 1.0,
+          "half_size": 0.05,
+          "initial_z": 0.5,
+          "gravity": 9.81,
+          "solver": "Newton",
+          "iterations": 50,
+          "tolerance": 0.001,
+          "time_constant": 0.02,
+          "damping_ratio": 1.0
+        },
+        "environment": {
+          "python": "3.12.14",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "code_commit": "baf1a39edc97b4433f458d6166cb09dd69d0d8e6",
+          "working_tree_dirty": true,
+          "source_sha256": {
+            "examples/simulation/__init__.py": "2d37377e2d89671b7a95e4bedf920068021701f5cdc6170118971b88f9d3e389",
+            "examples/simulation/common.py": "d237315f34fb76595691fcd9f9b38d8b60b971604c05fe51f02cf01c8446021d",
+            "examples/simulation/contact.py": "3d6dae9f8f1ab6de2ecd794d22b8d7a18a469d0ac1d4a9e1fda5ac3ef2322e41",
+            "examples/simulation/oscillator.py": "092141e896cc5e1c98a5b55cad858de4ff69ae2d86a1668b04ece51bee731582"
+          },
+          "mujoco": "3.3.7",
+          "numpy": "2.5.5"
+        },
+        "seed": null,
+        "randomization": "none; fixed position and zero velocity",
+        "model_xml": "<mujoco model=\"contact_box\">\n  <compiler angle=\"radian\"/>\n  <option timestep=\"0.002\" gravity=\"0 0 -9.81\"\n          integrator=\"Euler\" solver=\"Newton\"\n          iterations=\"50\" tolerance=\"0.001\"/>\n  <default>\n    <geom condim=\"3\" friction=\"0.8 0.005 0.0001\"\n          solref=\"0.02 1.0\"\n          solimp=\"0.9 0.95 0.001 0.5 2\"/>\n  </default>\n  <worldbody>\n    <geom name=\"floor\" type=\"plane\" size=\"2 2 0.1\"/>\n    <body name=\"box\" pos=\"0 0 0.5\">\n      <freejoint/>\n      <geom name=\"box_geom\" type=\"box\"\n            size=\"0.05 0.05 0.05\"\n            mass=\"1.0\"/>\n    </body>\n  </worldbody>\n</mujoco>\n",
+        "units": {
+          "time": "s",
+          "center_z": "m",
+          "penetration": "m",
+          "z_velocity": "m/s",
+          "support_force_z": "N"
+        },
+        "measurement_window": {
+          "start_time": 1.500000000000001,
+          "end_time": 2.0000000000000013,
+          "samples": 251,
+          "description": "last quarter of simulated duration; this window alone does not imply settling"
+        },
+        "sampling": "state, geometry and solved force all refer to the recorded time; final sample uses mj_forward",
+        "warnings": {
+          "mjWARN_INERTIA": 0,
+          "mjWARN_CONTACTFULL": 0,
+          "mjWARN_CNSTRFULL": 0,
+          "mjWARN_BADQPOS": 0,
+          "mjWARN_BADQVEL": 0,
+          "mjWARN_BADQACC": 0,
+          "mjWARN_BADCTRL": 0
+        },
+        "metrics": {
+          "max_penetration": 0.017220790081744874,
+          "tail_mean_penetration": 5.7133403791619075e-05,
+          "tail_z_velocity_rms": 1.0413497742005341e-15,
+          "tail_mean_support_force_z": 9.81,
+          "static_weight": 9.81,
+          "tail_mean_solver_iterations_max": 0.07569721115537849,
+          "final_center_z": 0.049942866596208384,
+          "final_z_velocity": 1.0414195194780316e-15
+        }
+      },
+      {
+        "name": "softer_contact",
+        "changed_parameter": "time_constant",
+        "experiment": "box_contact",
+        "schema_version": 1,
+        "config": {
+          "dt": 0.002,
+          "steps": 1000,
+          "mass": 1.0,
+          "half_size": 0.05,
+          "initial_z": 0.5,
+          "gravity": 9.81,
+          "solver": "Newton",
+          "iterations": 50,
+          "tolerance": 1e-10,
+          "time_constant": 0.1,
+          "damping_ratio": 1.0
+        },
+        "environment": {
+          "python": "3.12.14",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "code_commit": "baf1a39edc97b4433f458d6166cb09dd69d0d8e6",
+          "working_tree_dirty": true,
+          "source_sha256": {
+            "examples/simulation/__init__.py": "2d37377e2d89671b7a95e4bedf920068021701f5cdc6170118971b88f9d3e389",
+            "examples/simulation/common.py": "d237315f34fb76595691fcd9f9b38d8b60b971604c05fe51f02cf01c8446021d",
+            "examples/simulation/contact.py": "3d6dae9f8f1ab6de2ecd794d22b8d7a18a469d0ac1d4a9e1fda5ac3ef2322e41",
+            "examples/simulation/oscillator.py": "092141e896cc5e1c98a5b55cad858de4ff69ae2d86a1668b04ece51bee731582"
+          },
+          "mujoco": "3.3.7",
+          "numpy": "2.5.5"
+        },
+        "seed": null,
+        "randomization": "none; fixed position and zero velocity",
+        "model_xml": "<mujoco model=\"contact_box\">\n  <compiler angle=\"radian\"/>\n  <option timestep=\"0.002\" gravity=\"0 0 -9.81\"\n          integrator=\"Euler\" solver=\"Newton\"\n          iterations=\"50\" tolerance=\"1e-10\"/>\n  <default>\n    <geom condim=\"3\" friction=\"0.8 0.005 0.0001\"\n          solref=\"0.1 1.0\"\n          solimp=\"0.9 0.95 0.001 0.5 2\"/>\n  </default>\n  <worldbody>\n    <geom name=\"floor\" type=\"plane\" size=\"2 2 0.1\"/>\n    <body name=\"box\" pos=\"0 0 0.5\">\n      <freejoint/>\n      <geom name=\"box_geom\" type=\"box\"\n            size=\"0.05 0.05 0.05\"\n            mass=\"1.0\"/>\n    </body>\n  </worldbody>\n</mujoco>\n",
+        "units": {
+          "time": "s",
+          "center_z": "m",
+          "penetration": "m",
+          "z_velocity": "m/s",
+          "support_force_z": "N"
+        },
+        "measurement_window": {
+          "start_time": 1.500000000000001,
+          "end_time": 2.0000000000000013,
+          "samples": 251,
+          "description": "last quarter of simulated duration; this window alone does not imply settling"
+        },
+        "sampling": "state, geometry and solved force all refer to the recorded time; final sample uses mj_forward",
+        "warnings": {
+          "mjWARN_INERTIA": 0,
+          "mjWARN_CONTACTFULL": 0,
+          "mjWARN_CNSTRFULL": 0,
+          "mjWARN_BADQPOS": 0,
+          "mjWARN_BADQVEL": 0,
+          "mjWARN_BADQACC": 0,
+          "mjWARN_BADCTRL": 0
+        },
+        "metrics": {
+          "max_penetration": 0.10141982241086904,
+          "tail_mean_penetration": 0.0007389507277652741,
+          "tail_z_velocity_rms": 1.962114928131694e-05,
+          "tail_mean_support_force_z": 9.809973040374956,
+          "static_weight": 9.81,
+          "tail_mean_solver_iterations_max": 1.0,
+          "final_center_z": 0.04925934701379551,
+          "final_z_velocity": 6.70897033521046e-07
+        }
+      },
+      {
+        "name": "stiffer_contact",
+        "changed_parameter": "time_constant",
+        "experiment": "box_contact",
+        "schema_version": 1,
+        "config": {
+          "dt": 0.002,
+          "steps": 1000,
+          "mass": 1.0,
+          "half_size": 0.05,
+          "initial_z": 0.5,
+          "gravity": 9.81,
+          "solver": "Newton",
+          "iterations": 50,
+          "tolerance": 1e-10,
+          "time_constant": 0.01,
+          "damping_ratio": 1.0
+        },
+        "environment": {
+          "python": "3.12.14",
+          "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+          "code_commit": "baf1a39edc97b4433f458d6166cb09dd69d0d8e6",
+          "working_tree_dirty": true,
+          "source_sha256": {
+            "examples/simulation/__init__.py": "2d37377e2d89671b7a95e4bedf920068021701f5cdc6170118971b88f9d3e389",
+            "examples/simulation/common.py": "d237315f34fb76595691fcd9f9b38d8b60b971604c05fe51f02cf01c8446021d",
+            "examples/simulation/contact.py": "3d6dae9f8f1ab6de2ecd794d22b8d7a18a469d0ac1d4a9e1fda5ac3ef2322e41",
+            "examples/simulation/oscillator.py": "092141e896cc5e1c98a5b55cad858de4ff69ae2d86a1668b04ece51bee731582"
+          },
+          "mujoco": "3.3.7",
+          "numpy": "2.5.5"
+        },
+        "seed": null,
+        "randomization": "none; fixed position and zero velocity",
+        "model_xml": "<mujoco model=\"contact_box\">\n  <compiler angle=\"radian\"/>\n  <option timestep=\"0.002\" gravity=\"0 0 -9.81\"\n          integrator=\"Euler\" solver=\"Newton\"\n          iterations=\"50\" tolerance=\"1e-10\"/>\n  <default>\n    <geom condim=\"3\" friction=\"0.8 0.005 0.0001\"\n          solref=\"0.01 1.0\"\n          solimp=\"0.9 0.95 0.001 0.5 2\"/>\n  </default>\n  <worldbody>\n    <geom name=\"floor\" type=\"plane\" size=\"2 2 0.1\"/>\n    <body name=\"box\" pos=\"0 0 0.5\">\n      <freejoint/>\n      <geom name=\"box_geom\" type=\"box\"\n            size=\"0.05 0.05 0.05\"\n            mass=\"1.0\"/>\n    </body>\n  </worldbody>\n</mujoco>\n",
+        "units": {
+          "time": "s",
+          "center_z": "m",
+          "penetration": "m",
+          "z_velocity": "m/s",
+          "support_force_z": "N"
+        },
+        "measurement_window": {
+          "start_time": 1.500000000000001,
+          "end_time": 2.0000000000000013,
+          "samples": 251,
+          "description": "last quarter of simulated duration; this window alone does not imply settling"
+        },
+        "sampling": "state, geometry and solved force all refer to the recorded time; final sample uses mj_forward",
+        "warnings": {
+          "mjWARN_INERTIA": 0,
+          "mjWARN_CONTACTFULL": 0,
+          "mjWARN_CNSTRFULL": 0,
+          "mjWARN_BADQPOS": 0,
+          "mjWARN_BADQVEL": 0,
+          "mjWARN_BADQACC": 0,
+          "mjWARN_BADCTRL": 0
+        },
+        "metrics": {
+          "max_penetration": 0.006680155752542757,
+          "tail_mean_penetration": 1.4336921910253209e-05,
+          "tail_z_velocity_rms": 1.009153384906154e-15,
+          "tail_mean_support_force_z": 9.81,
+          "static_weight": 9.81,
+          "tail_mean_solver_iterations_max": 0.16334661354581673,
+          "final_center_z": 0.04998566307808975,
+          "final_z_velocity": 1.0091729860206859e-15
+        }
+      }
+    ]
+  }
+}
