@@ -131,10 +131,11 @@ page_kind: atlas
 
 <article class="atlas-topic" markdown>
 
-### 基础模型与世界模型 {#foundation-world-models}
+### 策略模型、基础模型与世界模型 {#foundation-world-models}
 
 **模型接收什么，输出什么？**
 
+- **视觉动作策略**：从图像、本体状态等条件产生动作，例如 [ACT](policies/act.md) 使用示范学习动作块。
 - **VLM**：连接视觉与语言，可提供语义理解。
 - **VLA**：将视觉和语言条件接到动作输出；它可以由示范训练，也可以结合其他学习方法。
 - **世界模型**：预测环境演化，尤其关注行动的后果，可用于规划或策略改进。
@@ -142,6 +143,8 @@ page_kind: atlas
 [RT-2](https://robotics-transformer2.github.io/)将机器人轨迹与视觉语言任务结合训练；[DreamerV3](https://arxiv.org/abs/2301.04104)在学习到的世界模型中改进行为。它们展示了模型与学习方式如何配合。
 
 VLA 并不等于某一种训练算法，世界模型也不固定属于高层决策。预测是否逼真与能否支持控制，需要分别通过预测质量和闭环任务效果检验。
+
+[进入策略模型地图 →](policies/index.md) · 从 [ACT](policies/act.md) 读到 [SmolVLA](policies/smolvla.md) 与 [π₀](policies/pi0.md)，比较输入条件、动作生成和训练方式。
 
 </article>
 

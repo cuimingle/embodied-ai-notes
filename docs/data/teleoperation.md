@@ -87,7 +87,7 @@ description: 从 ALOHA、DROID 和 BridgeData V2 理解机器人遥操如何采�
 
 | 项目与性质 | 怎样采集、记录什么 | 主要用途 | 适用边界 |
 | --- | --- | --- | --- |
-| [ALOHA](https://tonyzhaozh.github.io/aloha/)：双臂遥操硬件与采集系统 | 主从臂示教；多视角 RGB、双臂关节状态与动作 | 双臂精细操作、ACT 等模仿学习 | ALOHA 是系统，ACT 是算法；不同团队的 ALOHA 数据不是同一个统一语料 |
+| [ALOHA](https://tonyzhaozh.github.io/aloha/)：双臂遥操硬件与采集系统 | 主从臂示教；多视角 RGB、双臂关节状态与动作 | 双臂精细操作、[ACT](../policies/act.md) 等模仿学习 | ALOHA 是系统，ACT 是算法；不同团队的 ALOHA 数据不是同一个统一语料 |
 | [DROID](https://droid-dataset.github.io/)：真实机器人数据集 | VR 操控 Franka；腕部与外部相机、关节与末端状态、动作、语言 | 多场景操作策略训练与泛化研究 | 原始立体视频与 RLDS 版本内容不同；应核对相机标定和动作表示 |
 | [BridgeData V2](https://rail-berkeley.github.io/bridgedata/)：多任务操作数据集 | WidowX 的 VR 遥操，并包含脚本策略采集部分；图像、轨迹、任务语言 | 目标图像或语言条件学习；项目提供模仿与离线 RL 实现 | 多数轨迹只有主视角；不能把全库都称为人工遥操，也不能默认四路相机齐全 |
 

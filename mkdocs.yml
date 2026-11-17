@@ -94,6 +94,11 @@ nav:
       - 08 · 价值函数方法: rl/08-value-function-methods.md
       - 09 · 策略梯度: rl/09-policy-gradient.md
       - 10 · Actor-Critic: rl/10-actor-critic.md
+  - 策略模型:
+      - 策略模型地图: policies/index.md
+      - ACT · 动作分块: policies/act.md
+      - SmolVLA · 轻量 VLA: policies/smolvla.md
+      - π₀ · 通用机器人策略: policies/pi0.md
   - 仿真:
       - 仿真导览: simulation/index.md
       - 物理模型与接触: simulation/physics.md

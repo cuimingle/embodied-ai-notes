@@ -134,6 +134,8 @@ hide:
 
 [<span class="explore-label">具身数据</span><strong>从采集方式到训练用途</strong><span>遥操、UMI、EGO、人体交互、第三视角与仿真。</span><b aria-hidden="true">↗</b>](data/index.md)
 
+[<span class="explore-label">策略模型</span><strong>从观测到机器人动作</strong><span>ACT、SmolVLA、π₀：输入输出、训练机制与执行边界。</span><b aria-hidden="true">↗</b>](policies/index.md)
+
 [<span class="explore-label">机器人仿真</span><strong>从物理模型到数值求解</strong><span>接触、求解器、时间积分与可检查的最小实验。</span><b aria-hidden="true">↗</b>](simulation/index.md)
 
 [<span class="explore-label">进阶专题</span><strong>从 Actor-Critic 继续</strong><span>TRPO、PPO、GRPO、GSPO，单列为书外扩展。</span><b aria-hidden="true">↗</b>](extensions/index.md)

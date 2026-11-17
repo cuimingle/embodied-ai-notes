@@ -8,6 +8,8 @@
 
 新增[数据专题](docs/data/index.md)：按遥操、UMI、EGO、HumanCentric、第三视角和仿真六类，整理采集流程、数据字段、具身定位、代表项目与使用边界。
 
+新增[策略模型专题](docs/policies/index.md)：从 [ACT](docs/policies/act.md)、[SmolVLA](docs/policies/smolvla.md) 和 [π₀](docs/policies/pi0.md) 出发，比较输入输出、动作生成、训练方式与执行接口。当前提供文献与机制笔记，模型训练和真机实验另行记录进度。
+
 新增[仿真专题](docs/simulation/index.md)：从物理模型、接触和求解器到时间积分，配套浏览器振子与 MuJoCo 方块落地实验。先阅读[最小实践](docs/simulation/mujoco.md)，再查看[实验配置与结果](docs/labs/simulation-basics.md)。
 
 强化学习主线以 **Shiyu Zhao（赵世钰），《Mathematical Foundations of Reinforcement Learning》，2024 年 9 月版**为准。符号、公式设定与章节递进遵循指定版本；TRPO、PPO、GRPO、GSPO 单列为书外扩展。
