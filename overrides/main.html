@@ -15,18 +15,20 @@
 {% endblock %}
 {% block tabs %}{% endblock %}
 {% block content %}
-  {% if page and page.meta.page_kind not in ["landing", "atlas"] %}
-    <div class="article-context">
-      {% if page.file.src_path.startswith('data/') %}
-      <a href="{{ 'data/' | url }}">数据地图</a>
-      {% elif page.file.src_path.startswith('policies/') %}
-      <a href="{{ 'policies/' | url }}">策略模型地图</a>
-      {% else %}
-      <a href="{{ 'embodied-ai-overview/' | url }}">知识全貌</a>
-      {% endif %}
-      <span aria-hidden="true">/</span>
-      <span>{% if page.file.src_path.startswith('quick-overview/') %}快速概览{% elif page.file.src_path.startswith('data/') %}采集与用途{% elif page.file.src_path.startswith('policies/') %}策略模型{% elif page.file.src_path.startswith('rl/') and page.file.src_path != 'rl/to-embodied.md' %}强化学习{% elif page.file.src_path.startswith('labs/') %}实验室{% elif page.file.src_path.startswith('extensions/') or page.file.src_path == 'rl/to-embodied.md' %}进阶专题{% else %}阅读指南{% endif %}</span>
-    </div>
+  {% if page %}
+    {% from "partials/section-url.html" import first_url with context %}
+    {% if page.parent %}
+      <nav class="article-context" aria-label="当前位置">
+        {% for section in page.ancestors | reverse %}
+          {% if not loop.first %}<span aria-hidden="true">/</span>{% endif %}
+          {% set target = first_url(section) %}
+          {% if target == (page.url | url) %}<span>{{ section.title }}</span>{% else %}<a href="{{ target }}">{{ section.title }}</a>{% endif %}
+        {% endfor %}
+      </nav>
+    {% endif %}
+    {% with inline_outline = true %}
+      {% include "partials/toc.html" %}
+    {% endwith %}
   {% endif %}
   {{ super() }}
 {% endblock %}

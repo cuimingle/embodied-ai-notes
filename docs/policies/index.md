@@ -2,9 +2,6 @@
 title: 策略模型地图
 description: 从输入条件、动作生成与训练方式三个维度，比较 ACT、SmolVLA 和 π₀，理解机器人策略与数据、强化学习、LeRobot 的关系。
 page_kind: atlas
-hide:
-  - navigation
-  - toc
 ---
 
 <div class="atlas-intro" markdown>

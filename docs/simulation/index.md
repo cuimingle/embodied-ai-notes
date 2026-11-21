@@ -1,8 +1,6 @@
 ---
 title: 仿真导览
 description: 从物理模型、接触与求解器到时间推进，用可检查的实验理解机器人仿真。
-hide:
-  - toc
 ---
 
 <span class="kicker">SIMULATION / FROM MODEL TO MOTION</span>

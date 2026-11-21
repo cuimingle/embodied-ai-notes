@@ -2,9 +2,6 @@
 title: 具身数据地图
 description: 按遥操、UMI、EGO、HumanCentric、第三视角和仿真，梳理具身数据的采集方式、监督信号、代表项目与训练定位。
 page_kind: atlas
-hide:
-  - navigation
-  - toc
 ---
 
 <div class="atlas-intro" markdown>

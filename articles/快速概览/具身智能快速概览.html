@@ -18,22 +18,39 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
-header, .layout { max-width: 72rem; margin-inline: auto; padding-inline: clamp(1rem, 4.5vw, 4rem); }
-header { padding-top: clamp(2.3rem, 6vw, 5rem); padding-bottom: 1.6rem; }
-header h1 { margin: 0; color: var(--accent); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.2; }
-.layout { display: grid; grid-template-columns: 12rem minmax(0, 45rem); gap: clamp(2rem, 5vw, 5rem); }
-nav { position: sticky; top: 1.5rem; align-self: start; padding-block: 1.2rem; border-top: 2px solid var(--accent); }
-nav h2 { margin: 0 0 .65rem; font-size: 1.05rem; }
-nav ol { margin: 0; padding-left: 1.8rem; list-style: decimal-leading-zero; }
-nav li { color: var(--muted); padding-left: .2rem; }
-nav li::marker { font-size: .85rem; font-variant-numeric: tabular-nums; }
-nav a { display: inline-block; padding-block: .4rem; }
+[hidden] { display: none !important; }
 a { color: var(--accent); text-underline-offset: .2em; }
 a:hover { text-decoration-thickness: .13em; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-main { min-width: 0; }
-article { border-top: 1px solid var(--line); padding-block: 1.25rem 3rem;
-          line-height: 1.85; font-size: clamp(1rem, 1.6vw, 1.1rem); overflow-wrap: anywhere; }
+.skip { position: fixed; top: -6rem; left: 1rem; z-index: 5; padding: .7rem; background: var(--paper); }
+.skip:focus { top: .5rem; }
+.site-head { position: sticky; top: 0; z-index: 2; background: var(--paper); border-bottom: 1px solid var(--line); }
+.bar, .layout { max-width: 96rem; margin-inline: auto; padding-inline: clamp(1rem, 3vw, 3rem); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.bar h1 { margin: 0; padding-block: .8rem; color: var(--ink); font-size: 1.28rem; line-height: 1.35; }
+.bar nav { display: flex; gap: clamp(.45rem, 1.7vw, 1.7rem); }
+.bar nav a { display: inline-block; padding: 1rem .12rem .85rem; border-bottom: .18rem solid transparent;
+             color: var(--muted); font-size: .94rem; text-decoration: none; white-space: nowrap; }
+.bar nav a[aria-current] { border-color: var(--accent); color: var(--accent); font-weight: 650; }
+.layout { --offset: 5rem; display: grid; grid-template: "tree article outline" auto / minmax(10rem, 15rem) minmax(0, 45rem) minmax(10rem, 15rem);
+          justify-content: center; align-items: start; column-gap: clamp(1.35rem, 3.4vw, 3.5rem); padding-block: 2rem; }
+.tree { grid-area: tree; }
+.outline { grid-area: outline; }
+.side { position: sticky; top: var(--offset); max-height: calc(100vh - var(--offset) - 1rem); overflow: auto; padding: .25rem; }
+.side summary { cursor: pointer; padding: .5rem 0; font-weight: 650; }
+.side ul, .side ol { margin: .5rem 0; }
+.tree ol { list-style: decimal-leading-zero; padding-left: 2.25rem; }
+.tree li::marker { color: var(--muted); font-size: .85rem; }
+.side a { display: block; padding: .38rem .55rem; color: var(--muted); font-size: .92rem; line-height: 1.55; text-decoration: none; }
+.side a:hover, .bar a:hover { color: var(--accent); text-decoration: underline; }
+.side a[aria-current] { color: var(--accent); background: var(--wash); box-shadow: inset 3px 0 var(--accent); font-weight: 650; }
+.outline ul { padding: 0; list-style: none; }
+.outline ul ul { margin: .15rem 0 .55rem .6rem; padding-left: .55rem; border-left: 1px solid var(--line); }
+.outline p { margin: .9rem 0 .45rem; color: var(--muted); font-size: .85rem; font-weight: 650; }
+main { grid-area: article; min-width: 0; }
+article { padding-bottom: 3rem; line-height: 1.85; font-size: clamp(1rem, 1.35vw, 1.1rem); overflow-wrap: anywhere; }
+article:not([hidden]) + article:not([hidden]) { margin-top: 2rem; }
+article, main, article :is(h2, h3, h4, h5, h6) { scroll-margin-top: var(--offset); }
 article > h2 { margin: 0; font-size: clamp(1.65rem, 3.5vw, 2.4rem); line-height: 1.4; }
 .edition { margin: .55rem 0 1.5rem; color: var(--muted); font-size: .91rem; }
 article h3 { margin: 2em 0 .65em; font-size: 1.35em; line-height: 1.45; }
@@ -43,15 +60,25 @@ table { border-collapse: collapse; width: 100%; min-width: 32rem; font-size: .92
 th, td { text-align: left; vertical-align: top; padding: .65em .75em; border-bottom: 1px solid var(--line); }
 th { background: var(--wash); }
 td:first-child { min-width: 7em; }
-@media (max-width: 48rem) {
-  .layout { display: block; }
-  nav { position: static; padding-block: .8rem 1.3rem; }
-  nav ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+@media (max-width: 62rem) {
+  .layout { --offset: 5rem; grid-template: "tree outline" auto "article article" auto / repeat(2, minmax(0, 1fr));
+            gap: .75rem 1rem; max-width: 48rem; padding-top: 1rem; }
+  .side { position: static; max-height: none; overflow: visible; padding: 0; border-bottom: 1px solid var(--line); }
+  .side details[open] { padding-bottom: .6rem; }
+}
+@media (max-width: 36rem) {
+  .bar { display: block; }
+  .bar h1 { padding: .65rem 0 .15rem; font-size: 1.15rem; }
+  .bar nav { justify-content: space-between; overflow-x: auto; }
+  .bar nav a { padding: .45rem 0 .5rem; font-size: .84rem; }
+  .layout { --offset: 6.3rem; }
 }
 @media print {
   :root { color-scheme: light; }
   .layout { display: block; }
-  nav, .ov-controls, .ov-mode { display: none; }
+  .site-head { position: static; }
+  nav, .skip, .ov-controls, .ov-mode { display: none; }
+  article[hidden] { display: block !important; }
   article + article { break-before: page; }
   .overview-demo, tr { break-inside: avoid; }
 }
@@ -147,72 +174,117 @@ td:first-child { min-width: 7em; }
   .ov-frame * { animation: none !important; transition: none !important; }
 }
 </style>
+  <noscript><style>.overview-demo:empty { display: none; }</style></noscript>
 </head>
 <body>
-<header><h1>具身智能快速概览</h1></header>
+<a class="skip" href="#content">跳到正文</a>
+<header class="site-head"><div class="bar"><h1>具身智能快速概览</h1>
+<nav aria-label="栏目导航"><a href="#concept" data-chapter="concept">什么是具身智能</a><a href="#tasks" data-chapter="tasks">四类任务</a><a href="#stack" data-chapter="stack">主要技术栈</a><a href="#papers" data-chapter="papers">分方向读论文</a></nav></div></header>
 <div class="layout">
-<nav aria-label="系列目录"><h2>目录</h2><ol><li><a href="#concept">什么是具身智能</a></li>
-<li><a href="#tasks">四类任务</a></li>
-<li><a href="#stack">主要技术栈</a></li>
-<li><a href="#papers">分方向读论文</a></li></ol></nav>
-<main><article id="concept">
-<h2>什么是具身智能？从一次抓空说起</h2>
+<nav class="side tree" aria-label="系列目录"><details><summary>系列目录</summary>
+<ol><li><a href="#concept" data-chapter="concept">什么是具身智能？从一次抓空说起</a></li><li><a href="#tasks" data-chapter="tasks">具身智能主要解决哪些任务？从抓取、操作、运动和导航讲起</a></li><li><a href="#stack" data-chapter="stack">具身智能的主要技术栈，一条动作是怎样产生的？</a></li><li><a href="#papers" data-chapter="papers">具身智能分方向必读论文，从四类任务选起</a></li></ol></details></nav>
+<nav class="side outline" aria-label="小节目录"><details><summary>小节目录</summary>
+<section data-outline="concept"><p>什么是具身智能</p><div class="toc">
+<ul>
+<li><a href="#concept--身体决定了它能知道什么">身体决定了它能知道什么</a></li>
+<li><a href="#concept--看第二眼究竟有什么用">看第二眼，究竟有什么用？</a></li>
+<li><a href="#concept--怎样看懂一段机器人演示">怎样看懂一段机器人演示</a></li>
+</ul>
+</div>
+</section><section data-outline="tasks"><p>四类任务</p><div class="toc">
+<ul>
+<li><a href="#tasks--抓取grasping关心怎样拿稳">抓取（Grasping）关心怎样拿稳</a></li>
+<li><a href="#tasks--操作manipulation关心外界发生了什么变化">操作（Manipulation）关心外界发生了什么变化</a></li>
+<li><a href="#tasks--运动locomotion关心身体怎样移动">运动（Locomotion）关心身体怎样移动</a></li>
+<li><a href="#tasks--导航navigation关心去哪怎么到何时停">导航（Navigation）关心去哪、怎么到、何时停</a></li>
+<li><a href="#tasks--回到那句把蓝杯子拿过来">回到那句“把蓝杯子拿过来”</a></li>
+</ul>
+</div>
+</section><section data-outline="stack"><p>主要技术栈</p><div class="toc">
+<ul>
+<li><a href="#stack--从一张图到一次伸手">从一张图到一次伸手</a></li>
+<li><a href="#stack--一块电池让人看懂端到端">一块电池让人看懂“端到端”</a></li>
+<li><a href="#stack--策略是怎样做出来的">策略是怎样做出来的</a></li>
+</ul>
+</div>
+</section><section data-outline="papers"><p>分方向读论文</p><div class="toc">
+<ul>
+<li><a href="#papers--从四类任务开始">从四类任务开始</a><ul>
+<li><a href="#papers--抓取怎样决定从哪里下手">抓取｜怎样决定从哪里下手？</a></li>
+<li><a href="#papers--操作一连串动作怎样协调起来">操作｜一连串动作怎样协调起来？</a></li>
+<li><a href="#papers--运动四足机器人怎样学会走稳">运动｜四足机器人怎样学会走稳？</a></li>
+<li><a href="#papers--导航第一次进一间屋子该去哪里找椅子">导航｜第一次进一间屋子，该去哪里找椅子？</a></li>
+</ul>
+</li>
+<li><a href="#papers--顺着兴趣往方法和系统里走">顺着兴趣，往方法和系统里走</a><ul>
+<li><a href="#papers--几何感知与状态估计机器人凭什么记住来路">几何感知与状态估计｜机器人凭什么记住来路？</a></li>
+<li><a href="#papers--示范与跨机器人数据人的动作怎样变成机器人的训练样本">示范与跨机器人数据｜人的动作怎样变成机器人的训练样本？</a></li>
+<li><a href="#papers--视觉语言动作模型一句新指令怎样改变动作">视觉—语言—动作模型｜一句新指令怎样改变动作？</a></li>
+<li><a href="#papers--世界模型与规划机器人能否先预想推一下的结果">世界模型与规划｜机器人能否先预想推一下的结果？</a></li>
+<li><a href="#papers--语言规划与长程评测每一步都合理整件事完成了吗">语言规划与长程评测｜每一步都合理，整件事完成了吗？</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section></details></nav>
+<main id="content" tabindex="-1"><article id="concept">
+<h2 id="concept--什么是具身智能从一次抓空说起">什么是具身智能？从一次抓空说起</h2>
 <p class="edition">具身智能快速概览 · 第一篇</p>
 <p>想象一只机械臂正要把桌上的杯子放进托盘。夹爪靠近时，指尖蹭了杯壁，杯子滑开三厘米。假如机械臂继续执行刚才算好的动作，两根手指就会在空处合拢。每个关节都可能准确地走到了指定位置，杯子却还在桌上。</p>
 <p>这个小意外给了我们一个理解具身智能的入口。<strong>具身智能研究智能体怎样借助自己的身体感知环境、采取行动，并利用行动带来的变化完成任务。</strong> 这里的身体可以是桌边的机械臂、能穿过房间的轮式机器人，也可以是仿真里视野和动作都受到限制的虚拟机器人。<a href="https://aihabitat.org/">AI Habitat 对具身智能的介绍</a></p>
-<h3>身体决定了它能知道什么</h3>
+<h3 id="concept--身体决定了它能知道什么">身体决定了它能知道什么</h3>
 <p>假设相机装在手腕上。夹爪靠得很近时，手指可能挡住杯沿。此时一个有用的动作是往后退一点，或者转动手腕，让杯沿重新进入画面。杯子还在原处，机器人却得到了刚才没有的信息。<strong>动作可以用来改变世界，也可以用来弄清世界是什么样。</strong></p>
 <p>身体还决定了哪些办法可行。同一个杯子，人可以用手指穿过杯柄，两指夹爪也许只能从杯身两侧夹住它。如果夹爪张开的宽度小于杯身直径，又碰不到杯柄，那么再准确的识别结果也补不上这段距离。换一个夹具，或者让移动底座绕到另一侧，任务才有了新的解法。</p>
-<h3>看第二眼，究竟有什么用？</h3>
+<h3 id="concept--看第二眼究竟有什么用">看第二眼，究竟有什么用？</h3>
 <p>回到那次抓空。关节编码器可以告诉控制器“手臂已经到位”，相机却告诉它“杯子还偏在右边”。前一个反馈回答的是手臂有没有跟上命令，后一个反馈才可能改变下一次抓取的位置。同一台机器可以在关节上控制得很准，同时在任务上抓错地方。</p>
 <p>Google 的研究团队做过一个直接的对照。他们用相同的训练数据，让机械臂抓取一组办公物品。一种做法根据一张图选定抓取姿势，接着把动作执行完。另一种做法在运动中继续看夹爪与物体的相对位置，随时修正。在这组物品最初 30 次抓取的比较中，团队报告的平均失败率分别为 <strong>34% 和 18%</strong>。这一小组对照，具体衡量了新画面有机会改变下一步动作时，抓取结果会怎样变化。<a href="https://research.google/blog/deep-learning-for-robots-learning-from-large-scale-interaction/">研究团队的实验说明与视频</a></p>
 <p>下面的平面示意把两种做法并排放在一起。逐步看杯子偏移之后，两条轨迹从哪一步开始分开。图中距离来自这个教学场景，前面的失败率来自研究团队的实物实验。</p>
 <div class="overview-demo" data-overview-scene="feedback"></div>
 
-<h3>怎样看懂一段机器人演示</h3>
+<h3 id="concept--怎样看懂一段机器人演示">怎样看懂一段机器人演示</h3>
 <p>再看一段抓杯视频，可以在夹爪刚合上时暂停，问三个问题。此时机器人能从哪里知道杯子有没有跟着抬起？如果杯子滑了，它还有什么动作可选？如果视频就在这里结束，我们能确认的是“夹到了杯子”，还是“杯子已经稳稳放进托盘”？</p>
 <p>最后一问决定怎样评价整件事。如果目标是放杯，最有说服力的画面在松手之后。如果要考察纠错能力，就专门挪动杯子，重复试验，记录有多少次能重新抓稳。语言理解、相机识别和电机控制各有用处，把它们连到同一个可观察的结果上，才看得清这台机器人完成了什么。</p>
 <p>继续阅读：<a href="#tasks">抓取、操作、运动和导航分别解决什么问题</a> · <a href="https://cuimingle.github.io/embodied-ai-notes/embodied-ai-overview/">具身智能知识地图</a></p>
 </article>
 <article id="tasks">
-<h2>具身智能主要解决哪些任务？从抓取、操作、运动和导航讲起</h2>
+<h2 id="tasks--具身智能主要解决哪些任务从抓取操作运动和导航讲起">具身智能主要解决哪些任务？从抓取、操作、运动和导航讲起</h2>
 <p class="edition">具身智能快速概览 · 第二篇</p>
 <p>“去厨房，把蓝杯子拿过来。”一台带机械臂的足式机器人走进了厨房，跨过了门槛，也碰到了杯子。到这一步，我们能说它成功了吗？</p>
 <p>要看我们想检验什么。找对厨房、跨过门槛、拿稳杯子、把杯子交给人，对应四种不同的本领。研究中常见的<strong>抓取（Grasping）、操作（Manipulation）、运动（Locomotion）和导航（Navigation）</strong>可以用这个例子分清。它们会在同一项任务里重叠，各自有能单独验收的结果。</p>
-<h3>抓取（Grasping）关心怎样拿稳</h3>
+<h3 id="tasks--抓取grasping关心怎样拿稳">抓取（Grasping）关心怎样拿稳</h3>
 <p>夹爪碰到了杯子，杯子还没有离开桌面。这时桌面仍在支撑它，光看两根手指合上，很难知道这次抓取是否可靠。一个简单的测试是让夹爪把杯子提离桌面，保持片刻，观察它是否滑落。抓取位置、手指张开宽度、表面摩擦，都会影响结果。</p>
 <p>抓取值得单独研究，因为单是选择在哪里下手，就已经是一个可测的问题。Dex-Net 2.0 给定深度图和候选的两指抓姿，估计哪种抓法更可能成功，再用真机做抓取试验。读这类论文时，可以先看夹爪形状、物体如何摆放，以及一次抓取怎样算成功。<a href="https://arxiv.org/abs/1703.09312">Dex-Net 2.0 原论文</a></p>
 <p>调换下图的夹持条件，观察谁还能托住 0.20 kg 的物块。模型只计算竖直方向的运动。每指施力 4 N 时，两侧可用的最大静摩擦力合计为 2.40 N。改成 3.2 N 后，上限降到 1.92 N，连物块约 1.96 N 的重力都抵不住。夹爪还在上升，物块却开始往下滑。</p>
 <div class="overview-demo" data-overview-scene="grasp"></div>
 
-<h3>操作（Manipulation）关心外界发生了什么变化</h3>
+<h3 id="tasks--操作manipulation关心外界发生了什么变化">操作（Manipulation）关心外界发生了什么变化</h3>
 <p>把杯子放上托盘、把水倒进杯子、用指尖把杯子推到桌边，都是操作。三个动作面对同一件物品，结果却分别体现在杯子的位置、水的分布和杯子与桌沿的距离上。推杯子甚至可以全程不把它拿起来。</p>
 <p>抓取是操作中的常见技能，也可以独立成为任务。若要求“把杯子放好”，在半空中握得再稳也只完成了中间一步。验收时要等夹爪松开，看杯子能否在托盘里保持直立。换成装配，验收对象又会变成插头有没有插到位、零件能否正常配合。</p>
 <p>下图把任务换成平面推块。试着在推杆第一次碰到方块时暂停，再往后走几步，比较“已经碰到”和“已经推到指定区域”之间还差多少。</p>
 <div class="overview-demo" data-overview-scene="manipulation"></div>
 
-<h3>运动（Locomotion）关心身体怎样移动</h3>
+<h3 id="tasks--运动locomotion关心身体怎样移动">运动（Locomotion）关心身体怎样移动</h3>
 <p>同一道门槛，轮式机器人要考虑轮径和离地间隙，足式机器人要选择落脚点，并在一只脚抬起时保持支撑。即使事先告诉它正确路线，门槛仍可能过不去。研究足式运动时，可以给定前进方向和速度，检查机器人能否持续跟踪、是否跌倒、踩上起伏地形后能否恢复平衡。</p>
 <p>这里的英文 <em>locomotion</em> 特指身体自身的移动，如行走、跑跳、爬行或滚动。固定在桌边的机械臂也会运动，但它转动腕部拧瓶盖，通常归入操作。两者都需要控制电机，验收的对象不同。</p>
 <p>在下面的慢速抬脚示意里，先向左移重 4 cm，看机器人为何仍让两脚着地。再换成 10 cm，观察抬起右脚后支撑范围缩小到哪里。这是准静态模型，奔跑和跳跃还要考虑速度与动量。</p>
 <div class="overview-demo" data-overview-scene="locomotion"></div>
 
-<h3>导航（Navigation）关心去哪、怎么到、何时停</h3>
+<h3 id="tasks--导航navigation关心去哪怎么到何时停">导航（Navigation）关心去哪、怎么到、何时停</h3>
 <p>机器人跨过门槛后遇到岔路。即使它能走得很稳，也需要判断自己在哪、哪条路通向厨房、应该停在哪里才能够到杯子。导航的目标可以是一个坐标，也可以是一类物体，例如“去找一把椅子”。</p>
 <p>在 Habitat 2023 的 ObjectNav 仿真评测中，机器人要主动停下，离目标类别的某个物体不超过 1 米，在停点转身或调整视角能够看见它。评测另看路径效率，因此绕远路后找到椅子，和沿短路找到同一把椅子，成功判定相同，效率得分可以不同。<a href="https://aihabitat.org/challenge/2023/">Habitat 导航挑战评测规则</a></p>
 <p>下面的格子场景从一条可通行的路线开始。分别从起点运行两种做法，比较第 3 步遇到新障碍后，机器人是原地等待，还是绕路抵达目标。这里假设它知道地图和自己的位置。</p>
 <div class="overview-demo" data-overview-scene="navigation"></div>
 
-<h3>回到那句“把蓝杯子拿过来”</h3>
+<h3 id="tasks--回到那句把蓝杯子拿过来">回到那句“把蓝杯子拿过来”</h3>
 <p>现在可以给这段任务标出失败发生在哪里。一直在错误的房间打转，先查导航。到了正确门口却在门槛上跌倒，先查运动。夹爪一抬杯子就掉，先查抓取。一路端稳，松手时杯子却倒了，问题出在放置。若要求递给人，还要把“对方已接稳”纳入松手条件。</p>
 <p>在这些环节里，机器人都可能需要转头、换个角度再看，这叫主动感知。当任务只是“帮我看看杯子在哪”时，获取信息本身也能成为目标。学会这四类任务之后，读一个新项目最有用的问题仍然很朴素：<strong>试验结束时，究竟检查谁的位置、谁的状态，以及哪个变化？</strong></p>
 <p>上一篇：<a href="#concept">什么是具身智能</a> · 下一篇：<a href="#stack">机器人的主要技术栈</a></p>
 </article>
 <article id="stack">
-<h2>具身智能的主要技术栈，一条动作是怎样产生的？</h2>
+<h2 id="stack--具身智能的主要技术栈一条动作是怎样产生的">具身智能的主要技术栈，一条动作是怎样产生的？</h2>
 <p class="edition">具身智能快速概览 · 第三篇</p>
 <p>假设桌面摄像头拍到了蓝杯子。图像系统给它画了一个非常准的框，机械臂仍然不知道该把哪一个关节转多少度。这个框的位置用像素表示，杯子离相机多远、夹爪从哪边进得去、电机能否跟上，都是接下来要回答的问题。沿着这条动作往下走，就能把技术栈串起来。</p>
-<h3>从一张图到一次伸手</h3>
+<h3 id="stack--从一张图到一次伸手">从一张图到一次伸手</h3>
 <div aria-label="对照表" class="table-wrap" role="region" tabindex="0">
 <table>
 <thead>
@@ -251,45 +323,45 @@ td:first-child { min-width: 7em; }
 <div class="overview-demo" data-overview-scene="timing"></div>
 
 <p>一种常见的分层实现，会把夹爪的目标位置和朝向交给运动规划器，由它根据机器人模型、障碍物和运动约束产生轨迹。这样抓偏时可以分头核查杯子定位、规划轨迹和关节跟踪误差。MoveIt 的运动规划文档中就能看到这样的请求和输出。<a href="https://moveit.picknik.ai/main/doc/concepts/motion_planning.html">MoveIt 运动规划</a></p>
-<h3>一块电池让人看懂“端到端”</h3>
+<h3 id="stack--一块电池让人看懂端到端">一块电池让人看懂“端到端”</h3>
 <p>在 ALOHA 双臂平台上，研究者用 ACT 学习把电池装入插槽。它把多项职责放进一个策略模型。输入是四台相机的画面和双臂当前的关节状态，输出是未来一段时间的双臂和夹爪目标位置。底层控制器再驱动电机去跟踪这些目标。这给“端到端”划出了具体的两端，一端是图像和关节读数，另一端是目标动作序列。<a href="https://arxiv.org/html/2304.13705#S4">ACT 原论文</a></p>
 <p>作者展示的配置以 50 Hz 执行动作，每步间隔 20 毫秒，一次预测 90 步，覆盖约 1.8 秒。<strong>预测能往前看多远，和机器人隔多久看一次现场，是两个不同的量。</strong> ACT 的时间集成允许每步用新画面再预测，并把几次预测里对应当前时刻的动作加权。电池在接触中偏了一点，新观测就有机会改变手臂接下来的动作。<a href="https://tonyzhaozh.github.io/aloha/">ALOHA 项目演示与参数</a></p>
-<h3>策略是怎样做出来的</h3>
+<h3 id="stack--策略是怎样做出来的">策略是怎样做出来的</h3>
 <p>在机器人独立动手之前，还要搭起另一条流程。以模仿学习为例，操作员通过主臂遥控从臂装电池，系统同步保存图像、从臂实际位置和发给从臂的目标命令。电池抵到插槽边缘时，人还在往前送，手臂却可能停住。这两列数字一个记录想怎么动，一个记录实际动到哪，训练时各有各的用途。<a href="https://arxiv.org/html/2304.13705#S4">ACT 的示范采集与训练</a></p>
 <p>示范可以训练观测到动作的映射。若采用强化学习，就要另外定义奖励，让策略根据行动的长期结果改进。仿真器能提供可重复的初始条件，让团队先检验碰撞、延迟和控制周期的影响。视觉—语言—动作模型（VLA）则给策略增加语言条件，使“拿蓝杯子”和“拿白杯子”可以结合画面产生不同动作。示范、奖励、仿真和语言条件分别解决不同问题，可以在一个项目里组合。<a href="https://cuimingle.github.io/embodied-ai-notes/simulation/">仿真专题</a> · <a href="https://cuimingle.github.io/embodied-ai-notes/policies/">策略模型地图</a></p>
 <p>最后要让策略独立执行，在预先约定的初始条件下记录成功次数、总次数和失败位置。假设电池总是在插槽右侧碰壁，可以按当时的画面、模型发出的目标、关节实际走过的轨迹逐项回放。画面已经显示偏差而命令仍向右，与命令已经修正而手臂没有跟上，需要改的是不同的地方。技术栈的价值，在这一次失败里就能看出来。</p>
 <p>上一篇：<a href="#tasks">具身智能的主要任务</a> · 下一篇：<a href="#papers">按研究方向读典型论文</a></p>
 </article>
 <article id="papers">
-<h2>具身智能分方向必读论文，从四类任务选起</h2>
+<h2 id="papers--具身智能分方向必读论文从四类任务选起">具身智能分方向必读论文，从四类任务选起</h2>
 <p class="edition">具身智能快速概览 · 第四篇</p>
 <p>如果你想知道机器人怎样夹起一件没见过的物品，第一篇可以读 Dex-Net 2.0。如果你关心双臂怎么配合着插入一块电池，从 ACT 开始更直接。两篇都在讲机械臂，前者要给一个抓姿打分，后者要连续输出一串动作。<strong>先选自己想解释的现象，再选论文，读起来会轻松很多。</strong></p>
 <p>下面选了 13 篇原始研究。前四个方向沿用抓取、操作、运动和导航，每个方向都给一篇首读。后面五个方向供按需查阅，分别追问机器人怎样定位、数据从哪里来、语言如何接到动作、怎样预想后果，以及长任务如何验收。入选依据是论文能否把一个问题讲清、能否找到对应实验。涉及结果时，以作者实际测试的硬件、任务和环境为准。</p>
-<h3>从四类任务开始</h3>
-<h4>抓取｜怎样决定从哪里下手？</h4>
+<h3 id="papers--从四类任务开始">从四类任务开始</h3>
+<h4 id="papers--抓取怎样决定从哪里下手">抓取｜怎样决定从哪里下手？</h4>
 <p><strong>首读 Dex-Net 2.0</strong>，Jeffrey Mahler 等，RSS 2017。把论文图 1 里的候选夹爪挨个看一遍。网络接收深度图，估计不同两指抓姿能否成功，训练用的抓取质量来自合成几何和物理分析。最值得细看的是实物实验的分母。对 40 件新物品，文中常被引用的 99% 指判为可靠的 69 次抓取中有 68 次成功。看到这个数字，就应该继续问系统把多少候选判成了可靠。论文的主要设置是桌面上单独放置的物体和一个平行夹爪。<a href="https://roboticsproceedings.org/rss13/p58.html">Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics</a></p>
-<h4>操作｜一连串动作怎样协调起来？</h4>
+<h4 id="papers--操作一连串动作怎样协调起来">操作｜一连串动作怎样协调起来？</h4>
 <p><strong>首读 ACT</strong>，Tony Z. Zhao 等，RSS 2023。看插电池时两只手分别在做什么，再看方法图中的动作块。模型一次预测多步，后续观测仍能更新要执行的动作。读实验视频时留意片段由人遥操还是由策略独立完成，判断依据是作者给的标注，两者在熟练时看起来都很流畅。<a href="https://www.roboticsproceedings.org/rss19/p016.html">Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware</a></p>
 <p><strong>对照读 Diffusion Policy</strong>，Cheng Chi 等，RSS 2023。同一张图里，手可以沿不同路线完成任务。作者把未来动作序列作为生成对象，在视觉条件下逐步去噪，执行序列的前一段，再取得新观测。读方法图时分别标出“看了几帧”“预测几步”“执行几步”。这三个长度决定了策略能利用多少历史、能规划多远、多久有机会纠错。<a href="https://www.roboticsproceedings.org/rss19/p026.html">Diffusion Policy: Visuomotor Policy Learning via Action Diffusion</a></p>
 <p>下面用一个桌面例子说明为什么保留多种可行轨迹很重要。两条示范都能带着夹爪绕过立柱。先沿上方示范走一遍，再选“逐点平均两条示范”，单步看看平均路线在哪里碰壁。动画只计算这三条几何轨迹，论文中的去噪模型需要用示范训练。</p>
 <div class="overview-demo" data-overview-scene="trajectories"></div>
 
-<h4>运动｜四足机器人怎样学会走稳？</h4>
+<h4 id="papers--运动四足机器人怎样学会走稳">运动｜四足机器人怎样学会走稳？</h4>
 <p><strong>首读 Rudin 等的并行行走训练</strong>，CoRL 2021，论文集于 2022 年出版。看地形课程怎样随表现提高难度，再看训练好的策略装到真实 ANYmal 后，究竟读取什么、输出什么。标题里的“几分钟”是数千台虚拟机器人并行采样的墙钟时间。判断学习效率时，还要看它们合计产生了多少次交互。<a href="https://proceedings.mlr.press/v164/rudin22a.html">Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning</a></p>
-<h4>导航｜第一次进一间屋子，该去哪里找椅子？</h4>
+<h4 id="papers--导航第一次进一间屋子该去哪里找椅子">导航｜第一次进一间屋子，该去哪里找椅子？</h4>
 <p><strong>首读 SemExp</strong>，Devendra Singh Chaplot 等，NeurIPS 2020。沿图 2 追一遍椅子还没有出现在画面里时的决策。机器人一边走一边把看见的物体和可通行区域放进语义地图，再按目标类别选择下一处值得探索的位置，局部规划器负责到那里。读评测表时并排看能否找到目标与路径效率。它们分别反映目的地是否正确、路走得是否经济。<a href="https://arxiv.org/abs/2007.00643">Object Goal Navigation using Goal-Oriented Semantic Exploration</a></p>
-<h3>顺着兴趣，往方法和系统里走</h3>
-<h4>几何感知与状态估计｜机器人凭什么记住来路？</h4>
+<h3 id="papers--顺着兴趣往方法和系统里走">顺着兴趣，往方法和系统里走</h3>
+<h4 id="papers--几何感知与状态估计机器人凭什么记住来路">几何感知与状态估计｜机器人凭什么记住来路？</h4>
 <p><strong>ORB-SLAM</strong>，Raúl Mur-Artal 等，IEEE Transactions on Robotics，2015。跟着相机走一圈，观察系统再次认出旧地点后怎样修正积累的漂移。把相机跟踪、局部建图和闭环校正放回这段行程里，就容易看懂三个模块的分工。原始单目系统恢复的地图带有尺度不确定性，要把距离换算成米，还需要额外参照。<a href="https://arxiv.org/abs/1502.00956">ORB-SLAM: A Versatile and Accurate Monocular SLAM System</a></p>
-<h4>示范与跨机器人数据｜人的动作怎样变成机器人的训练样本？</h4>
+<h4 id="papers--示范与跨机器人数据人的动作怎样变成机器人的训练样本">示范与跨机器人数据｜人的动作怎样变成机器人的训练样本？</h4>
 <p><strong>UMI</strong>，Cheng Chi、Zhenjia Xu 等，RSS 2024。先看操作者手里的夹爪，再读轨迹怎样表示、采集与部署的延迟怎样匹配。它给“从人学”加上了可检查的前提。人拿着专门装置演示时，系统能保留夹爪的运动和开合信息；随手拍的一段视频，提供的监督信号会少很多。<a href="https://roboticsproceedings.org/rss20/p045.html">Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots</a></p>
 <p><strong>Open X-Embodiment</strong>，Open X-Embodiment Collaboration，ICRA 2024。从数据表挑两个不同的机器人，看它们各自记录了什么动作，再读 RT-X 的跨平台联合训练实验。其他机器人的示范能给某些任务带来正迁移，而动作坐标、尺度和控制器的差别依然要处理。这是理解“统一格式”和“共享技能”之间还隔着哪些工作的好例子。<a href="https://arxiv.org/abs/2310.08864">Open X-Embodiment: Robotic Learning Datasets and RT-X Models</a></p>
-<h4>视觉—语言—动作模型｜一句新指令怎样改变动作？</h4>
+<h4 id="papers--视觉语言动作模型一句新指令怎样改变动作">视觉—语言—动作模型｜一句新指令怎样改变动作？</h4>
 <p><strong>RT-2</strong>，RT-2 团队，CoRL 2023。先看训练样例怎样把动作编码成离散 token，再看语义泛化实验。读一个成功案例时拆成两个问题。机器人是不是听懂了新的目标？完成它所需的抓取动作是否已经具备？这样才能看清视觉语言预训练贡献了什么。<a href="https://proceedings.mlr.press/v229/zitkovich23a.html">RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control</a></p>
 <p><strong>π₀</strong>，Kevin Black 等，RSS 2025，预印本发表于 2024 年。与 RT-2 对读动作输出这一段。π₀ 把视觉语言模型接到生成连续动作块的模块上，用流匹配学习动作的生成过程。读结果时先标明该任务是直接执行，还是经过任务数据微调。两种条件回答的泛化问题不同。<a href="https://roboticsproceedings.org/rss21/p010.html">π₀: A Vision-Language-Action Flow Model for General Robot Control</a></p>
-<h4>世界模型与规划｜机器人能否先预想推一下的结果？</h4>
+<h4 id="papers--世界模型与规划机器人能否先预想推一下的结果">世界模型与规划｜机器人能否先预想推一下的结果？</h4>
 <p><strong>Deep Visual Foresight</strong>，Chelsea Finn、Sergey Levine，ICRA 2017。人在第一帧点出物体上的一点和它该去的位置，系统用视频预测模型比较几种推法，执行后再规划。读完方法就翻图 6 的失败案例。手臂遮住了被跟踪的点，即使后续画面看起来合理，规划也可能继续推错。对这项桌面任务，终点偏差比单看片段是否逼真更能检验模型是否有用。<a href="https://arxiv.org/abs/1610.00696">Deep Visual Foresight for Planning Robot Motion</a></p>
-<h4>语言规划与长程评测｜每一步都合理，整件事完成了吗？</h4>
+<h4 id="papers--语言规划与长程评测每一步都合理整件事完成了吗">语言规划与长程评测｜每一步都合理，整件事完成了吗？</h4>
 <p><strong>SayCan</strong>，Ichter 等，CoRL 2022，论文集于 2023 年出版。拿一条厨房指令，顺着候选技能往下看。语言模型评估此时做哪件事有助于完成指令，技能价值函数评估机器人眼下有多大把握做成。最后对照计划是否合理与真机执行是否成功。技能库里有哪些动作，直接限定了它能执行的计划。<a href="https://proceedings.mlr.press/v205/ichter23a.html">Do As I Can, Not As I Say: Grounding Language in Robotic Affordances</a></p>
 <p><strong>ALFRED</strong>，Mohit Shridhar 等，CVPR 2020。读第 5.1 节对日常指令的评分。如果任务要求把加热过的土豆片放到台面，切了片、放对位置，却漏了加热，若干子目标可以得分，整项任务仍然失败。论文在模拟环境中把导航与物体交互连成一个过程，很适合用来理解单项技能的成绩为何无法直接当作整条指令的成功率。<a href="https://openaccess.thecvf.com/content_CVPR_2020/html/Shridhar_ALFRED_A_Benchmark_for_Interpreting_Grounded_Instructions_for_Everyday_Tasks_CVPR_2020_paper.html">ALFRED: A Benchmark for Interpreting Grounded Instructions for Everyday Tasks</a></p>
 <p>如果只留一个下午，挑自己最关心的任务，读它的首篇，把<strong>机器人看到了什么、可以做什么、谁来判断成功、在哪种情况下会失败</strong>写在一张纸上。然后回来看第二篇的同一个动画，指出动画省略了论文里的哪一个困难。能说出这个差别，就已经跨过了从“记得模型名字”到“读得懂实验”的一步。</p>
@@ -816,6 +888,75 @@ td:first-child { min-width: 7em; }
   } else {
     mountAll();
   }
+})();
+
+
+(() => {
+  const articles = Array.from(document.querySelectorAll("main article"));
+  const outlines = document.querySelectorAll("[data-outline]");
+  const chapterLinks = document.querySelectorAll("[data-chapter]");
+  const sideMenus = document.querySelectorAll(".side details");
+  const compact = matchMedia("(max-width: 62rem)");
+
+  function sizeMenus() {
+    for (const menu of sideMenus) menu.open = !compact.matches;
+  }
+  function navigate(moveFocus) {
+    let id = "";
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch { /* Ignore invalid fragments. */ }
+    const anchor = document.getElementById(id);
+    const chapter = anchor?.closest("article") || articles[0];
+    const previous = articles.find(item => !item.hidden && item !== chapter);
+    if (previous) {
+      for (const status of previous.querySelectorAll('.ov-status[aria-live="off"]')) {
+        status.closest(".overview-demo").querySelector('[data-action="play"]').click();
+      }
+    }
+    for (const item of articles) item.hidden = item !== chapter;
+    for (const link of chapterLinks) {
+      if (link.dataset.chapter === chapter.id) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    }
+    for (const item of outlines) {
+      item.hidden = item.dataset.outline !== chapter.id;
+      for (const link of item.querySelectorAll("a")) {
+        if (link.getAttribute("href") === "#" + id) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      }
+    }
+    const heading = chapter.querySelector("h2");
+    document.title = heading.textContent + " · 具身智能快速概览";
+    if (anchor?.closest("article")) {
+      const target = anchor === chapter ? heading : anchor;
+      if (compact.matches && moveFocus) {
+        for (const menu of sideMenus) menu.open = false;
+      }
+      if (moveFocus) {
+        target.tabIndex = -1;
+        target.focus({ preventScroll: true });
+      }
+      target.scrollIntoView({ block: "start" });
+    }
+  }
+  sizeMenus();
+  compact.addEventListener("change", sizeMenus);
+  document.querySelector(".skip").addEventListener("click", event => {
+    event.preventDefault();
+    const heading = document.querySelector("article:not([hidden]) > h2");
+    heading.tabIndex = -1;
+    heading.focus();
+  });
+  for (const link of document.querySelectorAll(".side a, .bar a")) {
+    link.addEventListener("click", event => {
+      if (link.hash && link.hash === location.hash && !event.metaKey && !event.ctrlKey &&
+          !event.shiftKey && !event.altKey) {
+        event.preventDefault();
+        navigate(true);
+      }
+    });
+  }
+  addEventListener("hashchange", () => navigate(true));
+  navigate(false);
 })();
 </script>
 </body>

@@ -1,9 +1,6 @@
 ---
 title: 知识全貌
 description: 从执行闭环、学习与模型、基础与工程验证三个视角，理解具身智能的知识体系与强化学习的位置。
-hide:
-  - navigation
-  - toc
 page_kind: atlas
 ---
 

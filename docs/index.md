@@ -2,9 +2,6 @@
 title: 首页
 description: 具身智能的中文学习手册。从系统全貌出发，沿强化学习主线深入，用实验核对理解。
 page_kind: landing
-hide:
-  - navigation
-  - toc
 ---
 
 <div class="home-hero" markdown>

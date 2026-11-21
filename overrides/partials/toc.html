@@ -1,0 +1,23 @@
+{% set title = config.mdx_configs.toc.title or lang.t("toc") %}
+{% set first = page.toc | first %}
+{% set headings = first.children if first and first.level == 1 and page.toc | length == 1 else page.toc %}
+{% macro outline_list() %}
+  <ul class="md-nav__list"{% if not inline_outline %} data-md-component="toc" data-md-scrollfix{% endif %}>
+    {% for toc_item in headings %}
+      {% include "partials/toc-item.html" %}
+    {% endfor %}
+  </ul>
+{% endmacro %}
+{% if headings %}
+  {% if inline_outline %}
+    <details class="mobile-outline">
+      <summary>{{ title }}</summary>
+      <nav aria-label="{{ title | e }}">{{ outline_list() }}</nav>
+    </details>
+  {% else %}
+    <nav class="md-nav md-nav--secondary" aria-label="{{ title | e }}">
+      <div class="md-nav__title">{{ title }}</div>
+      {{ outline_list() }}
+    </nav>
+  {% endif %}
+{% endif %}
