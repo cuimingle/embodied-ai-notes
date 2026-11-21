@@ -1,0 +1,90 @@
+.overview-demo {
+  color-scheme: light dark;
+  --ov-bg: light-dark(#fafbf6, #1a201c);
+  --ov-panel: light-dark(#edf1e7, #283128);
+  --ov-ink: light-dark(#232b24, #f0f2ea);
+  --ov-muted: light-dark(#526052, #b5c2b4);
+  --ov-line: light-dark(#a0ada0, #758474);
+  --ov-accent: light-dark(#36633f, #b0d99e);
+  --ov-warm: light-dark(#a44820, #f7ad82);
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 1.25em 0 1.75em;
+  padding: clamp(.75em, 2.5vw, 1.4em);
+  border: 1px solid var(--ov-line);
+  border-radius: .6em;
+  background: var(--ov-bg);
+  color: var(--ov-ink);
+  font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+  line-height: 1.55;
+}
+
+[data-md-color-scheme="default"] .overview-demo { color-scheme: light; }
+[data-md-color-scheme="slate"] .overview-demo { color-scheme: dark; }
+
+.ov-heading, .ov-controls, .ov-status, .ov-mode {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5em .8em;
+}
+.ov-heading { justify-content: space-between; }
+.ov-title { font-size: 1.05em; }
+.ov-mode { max-width: 100%; color: var(--ov-muted); font-size: .9em; }
+.ov-controls button, .ov-mode select {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 2.65em;
+  margin: 0;
+  padding: .35em .85em;
+  border: 1px solid var(--ov-line);
+  border-radius: .3em;
+  background-color: var(--ov-bg);
+  color: var(--ov-ink);
+  font: inherit;
+  cursor: pointer;
+}
+.ov-mode select { appearance: auto; }
+.ov-controls button[data-action="play"] {
+  border-color: var(--ov-accent);
+  background-color: var(--ov-accent);
+  color: var(--ov-bg);
+}
+.ov-controls button:hover:enabled, .ov-mode select:hover {
+  border-color: var(--ov-accent);
+  box-shadow: 0 0 0 1px var(--ov-accent);
+}
+.ov-controls button:focus-visible, .ov-mode select:focus-visible {
+  outline: 3px solid var(--ov-accent);
+  outline-offset: 3px;
+}
+.ov-controls button:disabled { opacity: .5; cursor: default; }
+.ov-frame {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: .9em auto;
+  font-family: inherit;
+}
+.ov-status {
+  align-items: baseline;
+  padding: .6em 0;
+  border-top: 1px solid var(--ov-line);
+}
+.ov-progress { color: var(--ov-muted); font-size: .9em; font-variant-numeric: tabular-nums; }
+.ov-caption { flex: 1 1 18em; overflow-wrap: anywhere; }
+.ov-controls { margin-top: .4em; font-size: .9em; }
+.ov-motion-note { display: none; color: var(--ov-muted); }
+
+@media (max-width: 480px) {
+  .ov-heading { align-items: flex-start; }
+  .ov-mode { width: 100%; }
+  .ov-status { gap: .25em; }
+  .ov-caption { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ov-controls button[data-action="play"] { display: none; }
+  .ov-motion-note { display: inline; }
+  .ov-frame * { animation: none !important; transition: none !important; }
+}

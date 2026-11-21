@@ -1,4 +1,18 @@
 {% extends "base.html" %}
+{% block extrahead %}
+  {{ super() }}
+  {% if page and page.file.src_uri.startswith('quick-overview/') %}
+    <link rel="stylesheet" href="{{ 'assets/stylesheets/overview-player.css' | url }}">
+  {% endif %}
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  {% if page and page.file.src_uri.startswith('quick-overview/') %}
+    {% for asset in ['overview-hand-scenes', 'overview-navigation-scenes', 'overview-paper-scene', 'overview-player'] %}
+      <script src="{{ ('assets/javascripts/' ~ asset ~ '.js') | url }}"></script>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
 {% block tabs %}{% endblock %}
 {% block content %}
   {% if page and page.meta.page_kind not in ["landing", "atlas"] %}
@@ -11,7 +25,7 @@
       <a href="{{ 'embodied-ai-overview/' | url }}">知识全貌</a>
       {% endif %}
       <span aria-hidden="true">/</span>
-      <span>{% if page.file.src_path.startswith('data/') %}采集与用途{% elif page.file.src_path.startswith('policies/') %}策略模型{% elif page.file.src_path.startswith('rl/') and page.file.src_path != 'rl/to-embodied.md' %}强化学习{% elif page.file.src_path.startswith('labs/') %}实验室{% elif page.file.src_path.startswith('extensions/') or page.file.src_path == 'rl/to-embodied.md' %}进阶专题{% else %}阅读指南{% endif %}</span>
+      <span>{% if page.file.src_path.startswith('quick-overview/') %}快速概览{% elif page.file.src_path.startswith('data/') %}采集与用途{% elif page.file.src_path.startswith('policies/') %}策略模型{% elif page.file.src_path.startswith('rl/') and page.file.src_path != 'rl/to-embodied.md' %}强化学习{% elif page.file.src_path.startswith('labs/') %}实验室{% elif page.file.src_path.startswith('extensions/') or page.file.src_path == 'rl/to-embodied.md' %}进阶专题{% else %}阅读指南{% endif %}</span>
     </div>
   {% endif %}
   {{ super() }}

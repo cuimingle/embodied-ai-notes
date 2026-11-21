@@ -6,6 +6,10 @@
 
 从[建立全貌](docs/embodied-ai-overview.md)开始，从执行闭环、学习与模型、共同基础三个视角认识具身智能，再进入下方十章主线。脑图为随站点发布的 SVG，不依赖外部渲染服务。
 
+[快速概览系列](docs/quick-overview/concept.md)用四篇短文串起具身智能的定义、四类任务、技术栈与论文阅读。七个互动场景可以逐步比较抓取反馈、抓稳与滑落、推块放置、移重、绕障、控制频率和示范轨迹。
+
+[离线动画合订本](articles/快速概览/具身智能快速概览.html)保存到本地后可直接用浏览器打开。更新四篇正文或动画后，运行 `.venv/bin/python scripts/export_quick_overview.py` 即可重新导出。
+
 新增[数据专题](docs/data/index.md)：按遥操、UMI、EGO、HumanCentric、第三视角和仿真六类，整理采集流程、数据字段、具身定位、代表项目与使用边界。
 
 新增[策略模型专题](docs/policies/index.md)：从 [ACT](docs/policies/act.md)、[SmolVLA](docs/policies/smolvla.md) 和 [π₀](docs/policies/pi0.md) 出发，比较输入输出、动作生成、训练方式与执行接口。当前提供文献与机制笔记，模型训练和真机实验另行记录进度。

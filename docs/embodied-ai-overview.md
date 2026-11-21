@@ -17,6 +17,8 @@ page_kind: atlas
 
 **先理解运行闭环，再学习方法，最后用实验检验。** 这三种视角，构成本站的知识地图。
 
+想从实例入门，可以从[四篇快速概览](quick-overview/concept.md)开始，在[四类任务的交互动画](quick-overview/tasks.md)里试试看机器人怎样拿稳、推准、站稳和绕路。
+
 </div>
 
 <div class="atlas-visual" role="region" aria-label="具身智能知识地图" tabindex="0" markdown>

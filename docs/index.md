@@ -62,6 +62,8 @@ hide:
 
 [阅读知识地图 →](embodied-ai-overview.md)
 
+[读四篇快速概览，动手看任务动画 →](quick-overview/concept.md)
+
 </div>
 
 <div class="path-item" markdown>

@@ -71,7 +71,13 @@ validation:
     anchors: warn
 nav:
   - 首页: index.md
-  - 知识全貌: embodied-ai-overview.md
+  - 知识全貌:
+      - 系统知识地图: embodied-ai-overview.md
+      - 快速概览系列:
+          - 什么是具身智能: quick-overview/concept.md
+          - 抓取、操作、运动和导航: quick-overview/tasks.md
+          - 主要技术栈: quick-overview/stack.md
+          - 分方向必读论文: quick-overview/papers.md
   - 数据:
       - 数据地图: data/index.md
       - 遥操 · Teleoperation: data/teleoperation.md
