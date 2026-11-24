@@ -1,20 +1,20 @@
 # Embodied AI Notes · 具身智能学习笔记
 
-**先建立具身智能全貌，再沿强化学习主线理解机器人如何感知、决策与行动。**
+**从具身智能的系统全貌出发，按任务选择数据、理论和实验，理解机器人如何感知、决策与行动。**
 
-[在线阅读](https://cuimingle.github.io/embodied-ai-notes/) · [具身智能知识脑图](docs/embodied-ai-overview.md) · [具身数据地图](docs/data/index.md) · [教材阅读对照](docs/rl/reading-guide.md) · [动画与代码](docs/labs/textbook.md)
+[在线首页](https://cuimingle.github.io/embodied-ai-notes/) · [知识全貌](docs/embodied-ai-overview.md) · [数据](docs/data/index.md) · [理论基础](docs/theory/index.md) · [仿真模拟](docs/simulation/index.md) · [实验室](docs/labs/textbook.md)
 
-从[建立全貌](docs/embodied-ai-overview.md)开始，从执行闭环、学习与模型、共同基础三个视角认识具身智能，再进入下方十章主线。脑图为随站点发布的 SVG，不依赖外部渲染服务。
+初次阅读可以先看[具身智能知识地图](docs/embodied-ai-overview.md)，从执行闭环、学习方法和工程验证三个视角认识机器人系统。[理论导览](docs/theory/index.md)连接强化学习、策略模型、语言模型、语音模型和多模态模型五个方向。想深入决策的数学基础，可以直接进入[强化学习十章](docs/rl/index.md)。
 
 [快速概览系列](docs/quick-overview/concept.md)用四篇短文串起具身智能的定义、四类任务、技术栈与论文阅读。七个互动场景可以逐步比较抓取反馈、抓稳与滑落、推块放置、移重、绕障、控制频率和示范轨迹。
 
 [离线动画合订本](articles/快速概览/具身智能快速概览.html)保存到本地后可直接用浏览器打开。更新四篇正文或动画后，运行 `.venv/bin/python scripts/export_quick_overview.py` 即可重新导出。
 
-新增[数据专题](docs/data/index.md)：按遥操、UMI、EGO、HumanCentric、第三视角和仿真六类，整理采集流程、数据字段、具身定位、代表项目与使用边界。
+[具身数据地图](docs/data/index.md)按遥操、UMI、EGO、HumanCentric、第三视角和仿真六个入口，整理采集流程、数据字段、代表项目与使用边界。
 
-新增[策略模型专题](docs/policies/index.md)：从 [ACT](docs/policies/act.md)、[SmolVLA](docs/policies/smolvla.md) 和 [π₀](docs/policies/pi0.md) 出发，比较输入输出、动作生成、训练方式与执行接口。当前提供文献与机制笔记，模型训练和真机实验另行记录进度。
+理论基础中的[策略模型](docs/policies/index.md)以 [ACT](docs/policies/act.md)、[SmolVLA](docs/policies/smolvla.md) 和 [π₀](docs/policies/pi0.md) 为例，比较输入输出、动作生成、训练方式与执行接口。当前提供文献与机制笔记，模型训练和真机实验另行记录进度。
 
-新增[仿真专题](docs/simulation/index.md)：从物理模型、接触和求解器到时间积分，配套浏览器振子与 MuJoCo 方块落地实验。先阅读[最小实践](docs/simulation/mujoco.md)，再查看[实验配置与结果](docs/labs/simulation-basics.md)。
+[仿真模拟](docs/simulation/index.md)从物理模型、接触和求解器讲到时间积分，配套浏览器振子与 MuJoCo 方块落地实验。先阅读[最小实践](docs/simulation/mujoco.md)，再查看[实验配置与结果](docs/labs/simulation-basics.md)。
 
 强化学习主线以 **Shiyu Zhao（赵世钰），《Mathematical Foundations of Reinforcement Learning》，2024 年 9 月版**为准。符号、公式设定与章节递进遵循指定版本；TRPO、PPO、GRPO、GSPO 单列为书外扩展。
 

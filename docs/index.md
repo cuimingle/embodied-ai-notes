@@ -1,6 +1,6 @@
 ---
 title: 首页
-description: 具身智能的中文学习手册。从系统全貌出发，沿强化学习主线深入，用实验核对理解。
+description: 具身智能的中文学习手册。从系统全貌认识机器人，按问题选择理论基础、具身数据和仿真实验。
 page_kind: landing
 ---
 
@@ -17,7 +17,7 @@ page_kind: landing
 <div class="hero-actions" markdown>
 
 [探索知识全貌 <span aria-hidden="true">↗</span>](embodied-ai-overview.md){ .action-primary }
-[开始学习 RL <span aria-hidden="true">→</span>](rl/index.md){ .action-text }
+[浏览理论基础 <span aria-hidden="true">→</span>](theory/index.md){ .action-text }
 
 </div>
 
@@ -67,11 +67,11 @@ page_kind: landing
 
 <span class="path-number">02</span>
 
-### 深入一条主线
+### 选择理论方向
 
-按教材十章理解状态、价值与策略，从 Bellman 方程走到 Actor-Critic。
+想理解长期回报，从强化学习入手。想知道机器人怎样理解指令、生成动作，可以对照语言模型与策略模型。
 
-[进入强化学习 →](rl/index.md)
+[按问题选择理论方向 →](theory/index.md)
 
 </div>
 
@@ -135,9 +135,9 @@ page_kind: landing
 
 [<span class="explore-label">策略模型</span><strong>从观测到机器人动作</strong><span>ACT、SmolVLA、π₀：输入输出、训练机制与执行边界。</span><b aria-hidden="true">↗</b>](policies/index.md)
 
-[<span class="explore-label">机器人仿真</span><strong>从物理模型到数值求解</strong><span>接触、求解器、时间积分与可检查的最小实验。</span><b aria-hidden="true">↗</b>](simulation/index.md)
+[<span class="explore-label">仿真模拟</span><strong>从物理模型到数值求解</strong><span>接触、求解器、时间积分与可检查的最小实验。</span><b aria-hidden="true">↗</b>](simulation/index.md)
 
-[<span class="explore-label">进阶专题</span><strong>从 Actor-Critic 继续</strong><span>TRPO、PPO、GRPO、GSPO，单列为书外扩展。</span><b aria-hidden="true">↗</b>](extensions/index.md)
+[<span class="explore-label">强化学习进阶</span><strong>从 Actor-Critic 继续</strong><span>读完教材十章，再用目标函数实验理解 TRPO、PPO、GRPO 和 GSPO。</span><b aria-hidden="true">↗</b>](extensions/index.md)
 
 [<span class="explore-label">连接机器人</span><strong>从 RL 到具身任务</strong><span>让观测、动作、控制接口与评测有具体含义。</span><b aria-hidden="true">↗</b>](rl/to-embodied.md)
 

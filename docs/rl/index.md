@@ -46,6 +46,8 @@ title: 强化学习主线
 
 </div>
 
+教材主线到第 10 章 Actor-Critic 结束。想继续研究如何控制策略更新的幅度，可以转到[强化学习扩展](../extensions/index.md)，比较 TRPO、PPO、GRPO 与 GSPO。
+
 ## 三个贯穿问题
 
 当前是在评价给定策略，还是寻找最优策略？更新使用精确模型、MC 回报还是 TD 自举？对象是每个状态的独立表项，还是共享参数的函数？每次切换方法，都先回答这三个问题。
@@ -74,4 +76,4 @@ python3 -m examples.textbook --chapter 2 --output outputs/book-ch02.json
 python3 -m examples.textbook --chapter 7 --steps 500 --output outputs/book-ch07.json
 ```
 
-16 个书内实验与 4 个扩展实验的索引见[实验使用说明](../labs/textbook.md)。TRPO、PPO、GRPO、GSPO 从[书外扩展](../extensions/index.md)继续；机器人问题另见[具身任务衔接](to-embodied.md)。
+16 个书内实验与 4 个扩展实验的索引见[实验使用说明](../labs/textbook.md)。要把策略与价值的概念用到机器人上，可看[具身任务衔接](to-embodied.md)。

@@ -1,5 +1,5 @@
 <footer class="site-footer">
-  {% if page and page.meta.page_kind != "landing" %}
+  {% if page and page.meta.page_kind != "landing" and (page.previous_page or page.next_page) %}
   <nav class="reading-pagination md-grid" aria-label="继续阅读">
     {% if page.previous_page %}<a href="{{ page.previous_page.url | url }}"><small>← 上一篇</small><span>{{ page.previous_page.title }}</span></a>{% else %}<span></span>{% endif %}
     {% if page.next_page %}<a class="reading-next" href="{{ page.next_page.url | url }}"><small>下一篇 →</small><span>{{ page.next_page.title }}</span></a>{% endif %}

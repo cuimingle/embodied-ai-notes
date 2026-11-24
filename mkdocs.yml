@@ -1,5 +1,5 @@
 site_name: 具身智能学习笔记
-site_description: 先建立具身智能知识全貌，再沿强化学习主线理解机器人如何感知、决策与行动。
+site_description: 从知识地图、理论基础、具身数据和仿真实验出发，理解机器人如何感知、决策与行动。
 site_url: !ENV [SITE_URL, 'https://cuimingle.github.io/embodied-ai-notes/']
 repo_url: https://github.com/cuimingle/embodied-ai-notes
 repo_name: cuimingle/embodied-ai-notes
@@ -63,6 +63,12 @@ extra_javascript:
   - assets/javascripts/simulation-widgets.js
 hooks:
   - scripts/book_hooks.py
+# Keep these reading and project resources reachable at their existing URLs.
+not_in_nav: |
+  /roadmap.md
+  /references.md
+  /project/writing.md
+  /project/publishing.md
 validation:
   nav:
     omitted_files: warn
@@ -87,26 +93,39 @@ nav:
       - HumanCentric · 人体交互: data/human-centric.md
       - 第三视角 · Exocentric: data/third-person.md
       - 仿真数据 · Simulation: data/simulation.md
-  - 强化学习:
-      - 主线导览: rl/index.md
-      - 教材与页码对照: rl/reading-guide.md
-      - 符号体系: rl/notation.md
-      - 01 · 基本概念: rl/01-basic-concepts.md
-      - 02 · Bellman 方程: rl/02-bellman-equation.md
-      - 03 · Bellman 最优方程: rl/03-bellman-optimality.md
-      - 04 · 价值迭代与策略迭代: rl/04-value-policy-iteration.md
-      - 05 · Monte Carlo: rl/05-monte-carlo.md
-      - 06 · 随机逼近: rl/06-stochastic-approximation.md
-      - 07 · TD 方法: rl/07-temporal-difference.md
-      - 08 · 价值函数方法: rl/08-value-function-methods.md
-      - 09 · 策略梯度: rl/09-policy-gradient.md
-      - 10 · Actor-Critic: rl/10-actor-critic.md
-  - 策略模型:
-      - 策略模型地图: policies/index.md
-      - ACT · 动作分块: policies/act.md
-      - SmolVLA · 轻量 VLA: policies/smolvla.md
-      - π₀ · 通用机器人策略: policies/pi0.md
-  - 仿真:
+  - 理论基础:
+      - 理论导览: theory/index.md
+      - 强化学习:
+          - 主线导览: rl/index.md
+          - 教材与页码对照: rl/reading-guide.md
+          - 符号体系: rl/notation.md
+          - 教材十章:
+              - 01 · 基本概念: rl/01-basic-concepts.md
+              - 02 · Bellman 方程: rl/02-bellman-equation.md
+              - 03 · Bellman 最优方程: rl/03-bellman-optimality.md
+              - 04 · 价值迭代与策略迭代: rl/04-value-policy-iteration.md
+              - 05 · Monte Carlo: rl/05-monte-carlo.md
+              - 06 · 随机逼近: rl/06-stochastic-approximation.md
+              - 07 · TD 方法: rl/07-temporal-difference.md
+              - 08 · 价值函数方法: rl/08-value-function-methods.md
+              - 09 · 策略梯度: rl/09-policy-gradient.md
+              - 10 · Actor-Critic: rl/10-actor-critic.md
+          - 进阶专题:
+              - 书外扩展导览: extensions/index.md
+              - TRPO: extensions/trpo.md
+              - PPO 与 GAE: extensions/ppo.md
+              - GRPO: extensions/grpo.md
+              - GSPO: extensions/gspo.md
+              - 从 RL 到具身任务: rl/to-embodied.md
+      - 策略模型:
+          - 策略模型地图: policies/index.md
+          - ACT · 动作分块: policies/act.md
+          - SmolVLA · 轻量 VLA: policies/smolvla.md
+          - π₀ · 通用机器人策略: policies/pi0.md
+      - 语言模型: theory/language.md
+      - 语音模型: theory/speech.md
+      - 多模态模型: theory/multimodal.md
+  - 仿真模拟:
       - 仿真导览: simulation/index.md
       - 物理模型与接触: simulation/physics.md
       - 物理求解器: simulation/solvers.md
@@ -116,15 +135,3 @@ nav:
       - 教材动画与代码: labs/textbook.md
       - 仿真基础实验: labs/simulation-basics.md
       - 补充 · 4×4 GridWorld: labs/gridworld.md
-  - 进阶专题:
-      - 书外扩展导览: extensions/index.md
-      - TRPO: extensions/trpo.md
-      - PPO 与 GAE: extensions/ppo.md
-      - GRPO: extensions/grpo.md
-      - GSPO: extensions/gspo.md
-      - 从 RL 到具身任务: rl/to-embodied.md
-  - 阅读指南:
-      - 学习路线与进度: roadmap.md
-      - 参考资料: references.md
-      - 写作规范: project/writing.md
-      - 本地预览与发布: project/publishing.md
